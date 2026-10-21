@@ -222,3 +222,22 @@ During the 1.14.7 comparison, the client logged inventory state hash mismatches 
 Live heartbeat correction: file timestamps and the JavaScript clock are compared at whole-millisecond precision, with the clock sampled after reading metadata. A changing or partially written native heartbeat is retried up to three times. Corrupt, missing, stale and genuinely future heartbeats still fail closed; previous connection states are never cached as valid. Regression tests reproduce both Windows timestamp precision and concurrent writer behavior.
 
 The verified Recruit's Mask is retained at its native level 0 even though its native identifier contains UNEQUIPPED; catalogue filtering does not remove this legitimate starter item.
+
+## Developing from the Git repository
+
+The release ZIP contains the portable EXE and Node runtimes. Git excludes those
+binaries. With Node.js 24 installed, prepare the Inventory runtime before starting
+or building from a clone. Run these commands inside `Source-Code`:
+
+```text
+node -e "require('node:fs').copyFileSync(process.execPath,'runtime/node.exe')"
+npm ci
+node node_modules/electron/install.js
+npm start
+npm run build
+```
+
+For the local Builder from Git, use an installed Node.js 24 to run
+`node server.cjs` inside `Builder-Local`. Its release launcher includes its own
+runtime. The signing private key is deliberately absent from source and releases;
+maintainers need their own protected release key to publish trusted modules.
