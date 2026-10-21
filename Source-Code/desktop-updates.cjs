@@ -342,6 +342,7 @@ class DesktopUpdates {
       reportFile: path.join(folder, "result.json"),
       ackFile: path.join(folder, "ack.json"),
       startedFile: path.join(folder, "started.json"),
+      preparedFile: path.join(folder, "prepared.json"),
     };
     const file = path.join(folder, "job.json");
     manifest.writeJson(file, job);
@@ -352,7 +353,13 @@ class DesktopUpdates {
     const command =
       "& " + quote(handoff.helper) + " -JobFile " + quote(handoff.file);
     const child = spawn(
-      "powershell.exe",
+      path.join(
+        process.env.SystemRoot || "C:\\Windows",
+        "System32",
+        "WindowsPowerShell",
+        "v1.0",
+        "powershell.exe",
+      ),
       [
         "-NoProfile",
         "-NonInteractive",
@@ -363,14 +370,67 @@ class DesktopUpdates {
         "-EncodedCommand",
         Buffer.from(command, "utf16le").toString("base64"),
       ],
-      { detached: true, windowsHide: true, stdio: "ignore" },
+      {
+        // Windows PowerShell can exit without running scripts when started
+        // with DETACHED_PROCESS. Ignored handles plus unref let the helper
+        // outlive Electron without requesting a detached console.
+        detached: false,
+        windowsHide: true,
+        stdio: "ignore",
+        env: {
+          ...process.env,
+          PSModulePath: path.join(
+            process.env.SystemRoot || "C:\\Windows",
+            "System32",
+            "WindowsPowerShell",
+            "v1.0",
+            "Modules",
+          ),
+        },
+      },
     );
     return new Promise((resolve, reject) => {
-      child.once("error", reject);
-      child.once("spawn", () => {
+      let finished = false;
+      const finish = (error) => {
+        if (finished) return;
+        finished = true;
+        clearInterval(poll);
+        clearTimeout(timeout);
         child.unref();
-        resolve();
-      });
+        if (error) {
+          child.kill();
+          reject(error);
+        } else resolve(child.pid);
+      };
+      const poll = setInterval(() => {
+        try {
+          const ready = JSON.parse(
+            fs
+              .readFileSync(handoff.job.preparedFile, "utf8")
+              .replace(/^\uFEFF/, ""),
+          );
+          if (ready.id === handoff.job.id) finish();
+        } catch {
+          /* The helper may still be loading. */
+        }
+      }, 50);
+      const timeout = setTimeout(
+        () =>
+          finish(
+            Error(
+              "The update helper did not become ready. The application remains open.",
+            ),
+          ),
+        10000,
+      );
+      child.once("error", finish);
+      child.once("exit", (code) =>
+        finish(
+          Error(
+            `The update helper closed before becoming ready (${code}). The application remains open.`,
+          ),
+        ),
+      );
     });
   }
   handoffJob(file) {

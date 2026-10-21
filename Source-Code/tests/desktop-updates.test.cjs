@@ -76,6 +76,51 @@ function fixture(t) {
   };
 }
 
+test(
+  "Windows restart helper confirms readiness with inherited incompatible module paths",
+  { skip: process.platform !== "win32" },
+  async (t) => {
+    const f = fixture(t);
+    await f.updater.check();
+    const handoff = await f.updater.createHandoff();
+    const previous = process.env.PSModulePath;
+    process.env.PSModulePath = "C:\\missing-powershell-7-modules";
+    try {
+      const pid = await f.updater.launchHandoff(handoff);
+      try {
+        const prepared = JSON.parse(
+          fs
+            .readFileSync(handoff.job.preparedFile, "utf8")
+            .replace(/^\uFEFF/, ""),
+        );
+        assert.equal(prepared.id, handoff.job.id);
+        assert.equal(fs.existsSync(handoff.job.reportFile), false);
+      } finally {
+        process.kill(pid);
+      }
+    } finally {
+      if (previous === undefined) delete process.env.PSModulePath;
+      else process.env.PSModulePath = previous;
+    }
+  },
+);
+
+test(
+  "A restart helper that cannot load is rejected before the editor closes",
+  { skip: process.platform !== "win32" },
+  async (t) => {
+    const f = fixture(t);
+    await f.updater.check();
+    const handoff = await f.updater.createHandoff();
+    fs.writeFileSync(handoff.helper, "exit 23\n");
+    await assert.rejects(
+      f.updater.launchHandoff(handoff),
+      /before becoming ready/,
+    );
+    assert.equal(fs.existsSync(handoff.job.preparedFile), false);
+  },
+);
+
 test("Application manifests authenticate the exact EXE, platform, release repository and source tag", (t) => {
   const f = fixture(t);
   assert.equal(f.updater.decode(f.sign()).version, "0.13.0");

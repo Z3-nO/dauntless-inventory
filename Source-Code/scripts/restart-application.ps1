@@ -3,6 +3,8 @@
 # No game file, character save or original application EXE is replaced.
 param([Parameter(Mandatory = $true)][string]$JobFile)
 $ErrorActionPreference = 'Stop'
+# Use Windows PowerShell's own modules even when launched from PowerShell 7.
+$env:PSModulePath = [System.IO.Path]::Combine($env:SystemRoot, 'System32', 'WindowsPowerShell', 'v1.0', 'Modules')
 $job = Get-Content -LiteralPath $JobFile -Raw -Encoding UTF8 | ConvertFrom-Json
 function Write-Report([string]$State, [string]$Message) {
     @{ state = $State; message = $Message; version = $job.targetVersion } |
@@ -21,6 +23,7 @@ function Start-Version([string]$Executable, [bool]$Updating) {
     return [System.Diagnostics.Process]::Start($start)
 }
 try {
+    @{ id = $job.id } | ConvertTo-Json | Set-Content -LiteralPath $job.preparedFile -Encoding UTF8
     foreach ($processId in @($job.parentPid, $job.servicePid)) {
         if (-not $processId) { continue }
         $previous = Get-Process -Id $processId -ErrorAction SilentlyContinue
