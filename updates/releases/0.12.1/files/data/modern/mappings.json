@@ -1,0 +1,861 @@
+{
+  "weapons": {
+    "weapons/agarus/AgentsOfDecay": "WP_AC_FUNGUY",
+    "weapons/urska/BlizzardsTeeth": "WP_CB_MINT",
+    "weapons/urska/BombCyclone": "WP_IH_MINT",
+    "weapons/boreus/BrawlersOfBoreus": "WP_AC_HOST",
+    "weapons/rezakiri/BreakOfDawn": "WP_IH_BUGBEAR",
+    "weapons/thunderdeep/BreakdownVoltage": "WP_GA_FULGAR_ALPHA",
+    "weapons/boreus/BrutalityOfBoreus": "WP_IH_HOST",
+    "weapons/rezakiri/CallOfDawn": "WP_EB_BUGBEAR",
+    "weapons/phaelanx/CallOfTheFirebird": "WP_GA_HABANERO",
+    "weapons/chronovore/ChaosAndEntropy": "WP_AC_GLITTER",
+    "weapons/charrogg/CharredBlades": "WP_CB_SALLY",
+    "weapons/charrogg/CharredCleaver": "WP_GA_SALLY",
+    "weapons/charrogg/CharredCrusher": "WP_IH_SALLY",
+    "weapons/charrogg/CharredHands": "WP_AC_SALLY",
+    "weapons/charrogg/CharredPistols": "WP_DP_SALLY",
+    "weapons/charrogg/CharredSaber": "WP_EB_SALLY",
+    "weapons/charrogg/CharredSpear": "WP_MS_SALLY",
+    "weapons/thunderdeep/CircuitBreakers": "WP_CB_FULGAR_ALPHA",
+    "weapons/urska/ColdHell": "WP_MS_MINT",
+    "weapons/shrike/CryOfTheShrike": "WP_EB_MOONFACE",
+    "weapons/urska/CryoCannons": "WP_DP_MINT",
+    "weapons/malkarion/CyclonicFury": "WP_EB_THUNDERBIRD",
+    "weapons/rezakiri/Dawnstars": "WP_DP_BUGBEAR",
+    "weapons/agarus/DeathBlossoms": "WP_CB_FUNGUY",
+    "weapons/boreus/DestinyOfBoreus": "WP_CB_HOST",
+    "weapons/malkarion/DynamicDeadlights": "WP_DP_THUNDERBIRD",
+    "weapons/rezakiri/EdgeOfDawn": "WP_GA_BUGBEAR",
+    "weapons/chronovore/EdgeOfTomorrow": "WP_EB_GLITTER",
+    "weapons/thrax/EldritchTorments": "WP_DP_RANDALL",
+    "weapons/malkarion/ElectricCruelties": "WP_CB_THUNDERBIRD",
+    "weapons/embermane/EmberBlades": "WP_CB_LERAWR",
+    "weapons/embermane/EmberCutlass": "WP_EB_LERAWR",
+    "weapons/embermane/EmberFists": "WP_AC_LERAWR",
+    "weapons/embermane/EmberMaul": "WP_IH_LERAWR",
+    "weapons/embermane/EmberPike": "WP_MS_LERAWR",
+    "weapons/embermane/EmberScythe": "WP_GA_LERAWR",
+    "weapons/embermane/EmberShots": "WP_DP_LERAWR",
+    "weapons/chronovore/ExistentialCrisis": "WP_GA_GLITTER",
+    "weapons/shrowd/EyesOfNight": "WP_CB_CROWBEAR",
+    "weapons/phaelanx/EyesOfTheFirebird": "WP_DP_HABANERO",
+    "weapons/shrike/EyesOfTheShrike": "WP_DP_MOONFACE",
+    "weapons/shrowd/FallOfNight": "WP_IH_CROWBEAR",
+    "weapons/shrike/FallOfTheShrike": "WP_IH_MOONFACE",
+    "weapons/rezakiri/FangsOfDawn": "WP_CB_BUGBEAR",
+    "weapons/phaelanx/FateOfTheFirebird": "WP_MS_HABANERO",
+    "weapons/fenroar/FenroarsBlade": "WP_EB_FENROAR",
+    "weapons/fenroar/FenroarsBranch": "WP_MS_FENROAR",
+    "weapons/fenroar/FenroarsRoots": "WP_DP_FENROAR",
+    "weapons/fenroar/FenroarsSpine": "WP_GA_FENROAR",
+    "weapons/fenroar/FenroarsThistles": "WP_CB_FENROAR",
+    "weapons/fenroar/FenroarsThorns": "WP_AC_FENROAR",
+    "weapons/fenroar/FenroarsTrunk": "WP_IH_FENROAR",
+    "weapons/phaelanx/FistsOfTheFirebird": "WP_AC_HABANERO",
+    "weapons/shrike/FistsOfTheShrike": "WP_AC_MOONFACE",
+    "weapons/shrike/FlightOfTheShrike": "WP_CB_MOONFACE",
+    "weapons/thrax/FracturedRealities": "WP_AC_RANDALL",
+    "weapons/frostwulf/FrostwulfsBite": "WP_EB_FROSTWOLF",
+    "weapons/frostwulf/FrostwulfsChillers": "WP_DP_FROSTWOLF",
+    "weapons/frostwulf/FrostwulfsChomp": "WP_GA_FROSTWOLF",
+    "weapons/frostwulf/FrostwulfsRip": "WP_MS_FROSTWOLF",
+    "weapons/frostwulf/FrostwulfsSkinners": "WP_CB_FROSTWOLF",
+    "weapons/frostwulf/FrostwulfsSlam": "WP_IH_FROSTWOLF",
+    "weapons/frostwulf/FrostwulfsTacklers": "WP_AC_FROSTWOLF",
+    "weapons/shrowd/FuriesOfTheNight": "WP_DP_CROWBEAR",
+    "weapons/malkarion/GalvanicImpact": "WP_IH_THUNDERBIRD",
+    "weapons/alyra/GlyphWeaverAxe": "WP_GA_AMBER",
+    "weapons/alyra/GlyphWeaverBlades": "WP_CB_AMBER",
+    "weapons/alyra/GlyphWeaverClaws": "WP_AC_AMBER",
+    "weapons/alyra/GlyphWeaverEdge": "WP_EB_AMBER",
+    "weapons/alyra/GlyphWeaverMaul": "WP_IH_AMBER",
+    "weapons/alyra/GlyphWeaverPistols": "WP_DP_AMBER",
+    "weapons/alyra/GlyphWeaverSpear": "WP_MS_AMBER",
+    "weapons/shrowd/GyreOfNight": "WP_MS_CROWBEAR",
+    "weapons/rezakiri/HandsOfDawn": "WP_AC_BUGBEAR",
+    "weapons/shrowd/HandsOfNight": "WP_AC_CROWBEAR",
+    "weapons/chronovore/HistorysBurden": "WP_IH_GLITTER",
+    "weapons/urska/Hypothermica": "WP_EB_MINT",
+    "weapons/urska/IceBreakers": "WP_AC_MINT",
+    "weapons/torgadoro/IncineratorsSong": "WP_GA_ARMSTRONG",
+    "weapons/hellion/InfernosArrow": "WP_MS_LAVAROLLER",
+    "weapons/hellion/InfernosBurden": "WP_IH_LAVAROLLER",
+    "weapons/hellion/InfernosDecree": "WP_GA_LAVAROLLER",
+    "weapons/hellion/InfernosFangs": "WP_CB_LAVAROLLER",
+    "weapons/hellion/InfernosFlames": "WP_AC_LAVAROLLER",
+    "weapons/hellion/InfernosRazor": "WP_EB_LAVAROLLER",
+    "weapons/hellion/InfernosRoar": "WP_DP_LAVAROLLER",
+    "weapons/thunderdeep/InversePolarity": "WP_MS_FULGAR_ALPHA",
+    "weapons/kharabak/KharabaksClaw": "WP_GA_SCISSORS",
+    "weapons/kharabak/KharabaksJaw": "WP_IH_SCISSORS",
+    "weapons/kharabak/KharabaksLights": "WP_DP_SCISSORS",
+    "weapons/kharabak/KharabaksPincers": "WP_AC_SCISSORS",
+    "weapons/kharabak/KharabaksSpur": "WP_EB_SCISSORS",
+    "weapons/kharabak/KharabaksSting": "WP_MS_SCISSORS",
+    "weapons/kharabak/KharabaksWings": "WP_CB_SCISSORS",
+    "weapons/torgadoro/MagmaQuake": "WP_IH_ARMSTRONG",
+    "weapons/agarus/MalignantScourge": "WP_GA_FUNGUY",
+    "weapons/chronovore/MillenniumsEnd": "WP_MS_GLITTER",
+    "weapons/thrax/Mindsplitter": "WP_GA_RANDALL",
+    "weapons/malkarion/MistralCurrents": "WP_AC_THUNDERBIRD",
+    "weapons/charrogg/MoltenEdict": "WP_IH_SALLY_EXOTIC",
+    "weapons/nayzaga/NayzagasCharge": "WP_IH_ELECTROQUILL",
+    "weapons/nayzaga/NayzagasFang": "WP_MS_ELECTROQUILL",
+    "weapons/nayzaga/NayzagasRazor": "WP_EB_ELECTROQUILL",
+    "weapons/nayzaga/NayzagasReach": "WP_CB_ELECTROQUILL",
+    "weapons/nayzaga/NayzagasScythe": "WP_GA_ELECTROQUILL",
+    "weapons/nayzaga/NayzagasShockers": "WP_AC_ELECTROQUILL",
+    "weapons/nayzaga/NayzagasSpikes": "WP_DP_ELECTROQUILL",
+    "weapons/thrax/NightTerrors": "WP_CB_RANDALL",
+    "weapons/boreus/OnusOfBoreus": "WP_EB_HOST",
+    "weapons/pangar/PangarsCall": "WP_EB_MCROLLIN",
+    "weapons/pangar/PangarsClaws": "WP_CB_MCROLLIN",
+    "weapons/pangar/PangarsGrace": "WP_GA_MCROLLIN",
+    "weapons/pangar/PangarsNightmares": "WP_DP_MCROLLIN",
+    "weapons/pangar/PangarsPunishers": "WP_AC_MCROLLIN",
+    "weapons/pangar/PangarsRampage": "WP_IH_MCROLLIN",
+    "weapons/pangar/PangarsTooth": "WP_MS_MCROLLIN",
+    "weapons/agarus/ParasiticCurse": "WP_MS_FUNGUY",
+    "weapons/urska/PermanentFrost": "WP_GA_MINT",
+    "weapons/agarus/PoisonousThorn": "WP_EB_FUNGUY",
+    "weapons/torgadoro/PyroclasticEnvoy": "WP_MS_ARMSTRONG",
+    "weapons/quillshot/QuillshotsBonehooks": "WP_CB_BULLSEYE",
+    "weapons/quillshot/QuillshotsFury": "WP_GA_BULLSEYE",
+    "weapons/quillshot/QuillshotsJavelin": "WP_MS_BULLSEYE",
+    "weapons/quillshot/QuillshotsRoar": "WP_IH_BULLSEYE",
+    "weapons/quillshot/QuillshotsShredders": "WP_AC_BULLSEYE",
+    "weapons/quillshot/QuillshotsStingers": "WP_DP_BULLSEYE",
+    "weapons/quillshot/QuillshotsTusk": "WP_EB_BULLSEYE",
+    "weapons/phaelanx/RageOfTheFirebird": "WP_IH_HABANERO",
+    "weapons/gnasher/RagingBite": "WP_GA_BEAVER",
+    "weapons/gnasher/RagingBlade": "WP_EB_BEAVER",
+    "weapons/gnasher/RagingCrash": "WP_IH_BEAVER",
+    "weapons/gnasher/RagingCruelty": "WP_MS_BEAVER",
+    "weapons/gnasher/RagingFists": "WP_AC_BEAVER",
+    "weapons/gnasher/RagingRepeaters": "WP_DP_BEAVER",
+    "weapons/gnasher/RagingTeeth": "WP_CB_BEAVER",
+    "weapons/shrowd/ReaperOfNight": "WP_GA_CROWBEAR",
+    "weapons/generic/RecruitsAxe": "WP_GA_BEGINNER",
+    "weapons/generic/RecruitsChainBlades": "WP_CB_BEGINNER",
+    "weapons/generic/RecruitsHammer": "WP_IH_BEGINNER",
+    "weapons/generic/RecruitsRepeaters": "WP_DP_BEGINNER",
+    "weapons/generic/RecruitsStrikers": "WP_AC_BEGINNER",
+    "weapons/generic/RecruitsSword": "WP_EB_BEGINNER",
+    "weapons/generic/RecruitsWarPike": "WP_MS_BEGINNER",
+    "weapons/boreus/RevolutionOfBoreus": "WP_MS_HOST",
+    "weapons/sahvyt/SahvytsAvengers": "WP_DP_MANTIS",
+    "weapons/sahvyt/SahvytsCleaver": "WP_GA_MANTIS",
+    "weapons/sahvyt/SahvytsCutlass": "WP_EB_MANTIS",
+    "weapons/sahvyt/SahvytsGrapplers": "WP_AC_MANTIS",
+    "weapons/sahvyt/SahvytsJavelin": "WP_MS_MANTIS",
+    "weapons/sahvyt/SahvytsMaul": "WP_IH_MANTIS",
+    "weapons/sahvyt/SahvytsPincers": "WP_CB_MANTIS",
+    "weapons/thrax/SanityCheck": "WP_IH_RANDALL",
+    "weapons/torgadoro/ScorchingAgonies": "WP_CB_ARMSTRONG",
+    "weapons/shrike/ScreamOfTheShrike": "WP_MS_MOONFACE",
+    "weapons/phaelanx/ShriekOfTheFirebird": "WP_EB_HABANERO",
+    "weapons/event/SilverSword": null,
+    "weapons/skarn/SkarnsCalamities": "WP_DP_ROCK",
+    "weapons/skarn/SkarnsJudgment": "WP_GA_ROCK",
+    "weapons/skarn/SkarnsMalice": "WP_CB_ROCK",
+    "weapons/skarn/SkarnsRancor": "WP_EB_ROCK",
+    "weapons/skarn/SkarnsSmashers": "WP_AC_ROCK",
+    "weapons/skarn/SkarnsSpite": "WP_MS_ROCK",
+    "weapons/skarn/SkarnsVengeance": "WP_IH_ROCK",
+    "weapons/thunderdeep/SolidState": "WP_IH_FULGAR_ALPHA",
+    "weapons/shrike/SongOfTheShrike": "WP_GA_MOONFACE",
+    "weapons/koshai/SovereignsDecrees": "WP_DP_PAPER",
+    "weapons/koshai/SovereignsGrudge": "WP_IH_PAPER",
+    "weapons/koshai/SovereignsLash": "WP_CB_PAPER",
+    "weapons/koshai/SovereignsSceptres": "WP_AC_PAPER",
+    "weapons/koshai/SovereignsSorrow": "WP_MS_PAPER",
+    "weapons/koshai/SovereignsTorment": "WP_EB_PAPER",
+    "weapons/koshai/SovereignsWrath": "WP_GA_PAPER",
+    "weapons/rezakiri/SpireOfDawn": "WP_MS_BUGBEAR",
+    "weapons/riftstalker/StalkersCries": "WP_DP_SHADOWCAT",
+    "weapons/riftstalker/StalkersMercy": "WP_GA_SHADOWCAT",
+    "weapons/riftstalker/StalkersPrice": "WP_IH_SHADOWCAT",
+    "weapons/riftstalker/StalkersScorn": "WP_AC_SHADOWCAT",
+    "weapons/riftstalker/StalkersSpike": "WP_MS_SHADOWCAT",
+    "weapons/riftstalker/StalkersStrike": "WP_EB_SHADOWCAT",
+    "weapons/riftstalker/StalkersTrap": "WP_CB_SHADOWCAT",
+    "weapons/stormclaw/StormBlades": "WP_CB_SHOCKMANE",
+    "weapons/stormclaw/StormBreakers": "WP_AC_SHOCKMANE",
+    "weapons/stormclaw/StormCutter": "WP_GA_SHOCKMANE",
+    "weapons/stormclaw/StormHammer": "WP_IH_SHOCKMANE",
+    "weapons/stormclaw/StormPike": "WP_MS_SHOCKMANE",
+    "weapons/stormclaw/StormShooters": "WP_DP_SHOCKMANE",
+    "weapons/stormclaw/StormSword": "WP_EB_SHOCKMANE",
+    "weapons/thunderdeep/SurgeProjectors": "WP_AC_FULGAR_ALPHA",
+    "weapons/agarus/TaintedNeedles": "WP_DP_FUNGUY",
+    "weapons/phaelanx/TalonsOfTheFirebird": "WP_CB_HABANERO",
+    "weapons/torgadoro/TectonicFaults": "WP_AC_ARMSTRONG",
+    "weapons/chronovore/TemporalMechanics": "WP_DP_GLITTER",
+    "weapons/malkarion/TerminalVoltage": "WP_GA_THUNDERBIRD",
+    "weapons/thrax/TheApocalypseNeedle": "WP_MS_RANDALL",
+    "weapons/torgadoro/TheCauterizer": "WP_EB_ARMSTRONG",
+    "weapons/malkarion/TheConductor": "WP_MS_THUNDERBIRD",
+    "weapons/rezakiri/TheGodhand": "WP_MS_BUGBEAR_EXOTIC",
+    "weapons/event/TheGoldenClaws": null,
+    "weapons/thunderdeep/TheGovernor": "WP_EB_FULGAR_ALPHA",
+    "weapons/shrowd/TheHunger": "WP_EB_CROWBEAR_EXOTIC",
+    "weapons/generic/TheTwinSuns": "WP_DP_EXOTIC_BOMBS",
+    "weapons/chronovore/TheWeepingHours": "WP_CB_GLITTER",
+    "weapons/thunderdeep/ThrowingSparks": "WP_DP_FULGAR_ALPHA",
+    "weapons/drask/ThunderingBlade": "WP_EB_FULGAR",
+    "weapons/drask/ThunderingBolts": "WP_AC_FULGAR",
+    "weapons/drask/ThunderingCutters": "WP_CB_FULGAR",
+    "weapons/drask/ThunderingGuns": "WP_DP_FULGAR",
+    "weapons/drask/ThunderingMaul": "WP_IH_FULGAR",
+    "weapons/drask/ThunderingScythe": "WP_GA_FULGAR",
+    "weapons/drask/ThunderingSpear": "WP_MS_FULGAR",
+    "weapons/generic/TrainingSword": "WP_EB_TRAINING",
+    "weapons/boreus/TurmoilOfBoreus": "WP_GA_HOST",
+    "weapons/agarus/UnsteadyGround": "WP_IH_FUNGUY",
+    "weapons/valomyr/ValomyrsBurden": "WP_IH_SALT",
+    "weapons/valomyr/ValomyrsDecree": "WP_GA_SALT",
+    "weapons/valomyr/ValomyrsHope": "WP_MS_SALT",
+    "weapons/valomyr/ValomyrsInstincts": "WP_DP_SALT",
+    "weapons/valomyr/ValomyrsRegard": "WP_EB_SALT",
+    "weapons/valomyr/ValomyrsRevenge": "WP_CB_SALT",
+    "weapons/valomyr/ValomyrsVisions": "WP_AC_SALT",
+    "weapons/shrowd/VergeOfNight": "WP_EB_CROWBEAR",
+    "weapons/boreus/VoiceOfBoreus": "WP_DP_HOST",
+    "weapons/thrax/Voidbane": "WP_EB_RANDALL",
+    "weapons/torgadoro/VolcanicEruptions": "WP_DP_ARMSTRONG",
+    "weapons/skraev/WinterBlasts": "WP_DP_SNOWFLAKE",
+    "weapons/skraev/WinterGale": "WP_GA_SNOWFLAKE",
+    "weapons/skraev/WinterIce": "WP_EB_SNOWFLAKE",
+    "weapons/skraev/WinterSquall": "WP_IH_SNOWFLAKE",
+    "weapons/skraev/WinterVortex": "WP_MS_SNOWFLAKE",
+    "weapons/skraev/WinterWinds": "WP_CB_SNOWFLAKE",
+    "weapons/skraev/WinterWolves": "WP_AC_SNOWFLAKE"
+  },
+  "armours": {
+    "armours/urska/AdversarysDrive": "AR_MINT_LEGS",
+    "armours/urska/AdversarysGuile": "AR_MINT_HELM",
+    "armours/urska/AdversarysPride": "AR_MINT_CHEST",
+    "armours/urska/AdversarysWrath": "AR_MINT_ARMS",
+    "armours/valomyr/AegisOfValour": "AR_SALT_CHEST",
+    "armours/agarus/AgaricBole": "AR_FUNGUY_CHEST",
+    "armours/agarus/AgaricBranches": "AR_FUNGUY_ARMS",
+    "armours/agarus/AgaricCanopy": "AR_FUNGUY_HELM",
+    "armours/agarus/AgaricRoots": "AR_FUNGUY_LEGS",
+    "armours/pangar/ArmsOfIce": "AR_MCROLLIN_ARMS",
+    "armours/sahvyt/BladedBoots": "AR_MANTIS_LEGS",
+    "armours/sahvyt/BladedGloves": "AR_MANTIS_ARMS",
+    "armours/sahvyt/BladedJacket": "AR_MANTIS_CHEST",
+    "armours/sahvyt/BladedMask": "AR_MANTIS_HELM",
+    "armours/boreus/BorealEpiphany": "AR_HOST_HELM",
+    "armours/boreus/BorealMarch": "AR_HOST_LEGS",
+    "armours/boreus/BorealMight": "AR_HOST_ARMS",
+    "armours/boreus/BorealResolve": "AR_HOST_CHEST",
+    "armours/pangar/BrowOfIce": "AR_MCROLLIN_HELM",
+    "armours/chronovore/Chronogrips": "AR_GLITTER_ARMS",
+    "armours/chronovore/Chronohelm": "AR_GLITTER_HELM",
+    "armours/chronovore/Chronoplate": "AR_GLITTER_CHEST",
+    "armours/chronovore/Chronotreads": "AR_GLITTER_LEGS",
+    "armours/kharabak/ClutchesOfTheSwarm": "AR_SCISSORS_ARMS",
+    "armours/pangar/CoreOfIce": "AR_MCROLLIN_CHEST",
+    "armours/valomyr/CrestOfValour": "AR_SALT_HELM",
+    "armours/kharabak/DanceOfTheSwarm": "AR_SCISSORS_LEGS",
+    "armours/shrowd/DarkEmbrace": "AR_CROWBEAR_ARMS",
+    "armours/shrowd/DarkMarrow": "AR_CROWBEAR_CHEST",
+    "armours/shrowd/DarkPath": "AR_CROWBEAR_LEGS",
+    "armours/shrowd/DarkWatch": "AR_CROWBEAR_HELM",
+    "armours/drask/DraskscaleGauntlets": "AR_FULGAR_ARMS",
+    "armours/drask/DraskscaleGreaves": "AR_FULGAR_LEGS",
+    "armours/drask/DraskscaleHelmet": "AR_FULGAR_HELM",
+    "armours/drask/DraskscalePlate": "AR_FULGAR_CHEST",
+    "armours/kharabak/EyeOfTheSwarm": "AR_SCISSORS_HELM",
+    "armours/pangar/FeetOfIce": "AR_MCROLLIN_LEGS",
+    "armours/embermane/FieryBreastplate": "AR_LERAWR_CHEST",
+    "armours/embermane/FieryGauntlets": "AR_LERAWR_ARMS",
+    "armours/embermane/FieryGreaves": "AR_LERAWR_LEGS",
+    "armours/embermane/FieryHelm": "AR_LERAWR_HELM",
+    "armours/valomyr/GauntletsOfValour": "AR_SALT_ARMS",
+    "armours/gnasher/GnasherCap": "AR_BEAVER_HELM",
+    "armours/gnasher/GnasherCloak": "AR_BEAVER_CHEST",
+    "armours/gnasher/GnasherGrips": "AR_BEAVER_ARMS",
+    "armours/gnasher/GnasherTreads": "AR_BEAVER_LEGS",
+    "armours/koshai/GraspOfThorns": "AR_PAPER_ARMS",
+    "armours/valomyr/GreavesOfValour": "AR_SALT_LEGS",
+    "armours/riftstalker/GuiseOfTheRift": "AR_SHADOWCAT_HELM",
+    "armours/riftstalker/HandsOfTheRift": "AR_SHADOWCAT_ARMS",
+    "armours/skarn/HeartOfStone": "AR_ROCK_CHEST",
+    "armours/hellion/HellplateBracers": "AR_LAVAROLLER_ARMS",
+    "armours/hellion/HellplateCasque": "AR_LAVAROLLER_HELM",
+    "armours/hellion/HellplateCuirass": "AR_LAVAROLLER_CHEST",
+    "armours/hellion/HellplateGreaves": "AR_LAVAROLLER_LEGS",
+    "armours/krolachi/KrolachiShave": "AR_NAKED_HELM",
+    "armours/krolachi/KrolachiShorts": "AR_NAKED_LEGS",
+    "armours/krolachi/KrolachiTunic": "AR_NAKED_CHEST",
+    "armours/krolachi/KrolachiWraps": "AR_NAKED_ARMS",
+    "armours/rezakiri/LightsCrown": "AR_BUGBEAR_HELM",
+    "armours/rezakiri/LightsRefuge": "AR_BUGBEAR_ARMS",
+    "armours/rezakiri/LightsVirtue": "AR_BUGBEAR_CHEST",
+    "armours/rezakiri/LightsWalk": "AR_BUGBEAR_LEGS",
+    "armours/stormclaw/LightningBoots": "AR_SHOCKMANE_LEGS",
+    "armours/stormclaw/LightningGloves": "AR_SHOCKMANE_ARMS",
+    "armours/stormclaw/LightningHelm": "AR_SHOCKMANE_HELM",
+    "armours/stormclaw/LightningPlate": "AR_SHOCKMANE_CHEST",
+    "armours/malkarion/MalkarionsGrasp": "AR_THUNDERBIRD_ARMS",
+    "armours/malkarion/MalkarionsMarch": "AR_THUNDERBIRD_LEGS",
+    "armours/malkarion/MalkarionsSight": "AR_THUNDERBIRD_HELM",
+    "armours/malkarion/MalkarionsSoul": "AR_THUNDERBIRD_CHEST",
+    "armours/riftstalker/MantleOfTheRift": "AR_SHADOWCAT_CHEST",
+    "armours/koshai/MantleOfThorns": "AR_PAPER_CHEST",
+    "armours/skarn/MightOfStone": "AR_ROCK_ARMS",
+    "armours/phaelanx/PhaelanxsFirearms": "AR_HABANERO_ARMS",
+    "armours/phaelanx/PhaelanxsHeatsinks": "AR_HABANERO_LEGS",
+    "armours/phaelanx/PhaelanxsSpearhead": "AR_HABANERO_HELM",
+    "armours/phaelanx/PhaelanxsVanguard": "AR_HABANERO_CHEST",
+    "armours/skarn/PillarsOfStone": "AR_ROCK_LEGS",
+    "armours/rezakiri/PrismaticGrace": "AR_BUGBEAR_EXOTIC_HELM",
+    "armours/quillshot/QuillspikeBoots": "AR_BULLSEYE_LEGS",
+    "armours/quillshot/QuillspikeGrips": "AR_BULLSEYE_ARMS",
+    "armours/quillshot/QuillspikeJacket": "AR_BULLSEYE_CHEST",
+    "armours/quillshot/QuillspikeMask": "AR_BULLSEYE_HELM",
+    "armours/generic/RecruitsBreastplate": "AR_BEGINNER_CHEST",
+    "armours/generic/RecruitsGloves": "AR_BEGINNER_ARMS",
+    "armours/generic/RecruitsGreaves": "AR_BEGINNER_LEGS",
+    "armours/generic/RecruitsMask": "AR_UNEQUIPPED_HELM",
+    "armours/kharabak/ShellOfTheSwarm": "AR_SCISSORS_CHEST",
+    "armours/nayzaga/ShockingGaze": "AR_ELECTROQUILL_HELM",
+    "armours/nayzaga/ShockingGrasp": "AR_ELECTROQUILL_ARMS",
+    "armours/nayzaga/ShockingHeart": "AR_ELECTROQUILL_CHEST",
+    "armours/nayzaga/ShockingStride": "AR_ELECTROQUILL_LEGS",
+    "armours/shrike/ShrikedownGloves": "AR_MOONFACE_ARMS",
+    "armours/shrike/ShrikedownGreaves": "AR_MOONFACE_LEGS",
+    "armours/shrike/ShrikedownHelm": "AR_MOONFACE_HELM",
+    "armours/shrike/ShrikedownPlate": "AR_MOONFACE_CHEST",
+    "armours/skarn/SightOfStone": "AR_ROCK_HELM",
+    "armours/skraev/SkraevwingBoots": "AR_SNOWFLAKE_LEGS",
+    "armours/skraev/SkraevwingGloves": "AR_SNOWFLAKE_ARMS",
+    "armours/skraev/SkraevwingHelmet": "AR_SNOWFLAKE_HELM",
+    "armours/skraev/SkraevwingJacket": "AR_SNOWFLAKE_CHEST",
+    "armours/alyra/SpellboundBoots": "AR_AMBER_LEGS",
+    "armours/alyra/SpellboundGauntlets": "AR_AMBER_ARMS",
+    "armours/alyra/SpellboundHood": "AR_AMBER_HELM",
+    "armours/alyra/SpellboundWings": "AR_AMBER_CHEST",
+    "armours/fenroar/StonewoodBoots": "AR_FENROAR_LEGS",
+    "armours/fenroar/StonewoodChestPlate": "AR_FENROAR_CHEST",
+    "armours/fenroar/StonewoodGauntlets": "AR_FENROAR_ARMS",
+    "armours/fenroar/StonewoodGreatHelm": "AR_FENROAR_HELM",
+    "armours/koshai/StrideOfThorns": "AR_PAPER_LEGS",
+    "armours/riftstalker/StridersOfTheRift": "AR_SHADOWCAT_LEGS",
+    "armours/charrogg/TheSkullforge": "AR_SALLY_EXOTIC_HELM",
+    "armours/thrax/ThraxsEmbrace": "AR_RANDALL_ARMS",
+    "armours/thrax/ThraxsGuile": "AR_RANDALL_LEGS",
+    "armours/thrax/ThraxsScream": "AR_RANDALL_HELM",
+    "armours/thrax/ThraxsShadow": "AR_RANDALL_CHEST",
+    "armours/thunderdeep/ThunderdeepsCapacitor": "AR_FULGAR_ALPHA_HELM",
+    "armours/thunderdeep/ThunderdeepsDynamo": "AR_FULGAR_ALPHA_CHEST",
+    "armours/thunderdeep/ThunderdeepsRegulators": "AR_FULGAR_ALPHA_ARMS",
+    "armours/thunderdeep/ThunderdeepsTurbines": "AR_FULGAR_ALPHA_LEGS",
+    "armours/timeweave/TimeweaveGauntlets": "AR_CRYSTAL_ARMS",
+    "armours/timeweave/TimeweaveHelm": "AR_CRYSTAL_HELM",
+    "armours/timeweave/TimeweaveLeggings": "AR_CRYSTAL_LEGS",
+    "armours/timeweave/TimeweaveRobes": "AR_CRYSTAL_CHEST",
+    "armours/torgadoro/TorgadorosApex": "AR_ARMSTRONG_HELM",
+    "armours/torgadoro/TorgadorosBrawn": "AR_ARMSTRONG_ARMS",
+    "armours/torgadoro/TorgadorosCore": "AR_ARMSTRONG_CHEST",
+    "armours/torgadoro/TorgadorosGait": "AR_ARMSTRONG_LEGS",
+    "armours/shrowd/TragicEcho": "AR_CROWBEAR_EXOTIC_HELM",
+    "armours/koshai/VisageOfThorns": "AR_PAPER_HELM",
+    "armours/charrogg/VolcanicAegis": "AR_SALLY_CHEST",
+    "armours/charrogg/VolcanicGrips": "AR_SALLY_ARMS",
+    "armours/charrogg/VolcanicHelm": "AR_SALLY_HELM",
+    "armours/charrogg/VolcanicTreads": "AR_SALLY_LEGS",
+    "armours/frostwulf/WulfClaws": "AR_FROSTWOLF_ARMS",
+    "armours/frostwulf/WulfMane": "AR_FROSTWOLF_HELM",
+    "armours/frostwulf/WulfPaws": "AR_FROSTWOLF_LEGS",
+    "armours/frostwulf/WulfPlate": "AR_FROSTWOLF_CHEST"
+  },
+  "cells": {
+    "cells/finesse/AcidicCell": [
+      "CELL_CONVERT_PART_TO_EXPOSE_UC",
+      "CELL_CONVERT_PART_TO_EXPOSE_R",
+      "CELL_CONVERT_PART_TO_EXPOSE_E"
+    ],
+    "cells/alacrity/AdrenalineCell": [
+      "CELL_LOWSTA_ATKDMG_UC",
+      "CELL_LOWSTA_ATKDMG_R",
+      "CELL_LOWSTA_ATKDMG_E"
+    ],
+    "cells/fortitude/AegisCell": [
+      "CELL_SHIELDS_HIT_ABSORB_UC",
+      "CELL_SHIELDS_HIT_ABSORB_R",
+      "CELL_SHIELDS_HIT_ABSORB_E"
+    ],
+    "cells/insight/AetherborneCell": [
+      "CELL_AETHERVENT_UC",
+      "CELL_AETHERVENT_R",
+      "CELL_AETHERVENT_E"
+    ],
+    "cells/brutality/AetherhunterCell": [
+      "CELL_VSAETHER_BASEDMG_UC",
+      "CELL_VSAETHER_BASEDMG_R",
+      "CELL_VSAETHER_BASEDMG_E"
+    ],
+    "cells/insight/AethericAttunementCell": [
+      "CELL_LANTERNCHARGE_PCT_UC",
+      "CELL_LANTERNCHARGE_PCT_R",
+      "CELL_LANTERNCHARGE_PCT_E"
+    ],
+    "cells/insight/AethericEvasionCell": [
+      "CELL_LANTERNCHARGE_FLAT_UC",
+      "CELL_LANTERNCHARGE_FLAT_R",
+      "CELL_LANTERNCHARGE_FLAT_E"
+    ],
+    "cells/alacrity/AgilityCell": [
+      "CELL_DODGE_COST_UC",
+      "CELL_DODGE_COST_R",
+      "CELL_DODGE_COST_E"
+    ],
+    "cells/alacrity/AssassinsFrenzyCell": [
+      "CELL_LOWHP_ATKSPD_UC",
+      "CELL_LOWHP_ATKSPD_R",
+      "CELL_LOWHP_ATKSPD_E"
+    ],
+    "cells/fortitude/AssassinsVigourCell": [
+      "CELL_MYBREAK_REGEN_UC",
+      "CELL_MYBREAK_REGEN_R",
+      "CELL_MYBREAK_REGEN_E"
+    ],
+    "cells/finesse/BarbedCell": [
+      "CELL_EXPOSE_FLAT_UC",
+      "CELL_EXPOSE_FLAT_R",
+      "CELL_EXPOSE_FLAT_E"
+    ],
+    "cells/brutality/BerserkerCell": [
+      "CELL_TRIALS_01_UC",
+      "CELL_TRIALS_01_R",
+      "CELL_TRIALS_01_E"
+    ],
+    "cells/brutality/BladestormCell": [
+      "CELL_PARTBREAK_FLAT_UC",
+      "CELL_PARTBREAK_FLAT_R",
+      "CELL_PARTBREAK_FLAT_E"
+    ],
+    "cells/fortitude/BloodlessCell": [
+      "CELL_REDUCE_WOUNDED_UC",
+      "CELL_REDUCE_WOUNDED_R",
+      "CELL_REDUCE_WOUNDED_E"
+    ],
+    "cells/insight/CascadeCell": [
+      "CELL_ENCHANTER_UC",
+      "CELL_ENCHANTER_R",
+      "CELL_ENCHANTER_E"
+    ],
+    "cells/insight/CatalystCell": [
+      "CELL_BETTER_CONSUMABLE_UC",
+      "CELL_BETTER_CONSUMABLE_R",
+      "CELL_BETTER_CONSUMABLE_E"
+    ],
+    "cells/alacrity/ConditioningCell": [
+      "CELL_STAM_REGEN_FLAT_UC",
+      "CELL_STAM_REGEN_FLAT_R",
+      "CELL_STAM_REGEN_FLAT_E"
+    ],
+    "cells/insight/ConduitCell": [
+      "CELL_LANTERN_USE_ATKSPD_UC",
+      "CELL_LANTERN_USE_ATKSPD_R",
+      "CELL_LANTERN_USE_ATKSPD_E"
+    ],
+    "cells/fortitude/ConservationCell": [
+      "CELL_MS_DOWN_SHIELD_UP_UC",
+      "CELL_MS_DOWN_SHIELD_UP_R",
+      "CELL_MS_DOWN_SHIELD_UP_E"
+    ],
+    "cells/finesse/CunningCell": [
+      "CELL_CRIT_CHANCE_UC",
+      "CELL_CRIT_CHANCE_R",
+      "CELL_CRIT_CHANCE_E"
+    ],
+    "cells/brutality/DeconstructionCell": [
+      "CELL_OBJECT_BREAKER_UC",
+      "CELL_OBJECT_BREAKER_R",
+      "CELL_OBJECT_BREAKER_E"
+    ],
+    "cells/insight/Drop": [
+      "CELL_MIN_STAM_UC",
+      "CELL_MIN_STAM_R",
+      "CELL_MIN_STAM_E"
+    ],
+    "cells/brutality/EarthCell": [
+      "CELL_SHIELD_DETONATION_UC",
+      "CELL_SHIELD_DETONATION_R",
+      "CELL_SHIELD_DETONATION_E"
+    ],
+    "cells/alacrity/EnduranceCell": [
+      "CELL_STAM_MAX_UC",
+      "CELL_STAM_MAX_R",
+      "CELL_STAM_MAX_E"
+    ],
+    "cells/insight/EnergizedCell": [
+      "CELL_METER_GAIN_UC",
+      "CELL_METER_GAIN_R",
+      "CELL_METER_GAIN_E"
+    ],
+    "cells/insight/EngineerCell": [
+      "CELL_TRIALS_03_UC",
+      "CELL_TRIALS_03_R",
+      "CELL_TRIALS_03_E"
+    ],
+    "cells/alacrity/EvasionCell": [
+      "CELL_DODGE_IFRAME_UC",
+      "CELL_DODGE_IFRAME_R",
+      "CELL_DODGE_IFRAME_E"
+    ],
+    "cells/alacrity/EvasiveFuryCell": [
+      "CELL_PDODGE_ATKSPD_UC",
+      "CELL_PDODGE_ATKSPD_R",
+      "CELL_PDODGE_ATKSPD_E"
+    ],
+    "cells/finesse/FireCell": [
+      "CELL_ATKSPD_MVSPD_SELFHARM_UC",
+      "CELL_ATKSPD_MVSPD_SELFHARM_R",
+      "CELL_ATKSPD_MVSPD_SELFHARM_E"
+    ],
+    "cells/fortitude/FireproofCell": [
+      "CELL_REDUCE_ONFIRE_UC",
+      "CELL_REDUCE_ONFIRE_R",
+      "CELL_REDUCE_ONFIRE_E"
+    ],
+    "cells/alacrity/FleetFootedCell": [
+      "CELL_DODGE_SPD_UP_UC",
+      "CELL_DODGE_SPD_UP_R",
+      "CELL_DODGE_SPD_UP_E"
+    ],
+    "cells/fortitude/FortressCell": [
+      "CELL_DONTGETHIT_SHIELD_UC",
+      "CELL_DONTGETHIT_SHIELD_R",
+      "CELL_DONTGETHIT_SHIELD_E"
+    ],
+    "cells/finesse/GalvanizedCell": [
+      "CELL_HPSHIELD_CRIT_UC",
+      "CELL_HPSHIELD_CRIT_R",
+      "CELL_HPSHIELD_CRIT_E"
+    ],
+    "cells/alacrity/GraceCell": [
+      "CELL_SPRINT_INCREASE_UC",
+      "CELL_SPRINT_INCREASE_R",
+      "CELL_SPRINT_INCREASE_E"
+    ],
+    "cells/fortitude/GuardianCell": [
+      "CELL_SHARE_SHIELD_UC",
+      "CELL_SHARE_SHIELD_R",
+      "CELL_SHARE_SHIELD_E"
+    ],
+    "cells/finesse/ImpulseCell": [
+      "CELL_CRIT_DAMAGE_FROM_MS_UC",
+      "CELL_CRIT_DAMAGE_FROM_MS_R",
+      "CELL_CRIT_DAMAGE_FROM_MS_E"
+    ],
+    "cells/alacrity/InertiaCell": [
+      "CELL_CRIT_CHANCE_WHILE_SPRINT_UC",
+      "CELL_CRIT_CHANCE_WHILE_SPRINT_R",
+      "CELL_CRIT_CHANCE_WHILE_SPRINT_E"
+    ],
+    "cells/fortitude/InsulatedCell": [
+      "CELL_REDUCE_SHOCKED_UC",
+      "CELL_REDUCE_SHOCKED_R",
+      "CELL_REDUCE_SHOCKED_E"
+    ],
+    "cells/alacrity/InvigoratedCell": [
+      "CELL_STAM_TO_MOVESPEED_UC",
+      "CELL_STAM_TO_MOVESPEED_R",
+      "CELL_STAM_TO_MOVESPEED_E"
+    ],
+    "cells/brutality/KnockoutKingCell": [
+      "CELL_STAGGER_PCT_UC",
+      "CELL_STAGGER_PCT_R",
+      "CELL_STAGGER_PCT_E"
+    ],
+    "cells/insight/LucentCell": [
+      "CELL_FLASKOVERTIME_LANTERN_UC",
+      "CELL_FLASKOVERTIME_LANTERN_R",
+      "CELL_FLASKOVERTIME_LANTERN_E"
+    ],
+    "cells/insight/MedicCell": [
+      "CELL_REVIVE_BETTER_UC",
+      "CELL_REVIVE_BETTER_R",
+      "CELL_REVIVE_BETTER_E"
+    ],
+    "cells/insight/MenderCell": [
+      "CELL_TRIALS_06_UC",
+      "CELL_TRIALS_06_R",
+      "CELL_TRIALS_06_E"
+    ],
+    "cells/finesse/MercilessCell": [
+      "CELL_VSSTAGGER_EXPOSE_FLAT_UC",
+      "CELL_VSSTAGGER_EXPOSE_FLAT_R",
+      "CELL_VSSTAGGER_EXPOSE_FLAT_E"
+    ],
+    "cells/insight/MoltenCell": [
+      "CELL_MOLTEN_HEART_UC",
+      "CELL_MOLTEN_HEART_R",
+      "CELL_MOLTEN_HEART_E"
+    ],
+    "cells/alacrity/NimbleCell": [
+      "CELL_PDODGE_STAMINA_UC",
+      "CELL_PDODGE_STAMINA_R",
+      "CELL_PDODGE_STAMINA_E"
+    ],
+    "cells/fortitude/NineLivesCell": [
+      "CELL_DMG_REDUX_CHANCE_UC",
+      "CELL_DMG_REDUX_CHANCE_R",
+      "CELL_DMG_REDUX_CHANCE_E"
+    ],
+    "cells/insight/OmnisurgeCell": [
+      "CELL_OMNISURGE_UC",
+      "CELL_OMNISURGE_R",
+      "CELL_OMNISURGE_E"
+    ],
+    "cells/brutality/OverpowerCell": [
+      "CELL_VSSTAGGER_BASEDMG_UC",
+      "CELL_VSSTAGGER_BASEDMG_R",
+      "CELL_VSSTAGGER_BASEDMG_E"
+    ],
+    "cells/brutality/PacifierCell": [
+      "CELL_VSRAGE_STAGGER_PCT_UC",
+      "CELL_VSRAGE_STAGGER_PCT_R",
+      "CELL_VSRAGE_STAGGER_PCT_E"
+    ],
+    "cells/insight/PackCallerCell": [
+      "CELL_BREAK_SUMMON_FAUNA_UC",
+      "CELL_BREAK_SUMMON_FAUNA_R",
+      "CELL_BREAK_SUMMON_FAUNA_E"
+    ],
+    "cells/brutality/PactHunterCell": [
+      "CELL_KILL_FAUNA_DMG_UC",
+      "CELL_KILL_FAUNA_DMG_R",
+      "CELL_KILL_FAUNA_DMG_E"
+    ],
+    "cells/alacrity/PackWalkerCell": [
+      "CELL_NEAR_FAUNA_MS_AS_UC",
+      "CELL_NEAR_FAUNA_MS_AS_R",
+      "CELL_NEAR_FAUNA_MS_AS_E"
+    ],
+    "cells/fortitude/ParasiticCell": [
+      "CELL_DELAYED_DAMAGE_UC",
+      "CELL_DELAYED_DAMAGE_R",
+      "CELL_DELAYED_DAMAGE_E"
+    ],
+    "cells/finesse/PredatorCell": [
+      "CELL_DONTGETHIT_DAMAGE_UC",
+      "CELL_DONTGETHIT_DAMAGE_R",
+      "CELL_DONTGETHIT_DAMAGE_E"
+    ],
+    "cells/finesse/PulseCell": [
+      "CELL_RHYTHMIC_UC",
+      "CELL_RHYTHMIC_R",
+      "CELL_RHYTHMIC_E"
+    ],
+    "cells/brutality/RageCell": [
+      "CELL_LOWHP_BASEDMG_UC",
+      "CELL_LOWHP_BASEDMG_R",
+      "CELL_LOWHP_BASEDMG_E"
+    ],
+    "cells/brutality/RagehunterCell": [
+      "CELL_VSRAGE_BASEDMG_UC",
+      "CELL_VSRAGE_BASEDMG_R",
+      "CELL_VSRAGE_BASEDMG_E"
+    ],
+    "cells/finesse/RecycleCell": [
+      "CELL_SAME_PART_DMG_UP_UC",
+      "CELL_SAME_PART_DMG_UP_R",
+      "CELL_SAME_PART_DMG_UP_E"
+    ],
+    "cells/brutality/ReduceCell": [
+      "CELL_DMGUP_ATKSPDDOWN_UC",
+      "CELL_DMGUP_ATKSPDDOWN_R",
+      "CELL_DMGUP_ATKSPDDOWN_E"
+    ],
+    "cells/finesse/RelentlessCell": [
+      "CELL_AETHER_RUSHER_UC",
+      "CELL_AETHER_RUSHER_R",
+      "CELL_AETHER_RUSHER_E"
+    ],
+    "cells/insight/ReuseCell": [
+      "CELL_PART_BREAK_ATKSPD_UP_UC",
+      "CELL_PART_BREAK_ATKSPD_UP_R",
+      "CELL_PART_BREAK_ATKSPD_UP_E"
+    ],
+    "cells/alacrity/RollCell": [
+      "CELL_STAGGER_FREE_DODGE_UC",
+      "CELL_STAGGER_FREE_DODGE_R",
+      "CELL_STAGGER_FREE_DODGE_E"
+    ],
+    "cells/finesse/RushdownCell": [
+      "CELL_INTERRUPT_STAM_UC",
+      "CELL_INTERRUPT_STAM_R",
+      "CELL_INTERRUPT_STAM_E"
+    ],
+    "cells/finesse/SavageryCell": [
+      "CELL_VSEXPOSED_BASEDMG_UC",
+      "CELL_VSEXPOSED_BASEDMG_R",
+      "CELL_VSEXPOSED_BASEDMG_E"
+    ],
+    "cells/brutality/SharpenedCell": [
+      "CELL_PARTBREAK_PCT_UC",
+      "CELL_PARTBREAK_PCT_R",
+      "CELL_PARTBREAK_PCT_E"
+    ],
+    "cells/fortitude/ShellshockResistCell": [
+      "CELL_REDUCE_SHELLSHOCKED_UC",
+      "CELL_REDUCE_SHELLSHOCKED_R",
+      "CELL_REDUCE_SHELLSHOCKED_E"
+    ],
+    "cells/alacrity/SprinterCell": [
+      "CELL_TRIALS_04_UC",
+      "CELL_TRIALS_04_R",
+      "CELL_TRIALS_04_E"
+    ],
+    "cells/brutality/StopCell": [
+      "CELL_DODGE_STAGGER_UC",
+      "CELL_DODGE_STAGGER_R",
+      "CELL_DODGE_STAGGER_E"
+    ],
+    "cells/fortitude/StrategistCell": [
+      "CELL_TRIALS_02_UC",
+      "CELL_TRIALS_02_R",
+      "CELL_TRIALS_02_E"
+    ],
+    "cells/fortitude/StunningVigourCell": [
+      "CELL_ANYSTAGGER_REGEN_UC",
+      "CELL_ANYSTAGGER_REGEN_R",
+      "CELL_ANYSTAGGER_REGEN_E"
+    ],
+    "cells/fortitude/SturdyCell": [
+      "CELL_PREVENT_STAGGER_UC",
+      "CELL_PREVENT_STAGGER_R",
+      "CELL_PREVENT_STAGGER_E"
+    ],
+    "cells/alacrity/SwiftCell": [
+      "CELL_OUTOFCOMBAT_MOVESPD_UC",
+      "CELL_OUTOFCOMBAT_MOVESPD_R",
+      "CELL_OUTOFCOMBAT_MOVESPD_E"
+    ],
+    "cells/finesse/TacticianCell": [
+      "CELL_TEAMEXPOSE_UC",
+      "CELL_TEAMEXPOSE_R",
+      "CELL_TEAMEXPOSE_E"
+    ],
+    "cells/brutality/TenaciousCell": [
+      "CELL_HPSHIELD_DAMAGE_UC",
+      "CELL_HPSHIELD_DAMAGE_R",
+      "CELL_HPSHIELD_DAMAGE_E"
+    ],
+    "cells/fortitude/ToughCell": [
+      "CELL_HEALTH_MAX_UC",
+      "CELL_HEALTH_MAX_R",
+      "CELL_HEALTH_MAX_E"
+    ],
+    "cells/fortitude/VampiricCell": [
+      "CELL_ANYEXPOSE_REGEN_UC",
+      "CELL_ANYEXPOSE_REGEN_R",
+      "CELL_ANYEXPOSE_REGEN_E"
+    ],
+    "cells/fortitude/WarmthCell": [
+      "CELL_REDUCE_CHILLED_AND_FROZEN_UC",
+      "CELL_REDUCE_CHILLED_AND_FROZEN_R",
+      "CELL_REDUCE_CHILLED_AND_FROZEN_E"
+    ],
+    "cells/fortitude/WaterCell": [
+      "CELL_DODGE_DR_UC",
+      "CELL_DODGE_DR_R",
+      "CELL_DODGE_DR_E"
+    ],
+    "cells/brutality/WeightedStrikesCell": [
+      "CELL_STAGGER_FLAT_UC",
+      "CELL_STAGGER_FLAT_R",
+      "CELL_STAGGER_FLAT_E"
+    ],
+    "cells/insight/ZealCell": [
+      "CELL_LANTERN_TAP_EFFECTIVENESS_UC",
+      "CELL_LANTERN_TAP_EFFECTIVENESS_R",
+      "CELL_LANTERN_TAP_EFFECTIVENESS_E"
+    ]
+  },
+  "parts": {
+    "parts/aetherstrikers/specials/AdamantBolt": "PART_AC_SPECIAL_DEFAULT",
+    "parts/hammer/mods/AntiqueClip": "PART_IH_PASSIVE_TRIALS_01",
+    "parts/sword/specials/ArdentCyclone": "PART_EB_SPECIAL_SPIN",
+    "parts/sword/specials/AvengingOverdrive": "PART_EB_SPECIAL_PARRY",
+    "parts/warpike/mods/BalancedSpearhead": "PART_MS_PASSIVE_WEAVING",
+    "parts/warpike/mods/BarbedSpearhead": "PART_MS_PASSIVE_TRIALS_01",
+    "parts/repeater/mods/CapacitiveMagazine": "PART_DP_PASSIVE_DOUBLE_SHOT_DAMAGE",
+    "parts/repeater/grips/CaptainsGrip": "PART_DP_GRIP_DEFAULT",
+    "parts/sword/mods/ChargedSwordfocus": "PART_EB_PASSIVE_METER",
+    "parts/warpike/specials/ConcussivePayload": "PART_MS_SPECIAL_PROJECTILE",
+    "parts/hammer/specials/ConcussiveSalvo": "PART_IH_SPECIAL_DEFAULT",
+    "parts/chainblades/specials/CruelRiftstrike": "PART_CB_SPECIAL_RIFTSTRIKE",
+    "parts/aetherstrikers/mods/CyclonicStrikeplate": "PART_AC_PASSIVE_MASTERY_01",
+    "parts/chainblades/mods/DemolitionBlades": "PART_CB_PASSIVE_TRIALS_02",
+    "parts/repeater/mods/DemolitionSights": "PART_DP_PASSIVE_TRIALS_02",
+    "parts/sword/mods/DynamicBladecore": "PART_EB_PASSIVE_TRIALS_02",
+    "parts/aetherstrikers/mods/EchoBracedriver": "PART_AC_PASSIVE_MASTERY_02",
+    "parts/warpike/mods/ExecutionersSpearhead": "PART_MS_PASSIVE_TRIALS_02",
+    "parts/hammer/mods/ExtendedClip": "PART_IH_PASSIVE_METER",
+    "parts/repeater/mods/ExtractionCatalyst": "PART_DP_PASSIVE_PDODGE_COOLDOWNS",
+    "parts/axe/specials/FlightOfRuin": "PART_GA_SPECIAL_DEFAULT",
+    "parts/repeater/chambers/FullBoreChamber": "PART_DP_RECEIVER_PIERCING",
+    "parts/axe/mods/FuriousAxecore": "PART_GA_PASSIVE_TRIALS_02",
+    "parts/axe/specials/GrimOnslaught": "PART_GA_SPECIAL_SKILLSHOT",
+    "parts/chainblades/mods/HurricaneBlades": "PART_CB_PASSIVE_BLENDER",
+    "parts/hammer/mods/ImpulseCrown": "PART_IH_PASSIVE_JUMP_ATTACK_BUFF",
+    "parts/aetherstrikers/mods/InertialFistguard": "PART_AC_PASSIVE_MASTERY_03",
+    "parts/chainblades/specials/InsatiableDance": "PART_CB_SPECIAL_INSATIABLE_DANCE",
+    "parts/hammer/specials/IronheartLandbreaker": "PART_IH_SPECIAL_ISLANDCRACKER_DEFENSIVE",
+    "parts/sword/mods/KeenEdge": "PART_EB_PASSIVE_TRIALS_01",
+    "parts/chainblades/mods/LightweightChain": "PART_CB_PASSIVE_DASH_AGGRESSION",
+    "parts/repeater/mods/LightweightFrame": "PART_DP_PASSIVE_LOW_AMMO_MOVESPEED",
+    "parts/axe/mods/LightweightHaft": "PART_GA_PASSIVE_CHARGING_MOVESPEED",
+    "parts/warpike/mods/LightweightShaft": "PART_MS_PASSIVE_CHARGE_SPEED",
+    "parts/repeater/mods/LuckyMagazine": "PART_DP_PASSIVE_LOW_AMMO_CRIT",
+    "parts/repeater/chambers/MarksmanChamber": "PART_DP_RECEIVER_PART_MARKER",
+    "parts/sword/mods/MendingBladecore": "PART_EB_PASSIVE_STAGGERPROOF",
+    "parts/hammer/specials/MightyLandbreaker": "PART_IH_SPECIAL_ISLANDCRACKER",
+    "parts/chainblades/mods/MomentumBlades": "PART_CB_PASSIVE_TRIALS_01",
+    "parts/warpike/mods/MunitionsAmplifier": "PART_MS_PASSIVE_AMMO_GROWTH",
+    "parts/axe/mods/OverchargedCylinder": "PART_GA_PASSIVE_METER",
+    "parts/repeater/mods/PrecisionSights": "PART_DP_PASSIVE_MARKSMAN_DAMAGE",
+    "parts/axe/mods/RailsplittersCanteen": "PART_GA_PASSIVE_TRIALS_01",
+    "parts/chainblades/specials/ReapersDance": "PART_CB_SPECIAL_DEFAULT",
+    "parts/warpike/specials/RecklessLeap": "PART_MS_SPECIAL_ROCKETLUNGE",
+    "parts/sword/mods/RecursiveHilt": "PART_EB_PASSIVE_DODGE_ATTACK",
+    "parts/axe/specials/RelentlessOnslaught": "PART_GA_SPECIAL_SKILLSHOT_RESET",
+    "parts/repeater/grips/SaboteursGrip": "PART_DP_GRIP_MINE",
+    "parts/repeater/chambers/SalvoChamber": "PART_DP_RECEIVER_DEFAULT",
+    "parts/warpike/specials/SavageWellspring": "PART_MS_SPECIAL_ATTACK_SPEED_DAMAGE_BUFF",
+    "parts/repeater/mods/ScopedSights": "PART_DP_PASSIVE_LONG_RANGE",
+    "parts/chainblades/mods/SerratedBlades": "PART_CB_PASSIVE_SWINGING_CRIT",
+    "parts/repeater/mods/TacticiansMagazine": "PART_DP_PASSIVE_TRIALS_01",
+    "parts/aetherstrikers/specials/TitansCrash": "PART_AC_SPECIAL_MASTERY",
+    "parts/hammer/mods/TurbineTrigger": "PART_IH_PASSIVE_TRIALS_02",
+    "parts/sword/specials/ValiantOverdrive": "PART_EB_SPECIAL_DEFAULT",
+    "parts/axe/mods/VolatileAxecore": "PART_GA_PASSIVE_CHARGE_AOE",
+    "parts/hammer/mods/WeightedCrown": "PART_IH_PASSIVE_STAGGER_PASSTHROUGH"
+  },
+  "lanterns": {
+    "lanterns/BroadsidesLantern": "LT_TRIALS_00",
+    "lanterns/DrasksEye": "LT_FULGAR",
+    "lanterns/EmbermanesRapture": "LT_LERAWR",
+    "lanterns/KoshaisBloom": "LT_PAPER",
+    "lanterns/PangarsShine": "LT_MCROLLIN",
+    "lanterns/RecruitsLantern": "LT_BEGINNER",
+    "lanterns/ShrikesZeal": "LT_MOONFACE",
+    "lanterns/SkarnsDefiance": "LT_ROCK"
+  },
+  "omnicells": {
+    "omnicells/Artificer": "PR_FRANK",
+    "omnicells/Bastion": "PR_BASTION",
+    "omnicells/Discipline": "PR_DISCIPLINE",
+    "omnicells/Iceborne": "PR_ICEBORNE",
+    "omnicells/Revenant": "PR_DARKNESS",
+    "omnicells/Tempest": "PR_TEMPEST"
+  }
+}

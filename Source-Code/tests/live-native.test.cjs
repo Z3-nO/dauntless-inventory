@@ -28,6 +28,12 @@ test("Windows fractional heartbeat timestamps do not falsely disconnect Live; ge
   });
   assert.equal(native.heartbeat(c).available, true);
   assert.equal(native.heartbeat(c).builds, true);
+  for (offset of [1.9, 15.875, 31.999, 32]) {
+    assert.equal(native.heartbeat(c).available, true);
+    assert.equal(native.heartbeat(c).builds, true);
+  }
+  offset = 33;
+  assert.equal(native.heartbeat(c).available, false);
   offset = 2000;
   assert.equal(native.heartbeat(c).available, false);
   offset = -7000;

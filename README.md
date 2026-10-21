@@ -1,4 +1,4 @@
-# Dauntless Inventory Live Preview 0.12.0
+# Dauntless Inventory Live Preview 0.12.1
 
 ## Live module updates and persistent game session
 
@@ -241,3 +241,5 @@ For the local Builder from Git, use an installed Node.js 24 to run
 `node server.cjs` inside `Builder-Local`. Its release launcher includes its own
 runtime. The signing private key is deliberately absent from source and releases;
 maintainers need their own protected release key to publish trusted modules.
+
+Version 0.12.1 also tolerates up to 32 ms of Windows file/JavaScript clock skew while rejecting larger future timestamps and stale signals.

@@ -27,7 +27,7 @@ win:
   signAndEditExecutable: true
   signExecutable: false
 portable:
-  unpackDirName: dauntless-materiali-live-0120
+  unpackDirName: dauntless-materiali-live-0121
 directories:
   output: dist
 

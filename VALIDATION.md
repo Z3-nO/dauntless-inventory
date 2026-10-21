@@ -1,4 +1,4 @@
-# Live Preview 0.12.0 validation
+# Live Preview 0.12.1 validation
 
 21 October 2026. The native DLLs are retained from the verified 0.11.3 compatibility
 fix; this release changes the update system, bridge session reporting and desktop UI.
@@ -29,3 +29,5 @@ Native support remains 1.6.2 CL271281 and 1.14.7 CL647472 on the inspected Forev
 baselines, with exactly one local player. New loader support must be implemented,
 tested and published as a signed release. The updater does not invent compatibility
 or silently weaken native checks. Application EXE updates remain separate.
+
+Version 0.12.1 also tolerates up to 32 ms of Windows file/JavaScript clock skew. Larger future timestamps, stale signals and corrupt snapshots remain blocked. The 0.12.0 signed module is retained unchanged; 0.12.1 has its own signed manifest.

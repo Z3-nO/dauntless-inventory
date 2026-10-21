@@ -1,4 +1,4 @@
-# Dauntless Inventory Live Preview 0.12.0
+# Dauntless Inventory Live Preview 0.12.1
 
 ## Live module updates and persistent game session
 
@@ -222,3 +222,5 @@ During the 1.14.7 comparison, the client logged inventory state hash mismatches 
 Live heartbeat correction: file timestamps and the JavaScript clock are compared at whole-millisecond precision, with the clock sampled after reading metadata. A changing or partially written native heartbeat is retried up to three times. Corrupt, missing, stale and genuinely future heartbeats still fail closed; previous connection states are never cached as valid. Regression tests reproduce both Windows timestamp precision and concurrent writer behavior.
 
 The verified Recruit's Mask is retained at its native level 0 even though its native identifier contains UNEQUIPPED; catalogue filtering does not remove this legitimate starter item.
+
+Version 0.12.1 also tolerates up to 32 ms of Windows file/JavaScript clock skew. Larger future timestamps, stale signals and corrupt snapshots remain blocked. The 0.12.0 signed module is retained unchanged; 0.12.1 has its own signed manifest.

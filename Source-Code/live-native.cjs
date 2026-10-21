@@ -113,9 +113,10 @@ function readHeartbeat(file) {
       const after = fs.statSync(file);
       if (before.mtimeMs !== after.mtimeMs || before.size !== after.size)
         continue;
-      // Windows file timestamps are more precise than Date.now(). Sample the
-      // clock after the file read and compare both at whole-millisecond precision.
-      return { state, age: Date.now() - Math.floor(after.mtimeMs) };
+      // Windows file times and Date.now() can use different clock precision.
+      // Allow at most two 15.6 ms timer ticks; larger future dates stay invalid.
+      const age = Date.now() - Math.floor(after.mtimeMs);
+      return { state, age: age >= -32 && age < 0 ? 0 : age };
     } catch (error) {
       lastError = error;
     }
