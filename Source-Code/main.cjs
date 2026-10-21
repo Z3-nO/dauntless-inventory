@@ -223,7 +223,7 @@ else {
           ? process.env.PORTABLE_EXECUTABLE_FILE
           : null,
         userData: previewData,
-        helperSource: path.join(toolRoot, "scripts/restart-application.ps1"),
+        helperSource: path.join(toolRoot, "scripts/restart-application.cjs"),
         changed: (state) => {
           if (mainWindow && !mainWindow.isDestroyed())
             mainWindow.webContents.send("application-update-status", state);

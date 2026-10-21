@@ -20,6 +20,10 @@ class DesktopUpdates {
     currentExecutable,
     userData,
     helperSource,
+    runtimeSource = path.resolve(
+      path.dirname(helperSource),
+      "../runtime/node.exe",
+    ),
     fetcher = fetch,
     changed = () => {},
     allowLoopback = false,
@@ -30,6 +34,7 @@ class DesktopUpdates {
     this.currentExecutable = currentExecutable;
     this.userData = userData;
     this.helperSource = helperSource;
+    this.runtimeSource = runtimeSource;
     this.fetcher = fetcher;
     this.changed = changed;
     this.allowLoopback = allowLoopback;
@@ -326,7 +331,7 @@ class DesktopUpdates {
     );
     const failed = path.join(this.folder(release), "failed.json");
     if (fs.existsSync(failed)) fs.unlinkSync(failed);
-    const helper = path.join(folder, "restart.ps1");
+    const helper = path.join(folder, "restart.cjs");
     fs.copyFileSync(this.helperSource, helper, fs.constants.COPYFILE_EXCL);
     const job = {
       id: crypto.randomUUID(),
@@ -348,50 +353,34 @@ class DesktopUpdates {
     manifest.writeJson(file, job);
     return { file, helper, job, release };
   }
-  launchHandoff(handoff) {
-    const quote = (value) => "'" + value.replaceAll("'", "''") + "'";
-    const command =
-      "& " + quote(handoff.helper) + " -JobFile " + quote(handoff.file);
+  async launchHandoff(handoff) {
+    const digest = await manifest.hashFile(this.runtimeSource);
+    const runtimeFolder = manifest.safeDirectory(
+      path.join(this.directory, "helper-runtimes", digest),
+    );
+    const runtime = path.join(runtimeFolder, "node.exe");
+    if (!fs.existsSync(runtime))
+      fs.copyFileSync(this.runtimeSource, runtime, fs.constants.COPYFILE_EXCL);
+    if (
+      !fs.lstatSync(runtime).isFile() ||
+      fs.lstatSync(runtime).isSymbolicLink() ||
+      (await manifest.hashFile(runtime)) !== digest
+    )
+      throw Error(
+        "The application restart runtime changed. No update started.",
+      );
     const logFile = path.join(path.dirname(handoff.file), "helper.log");
     const log = fs.openSync(logFile, "a");
-    const child = spawn(
-      path.join(
-        process.env.SystemRoot || "C:\\Windows",
-        "System32",
-        "WindowsPowerShell",
-        "v1.0",
-        "powershell.exe",
-      ),
-      [
-        "-NoProfile",
-        "-NonInteractive",
-        "-ExecutionPolicy",
-        "Bypass",
-        "-WindowStyle",
-        "Hidden",
-        "-EncodedCommand",
-        Buffer.from(command, "utf16le").toString("base64"),
-      ],
-      {
-        // Windows PowerShell can exit without running scripts when started
-        // with DETACHED_PROCESS. Ignored handles plus unref let the helper
-        // outlive Electron without requesting a detached console.
-        detached: false,
+    let child;
+    try {
+      child = spawn(runtime, [handoff.helper, handoff.file], {
+        detached: true,
         windowsHide: true,
         stdio: ["ignore", log, log],
-        env: {
-          ...process.env,
-          PSModulePath: path.join(
-            process.env.SystemRoot || "C:\\Windows",
-            "System32",
-            "WindowsPowerShell",
-            "v1.0",
-            "Modules",
-          ),
-        },
-      },
-    );
-    fs.closeSync(log);
+      });
+    } finally {
+      fs.closeSync(log);
+    }
     return new Promise((resolve, reject) => {
       let finished = false;
       const finish = (error) => {

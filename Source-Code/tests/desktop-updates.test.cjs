@@ -14,7 +14,14 @@ const manifest = require("../desktop-update-manifest.cjs");
 
 function fixture(t) {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), "inventory-app-update-"));
-  t.after(() => fs.rmSync(root, { recursive: true, force: true }));
+  t.after(() =>
+    fs.rmSync(root, {
+      recursive: true,
+      force: true,
+      maxRetries: 10,
+      retryDelay: 100,
+    }),
+  );
   const keys = crypto.generateKeyPairSync("ed25519");
   const publicKey = keys.publicKey.export({ type: "spki", format: "pem" });
   const bytes = Buffer.from("MZverified-fixture");
@@ -57,7 +64,8 @@ function fixture(t) {
     currentVersion: "0.12.99",
     currentExecutable: path.join(root, "original.exe"),
     userData: root,
-    helperSource: path.join(__dirname, "../scripts/restart-application.ps1"),
+    helperSource: path.join(__dirname, "../scripts/restart-application.cjs"),
+    runtimeSource: process.execPath,
     fetcher,
   };
   const updater = new DesktopUpdates(options);
@@ -77,7 +85,7 @@ function fixture(t) {
 }
 
 test(
-  "Windows restart helper confirms readiness with inherited incompatible module paths",
+  "Windows restart helper confirms readiness independently of shell module paths",
   { skip: process.platform !== "win32" },
   async (t) => {
     const f = fixture(t);
@@ -97,6 +105,7 @@ test(
         assert.equal(fs.existsSync(handoff.job.reportFile), false);
       } finally {
         process.kill(pid);
+        await new Promise((resolve) => setTimeout(resolve, 100));
       }
     } finally {
       if (previous === undefined) delete process.env.PSModulePath;
@@ -112,7 +121,7 @@ test(
     const f = fixture(t);
     await f.updater.check();
     const handoff = await f.updater.createHandoff();
-    fs.writeFileSync(handoff.helper, "exit 23\n");
+    fs.writeFileSync(handoff.helper, "process.exit(23);\n");
     await assert.rejects(
       f.updater.launchHandoff(handoff),
       /before becoming ready/,
@@ -438,7 +447,12 @@ test("The desktop service pauses new writes before acknowledging an application 
   t.after(async () => {
     child.kill();
     if (child.exitCode === null) await once(child, "exit");
-    fs.rmSync(root, { recursive: true, force: true });
+    fs.rmSync(root, {
+      recursive: true,
+      force: true,
+      maxRetries: 10,
+      retryDelay: 100,
+    });
   });
   let output = "";
   const url = await new Promise((resolve, reject) => {

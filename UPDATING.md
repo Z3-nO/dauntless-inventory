@@ -77,6 +77,8 @@ The original EXE acts as the entry point, verifies the cached signed release on 
 start and launches it after the previous editor exits. Only a successful new startup
 activates it. Failed launches leave the earlier version selected.
 
-The handoff helper receives only the editor processes and managed EXE paths. It
+The handoff helper uses a verified private copy of the bundled Node runtime, so it
+continues after the old desktop window and portable launcher close. It receives
+only the editor processes and managed EXE paths. It
 never patches game DLLs or touches character saves. Its job and script remain outside
 the old portable extraction folder so that the old launcher can clean up normally.
