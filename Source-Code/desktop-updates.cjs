@@ -300,6 +300,10 @@ class DesktopUpdates {
         return release;
       } catch (error) {
         this.message = error.message;
+        if (this.state.ready?.digest === record.digest) delete this.state.ready;
+        if (this.state.active?.digest === record.digest)
+          delete this.state.active;
+        this.persist();
       }
     }
     return null;
