@@ -200,7 +200,13 @@ async function download(url, limit, fetcher = fetch) {
   });
   if (!response.ok)
     throw Error("Update download failed (HTTP " + response.status + ").");
-  if (Number(response.headers.get("content-length")) > limit)
+  // Fetch decodes compressed bodies. Their wire length can exceed a tiny file's
+  // signed size, so enforce that header only for an uncompressed response.
+  const encoding = response.headers.get("content-encoding");
+  if (
+    (!encoding || encoding === "identity") &&
+    Number(response.headers.get("content-length")) > limit
+  )
     throw Error("Update response is too large.");
   let size = 0;
   const chunks = [];

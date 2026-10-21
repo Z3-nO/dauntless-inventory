@@ -3,7 +3,7 @@
 21 October 2026. The native DLLs are retained from the verified 0.11.3 compatibility
 fix; this release changes the update system, bridge session reporting and desktop UI.
 
-95 application tests and 11 local Builder tests pass. Updater tests cover signed
+97 application tests and 11 local Builder tests pass. Updater tests cover signed
 manifests, wrong signers, corrupt files, unsupported paths, duplicate names, sizes,
 redirects, interrupted downloads, cache revalidation, version compatibility,
 downgrades, old-bridge migration, running processes and transactional restore.

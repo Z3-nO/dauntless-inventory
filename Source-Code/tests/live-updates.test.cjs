@@ -303,6 +303,26 @@ test("Interrupted downloads preserve the old cache and remove only their own sta
   );
 });
 
+test("Compressed downloads enforce the decoded size rather than their larger wire size", async (t) => {
+  const f = fixture(t);
+  const zlib = require("node:zlib");
+  const bytes = Buffer.from("tiny");
+  const compressed = zlib.gzipSync(bytes);
+  assert(compressed.length > bytes.length);
+  const url = await serve(t, f, (req, res) => {
+    res.writeHead(200, {
+      "Content-Encoding": "gzip",
+      "Content-Length": compressed.length,
+    });
+    res.end(compressed);
+  });
+  assert.deepEqual(await packages.download(url, bytes.length), bytes);
+  await assert.rejects(
+    () => packages.download(url, bytes.length - 1),
+    /too large/,
+  );
+});
+
 test("Redirects and oversized network responses are rejected", async (t) => {
   const f = fixture(t);
   const url = await serve(t, f, (req, res) => {

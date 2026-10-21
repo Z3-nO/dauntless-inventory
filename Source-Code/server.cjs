@@ -303,6 +303,8 @@ const server = http.createServer(async (request, response) => {
         "/settings-ui.js": "settings-ui.js",
         "/reset-ui.js": "reset-ui.js",
         "/live-ui.js": "live-ui.js",
+        "/live-session.js": "live-session.js",
+        "/updates-ui.js": "updates-ui.js",
         "/style.css": "style.css",
         "/ui/helmet.webp": "ui/helmet.webp",
         ...Object.fromEntries(
