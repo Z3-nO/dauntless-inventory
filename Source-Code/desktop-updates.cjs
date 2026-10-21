@@ -352,6 +352,8 @@ class DesktopUpdates {
     const quote = (value) => "'" + value.replaceAll("'", "''") + "'";
     const command =
       "& " + quote(handoff.helper) + " -JobFile " + quote(handoff.file);
+    const logFile = path.join(path.dirname(handoff.file), "helper.log");
+    const log = fs.openSync(logFile, "a");
     const child = spawn(
       path.join(
         process.env.SystemRoot || "C:\\Windows",
@@ -376,7 +378,7 @@ class DesktopUpdates {
         // outlive Electron without requesting a detached console.
         detached: false,
         windowsHide: true,
-        stdio: "ignore",
+        stdio: ["ignore", log, log],
         env: {
           ...process.env,
           PSModulePath: path.join(
@@ -389,6 +391,7 @@ class DesktopUpdates {
         },
       },
     );
+    fs.closeSync(log);
     return new Promise((resolve, reject) => {
       let finished = false;
       const finish = (error) => {
@@ -399,6 +402,12 @@ class DesktopUpdates {
         child.unref();
         if (error) {
           child.kill();
+          try {
+            const detail = fs.readFileSync(logFile, "utf8").slice(-2000).trim();
+            if (detail) error.message += " Helper details: " + detail;
+          } catch {
+            /* The error already explains the failed handoff. */
+          }
           reject(error);
         } else resolve(child.pid);
       };
@@ -421,7 +430,7 @@ class DesktopUpdates {
               "The update helper did not become ready. The application remains open.",
             ),
           ),
-        10000,
+        30000,
       );
       child.once("error", finish);
       child.once("exit", (code) =>

@@ -14,7 +14,7 @@ shipping a new application with a new verification key. Protect and back up the 
 4. Generate the release with Node 24 or later:
 
    ```text
-   node Source-Code/scripts/publish-live-update.cjs --source Source-Code --out updates --key C:/Keys/live-updates-private.pem --source-url https://github.com/OWNER/REPOSITORY/tree/v0.12.1 --min-tool 0.12.0
+   node Source-Code/scripts/publish-live-update.cjs --source Source-Code --out updates --key C:/Keys/live-updates-private.pem --source-url https://github.com/OWNER/REPOSITORY/tree/v0.13.0 --min-tool 0.12.0
    ```
 
 5. Commit the complete corresponding source and `updates/releases/VERSION/` to the

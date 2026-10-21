@@ -47,9 +47,9 @@ same session without discarding the selected profile. A changed review must be
 reviewed again; writes are never silently retried. Ambiguous sessions and missing
 native heartbeats keep writes paused. This does not enable multiplayer support.
 
-The updater distributes compatible modules that have been published by the project.
+The Live module updater distributes compatible modules published by the project.
 It does not adapt native code to a future Forever release by itself, update Forever,
-or replace this application's EXE. A module requiring newer updater capabilities
+or install complete application updates; those use the separate Application updates controls. A module requiring newer updater capabilities
 requests an application upgrade instead. Full source, AGPL-3.0 and upstream credits
 remain available with releases.
 
