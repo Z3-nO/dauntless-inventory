@@ -1,33 +1,22 @@
-# Live Preview 0.12.1 validation
+# Live Preview 0.13.0 validation
 
-21 October 2026. The native DLLs are retained from the verified 0.11.3 compatibility
-fix; this release changes the update system, bridge session reporting and desktop UI.
+Application update changes are tested separately from native game behavior.
+The native DLLs, inventory formats, build import/export and character operations
+are retained from 0.12.1. Application tests cover signed desktop manifests, exact
+file sizes/hashes, release URLs and source tags, interrupted downloads, corrupt
+cache recovery, release immutability, downgrade rejection, persisted settings,
+activation only after startup, failed-update loop prevention, untrusted redirects,
+cache links and editor quiescence before restart. The local HTTP test checks every
+script referenced by the page, including desktop update controls.
 
-97 application tests and 11 local Builder tests pass. Updater tests cover signed
-manifests, wrong signers, corrupt files, unsupported paths, duplicate names, sizes,
-redirects, interrupted downloads, cache revalidation, version compatibility,
-downgrades, old-bridge migration, running processes and transactional restore.
+The distribution's Test-results contains the executed automated tests, final EXE
+checks, application restart/bootstrap checks and the published asset verification.
+Original character files are checked independently; update tests use isolated
+preferences and copies. Previous native checks on 1.6.2 and 1.14.7 are retained as
+component evidence; this release does not claim new native compatibility.
 
-An isolated integration test installs the previous Live module, migrates it to
-0.12.0, imports a separately signed private test release and applies it automatically
-to copies of both supported versions. Modified bridge files are refused. Removing
-the extension restores the original native modules; character save bytes are unchanged.
-The private future-version fixture is excluded from published updates and releases.
-
-Session tests cover repeated game autosaves, active-character selection, ambiguous
-sessions, missing heartbeats, a temporary backend outage, automatic recovery,
-in-flight writes, invalidated reviews and late responses after a version change.
-The same local character remains selected through repeated revision changes.
-
-The distribution's Test-results records packaged-EXE, public-feed, installer and
-native-session checks separately. These results validate the stated scope, not every
-cosmetic/combat effect, multiplayer session, map transition or future Forever build.
-Legacy legendary-bond reimport remains unsupported. Existing invalid modern sockets
-are rejected. Pre-existing Forever inventory-hash warnings are not repaired here.
-
-Native support remains 1.6.2 CL271281 and 1.14.7 CL647472 on the inspected Forever
-baselines, with exactly one local player. New loader support must be implemented,
-tested and published as a signed release. The updater does not invent compatibility
-or silently weaken native checks. Application EXE updates remain separate.
-
-Version 0.12.1 also tolerates up to 32 ms of Windows file/JavaScript clock skew. Larger future timestamps, stale signals and corrupt snapshots remain blocked. The 0.12.0 signed module is retained unchanged; 0.12.1 has its own signed manifest.
+Supported native builds remain 1.6.2 CL271281 and 1.14.7 CL647472 on inspected Forever
+baselines with one local player. Unknown future loaders require tested compatible
+modules. Legacy legendary-bond reimport remains unsupported; invalid modern sockets
+are rejected. Pre-existing Forever inventory hash warnings are outside this change.
+No finite test run guarantees every map, combat/cosmetic effect, PC or future update.

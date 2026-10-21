@@ -4,6 +4,8 @@ const { app, BrowserWindow, dialog, ipcMain, Menu } = require("electron");
 const { spawn } = require("node:child_process");
 const fs = require("node:fs");
 const path = require("node:path");
+const crypto = require("node:crypto");
+const { DesktopUpdates } = require("./desktop-updates.cjs");
 // The preview has its own preferences, browser storage and single-instance lock.
 const previewData = path.resolve(
   process.env.MATERIALI_USER_DATA ||
@@ -16,6 +18,9 @@ app.setPath("userData", desktopData);
 let mainWindow;
 let service;
 let shuttingDown = false;
+let serviceUrl;
+let restartInProgress = false;
+let applicationUpdates;
 const toolRoot = app.isPackaged
   ? path.join(process.resourcesPath, "tool")
   : fs.existsSync(path.join(__dirname, "server.cjs"))
@@ -39,7 +44,7 @@ function startService() {
       {
         cwd: toolRoot,
         windowsHide: true,
-        stdio: ["ignore", "pipe", "pipe"],
+        stdio: ["ignore", "pipe", "pipe", "ipc"],
       },
     );
     let output = "";
@@ -78,16 +83,91 @@ function startService() {
   });
 }
 
-ipcMain.handle("choose-folder", async () => {
+function assertDesktopSender(event) {
+  if (
+    !mainWindow ||
+    event.sender !== mainWindow.webContents ||
+    event.senderFrame !== mainWindow.webContents.mainFrame ||
+    new URL(event.senderFrame.url).origin !== serviceUrl
+  )
+    throw Error("Untrusted desktop request.");
+}
+
+async function prepareServiceForUpdate() {
+  if (!service || service.exitCode !== null) return;
+  const id = crypto.randomUUID();
+  await new Promise((resolve, reject) => {
+    const timer = setTimeout(
+      () =>
+        finish(
+          Error(
+            "The editor is still finishing an operation. Retry the update shortly.",
+          ),
+        ),
+      45000,
+    );
+    const receive = (message) => {
+      if (message?.type === "app-update-ready" && message.id === id) finish();
+    };
+    const exited = () => finish();
+    function finish(error) {
+      clearTimeout(timer);
+      service.off("message", receive);
+      service.off("exit", exited);
+      error ? reject(error) : resolve();
+    }
+    service.on("message", receive);
+    service.once("exit", exited);
+    service.send({ type: "prepare-app-update", id }, (error) => {
+      if (error) finish(error);
+    });
+  });
+}
+
+ipcMain.handle("choose-folder", async (event) => {
+  assertDesktopSender(event);
   const result = await dialog.showOpenDialog(mainWindow, {
     properties: ["openDirectory"],
   });
   return result.canceled ? null : result.filePaths[0];
 });
 
+ipcMain.handle("application-update-status", (event) => {
+  assertDesktopSender(event);
+  return applicationUpdates.status();
+});
+ipcMain.handle("application-update-check", async (event) => {
+  assertDesktopSender(event);
+  return applicationUpdates.check();
+});
+ipcMain.handle("application-update-settings", (event, value) => {
+  assertDesktopSender(event);
+  return applicationUpdates.settings(value);
+});
+ipcMain.handle("application-update-restart", async (event) => {
+  assertDesktopSender(event);
+  if (restartInProgress) return;
+  restartInProgress = true;
+  try {
+    const handoff = await applicationUpdates.createHandoff(
+      undefined,
+      service?.pid,
+    );
+    await prepareServiceForUpdate();
+    await applicationUpdates.launchHandoff(handoff);
+    app.quit();
+  } catch (error) {
+    service?.send({ type: "cancel-app-update" });
+    throw error;
+  } finally {
+    restartInProgress = false;
+  }
+});
+
 async function createWindow() {
   app.setAccessibilitySupportEnabled(true);
   const url = await startService();
+  serviceUrl = url;
   mainWindow = new BrowserWindow({
     title: "Dauntless Inventory Live Preview",
     width: 1440,
@@ -119,6 +199,8 @@ async function createWindow() {
   });
   await mainWindow.loadURL(url);
   log("Desktop ready " + url);
+  await applicationUpdates.acknowledge(process.env.DAUNTLESS_UPDATE_JOB);
+  delete process.env.DAUNTLESS_UPDATE_JOB;
 }
 
 if (!app.requestSingleInstanceLock()) app.quit();
@@ -131,9 +213,43 @@ else {
   });
   app
     .whenReady()
-    .then(() => {
+    .then(async () => {
       Menu.setApplicationMenu(null);
-      return createWindow();
+      applicationUpdates = new DesktopUpdates({
+        directory: path.join(previewData, "application-updates"),
+        config: require(path.join(toolRoot, "update-channel.json")),
+        currentVersion: app.getVersion(),
+        currentExecutable: app.isPackaged
+          ? process.env.PORTABLE_EXECUTABLE_FILE
+          : null,
+        userData: previewData,
+        helperSource: path.join(toolRoot, "scripts/restart-application.ps1"),
+        changed: (state) => {
+          if (mainWindow && !mainWindow.isDestroyed())
+            mainWindow.webContents.send("application-update-status", state);
+        },
+      });
+      await applicationUpdates.announceStart(process.env.DAUNTLESS_UPDATE_JOB);
+      const target = await applicationUpdates.bootstrapTarget();
+      if (target) {
+        const handoff = await applicationUpdates.createHandoff({
+          version: target.version,
+          digest: target.digest,
+        });
+        await applicationUpdates.launchHandoff(handoff);
+        app.quit();
+        return;
+      }
+      await createWindow();
+      const check = () => {
+        if (!applicationUpdates.state.automaticDownload || restartInProgress)
+          return;
+        applicationUpdates
+          .check()
+          .catch((error) => log("Application update: " + error.message));
+      };
+      setTimeout(check, 10000).unref();
+      setInterval(check, 30 * 60 * 1000).unref();
     })
     .catch((error) => {
       log(error.stack);

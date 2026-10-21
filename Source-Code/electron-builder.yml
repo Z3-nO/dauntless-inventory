@@ -5,6 +5,8 @@ asar: true
 files:
   - main.cjs
   - preload.cjs
+  - desktop-updates.cjs
+  - desktop-update-manifest.cjs
   - package.json
 extraResources:
   - from: .
@@ -27,7 +29,7 @@ win:
   signAndEditExecutable: true
   signExecutable: false
 portable:
-  unpackDirName: dauntless-materiali-live-0121
+  unpackDirName: dauntless-materiali-live-0130
 directories:
   output: dist
 

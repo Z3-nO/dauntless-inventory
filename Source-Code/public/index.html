@@ -16,6 +16,7 @@
     <script src="/reset-ui.js" defer></script>
     <script src="/live-ui.js" defer></script>
     <script src="/updates-ui.js" defer></script>
+    <script src="/desktop-updates-ui.js" defer></script>
   </head>
   <body>
     <aside>
@@ -46,8 +47,19 @@
           <h1>Inventory &amp; loadouts</h1>
         </div>
         <span class="badge"
-          ><span class="local-dot"></span> LIVE PREVIEW 0.12.1</span
+          ><span class="local-dot"></span> LIVE PREVIEW 0.13.0</span
         >
+      </section>
+      <section
+        id="app-update-banner"
+        class="application-update-banner"
+        hidden
+        aria-live="polite"
+      >
+        <span id="app-update-banner-text"></span>
+        <button id="app-update-banner-restart" type="button" class="primary">
+          Restart and update
+        </button>
       </section>
       <p
         id="live-status"
@@ -358,6 +370,40 @@
           </button>
         </div>
         <p id="live-settings-status" class="hint" role="status"></p>
+      </section>
+      <section class="images-panel">
+        <h3>Application updates</h3>
+        <p id="app-update-version" class="hint"></p>
+        <p class="hint">
+          New application versions download here automatically. Restart to open
+          the verified update with your existing settings. The previous EXE
+          stays available.
+        </p>
+        <label
+          ><input id="app-update-auto" type="checkbox" /> Check and download
+          automatically</label
+        >
+        <label
+          ><input id="app-update-next-start" type="checkbox" /> Apply downloaded
+          updates the next time I open Inventory</label
+        >
+        <div class="connect-row">
+          <button id="app-update-check" type="button">
+            Check application updates
+          </button>
+          <button id="app-update-restart" type="button" class="primary" hidden>
+            Restart and update
+          </button>
+          <button id="app-update-save" type="button">
+            Save update preferences
+          </button>
+        </div>
+        <p
+          id="app-update-status"
+          class="hint"
+          role="status"
+          aria-live="polite"
+        ></p>
       </section>
       <section class="images-panel">
         <h3>Live module updates</h3>

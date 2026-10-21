@@ -31,6 +31,7 @@ const base = __dirname;
 let connection = null;
 let liveBinding = null;
 let busy = false;
+let preparingApplicationUpdate = false;
 
 function standardImages(root, version) {
   const saved = settings.get(version);
@@ -86,6 +87,16 @@ async function api(request, response, route) {
       ),
     });
   if (request.method !== "POST") throw Error("Unsupported method.");
+  // This status is an in-memory read and can run while discovery or a download
+  // is busy. It must not make the Settings panel falsely report a connection error.
+  if (route === "/api/live-update-status") {
+    const data = await readRequest(request);
+    if (!Object.hasOwn(catalogs, data.version))
+      throw Error("Unsupported version.");
+    return json(response, 200, updates.status());
+  }
+  if (preparingApplicationUpdate)
+    throw Error("Inventory is restarting to apply an application update.");
   if (busy) throw Error("An operation is already in progress.");
   busy = true;
   try {
@@ -305,6 +316,7 @@ const server = http.createServer(async (request, response) => {
         "/live-ui.js": "live-ui.js",
         "/live-session.js": "live-session.js",
         "/updates-ui.js": "updates-ui.js",
+        "/desktop-updates-ui.js": "desktop-updates-ui.js",
         "/style.css": "style.css",
         "/ui/helmet.webp": "ui/helmet.webp",
         ...Object.fromEntries(
@@ -351,7 +363,7 @@ const server = http.createServer(async (request, response) => {
 let updateTaskRunning = false;
 let lastUpdateAttempt = 0;
 async function automaticUpdates() {
-  if (busy || updateTaskRunning) return;
+  if (preparingApplicationUpdate || busy || updateTaskRunning) return;
   updateTaskRunning = true;
   try {
     const options = updates.status();
@@ -391,6 +403,28 @@ async function automaticUpdates() {
 }
 
 if (require.main === module) {
+  process.on("message", async (message) => {
+    if (message?.type === "cancel-app-update") {
+      preparingApplicationUpdate = false;
+      return;
+    }
+    if (
+      message?.type !== "prepare-app-update" ||
+      typeof message.id !== "string"
+    )
+      return;
+    preparingApplicationUpdate = true;
+    const deadline = Date.now() + 40000;
+    while (
+      (busy || updateTaskRunning) &&
+      preparingApplicationUpdate &&
+      Date.now() < deadline
+    )
+      await new Promise((resolve) => setTimeout(resolve, 100));
+    if (preparingApplicationUpdate && !busy && !updateTaskRunning)
+      process.send?.({ type: "app-update-ready", id: message.id });
+    else preparingApplicationUpdate = false;
+  });
   setTimeout(automaticUpdates, 5000).unref();
   setInterval(automaticUpdates, 60000).unref();
   images

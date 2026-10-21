@@ -891,6 +891,20 @@ dialog::backdrop {
   padding-top: 16px;
   border-top: 1px solid var(--border, #283347);
 }
+.application-update-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  border: 1px solid #bb9040;
+  border-radius: 7px;
+  background: #20221d;
+  padding: 14px 20px;
+  margin-bottom: 20px;
+}
+.application-update-banner[hidden] {
+  display: none;
+}
 .preset-export > button {
   margin-top: 12px;
 }

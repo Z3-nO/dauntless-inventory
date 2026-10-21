@@ -1,4 +1,25 @@
-# Dauntless Inventory Live Preview 0.12.1
+# Dauntless Inventory Live Preview 0.13.0
+
+## Automatic application updates
+
+The portable EXE now checks for complete application releases as well as Live modules.
+A signed release downloads automatically while Inventory is open. Choose **Restart and
+update**, or leave **Apply downloaded updates the next time I open Inventory** enabled.
+The original EXE then opens the latest verified managed version; it does not need to be
+replaced or sent again. Existing directories, preferences and character files are kept.
+
+Settings separates **Application updates** from **Live module updates**. Both automatic
+download and activation on next launch can be disabled. A running save finishes before
+the application restarts. The previous EXE remains available if startup fails, and a
+failed update is not retried endlessly. Manifests use the existing Ed25519 trust key;
+EXE files are checked by signed SHA-256 and length before download activation and again
+before each managed launch. This is distinct from Windows Authenticode signing.
+
+Users of 0.12.1 or older need to download 0.13.0 once, because their EXE does not include
+an application updater. Later releases only need publication on the project feed.
+Updating app code does not automatically make unknown future Forever loaders compatible.
+Those still need a tested compatible Live module. The separate local Builder folder is
+included in the full release ZIP; it is not replaced by the Inventory EXE updater.
 
 ## Live module updates and persistent game session
 

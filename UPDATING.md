@@ -45,3 +45,38 @@ For development from Git, use an installed Node 24+ to run
 `node --test Source-Code/tests/*.test.cjs`. The portable release bundles Node; the
 repository excludes that runtime binary and the EXE. The full offline distribution,
 including EXE, source and local Builder, is supplied in GitHub Releases.
+
+## Publishing complete application updates (0.13.0+)
+
+Build the portable EXE and run application/Builder tests, packaged-EXE checks and a
+real restart from an older test version before release. Keep the original `appId`
+and preference location. Give every release its own portable unpack directory.
+
+1. Increase the root application/package-lock version and UI version badge. Preserve
+   all dependency versions. Build with `npm run build`.
+2. Publish the complete corresponding source under tag `vVERSION` and upload the
+   EXE as `DauntlessInventoryLive-VERSION.exe` in that GitHub Release. Keep the full
+   source/Builder ZIP as a separate release asset.
+3. Generate the application manifest using the protected existing release key:
+
+   ```text
+   node Source-Code/scripts/publish-application-update.cjs --source Source-Code --exe dist/DauntlessInventoryLive.exe --out app-updates --key C:/Keys/live-updates-private.pem
+   ```
+
+4. Commit `app-updates/releases/VERSION.json` and publish `app-updates/latest.json`
+   only after the matching source and EXE asset are available. Never change the
+   bytes of a published version. Publish an increased version for corrections.
+5. Publish Live module updates separately with `publish-live-update.cjs`. App and
+   Live module manifests have different kinds and cannot be substituted.
+
+No private key or GitHub token is needed by users. The updater accepts EXE URLs only
+from this repository's versioned releases. GitHub's HTTPS asset redirects are allowed
+only to known GitHub release hosts. Network failures leave the previous app usable.
+The download cache is inside the user's existing preferences under `application-updates`.
+The original EXE acts as the entry point, verifies the cached signed release on each
+start and launches it after the previous editor exits. Only a successful new startup
+activates it. Failed launches leave the earlier version selected.
+
+The handoff helper receives only the editor processes and managed EXE paths. It
+never patches game DLLs or touches character saves. Its job and script remain outside
+the old portable extraction folder so that the old launcher can clean up normally.

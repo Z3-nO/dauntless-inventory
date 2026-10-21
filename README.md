@@ -1,4 +1,25 @@
-# Dauntless Inventory Live Preview 0.12.1
+# Dauntless Inventory Live Preview 0.13.0
+
+## Automatic application updates
+
+The portable EXE now checks for complete application releases as well as Live modules.
+A signed release downloads automatically while Inventory is open. Choose **Restart and
+update**, or leave **Apply downloaded updates the next time I open Inventory** enabled.
+The original EXE then opens the latest verified managed version; it does not need to be
+replaced or sent again. Existing directories, preferences and character files are kept.
+
+Settings separates **Application updates** from **Live module updates**. Both automatic
+download and activation on next launch can be disabled. A running save finishes before
+the application restarts. The previous EXE remains available if startup fails, and a
+failed update is not retried endlessly. Manifests use the existing Ed25519 trust key;
+EXE files are checked by signed SHA-256 and length before download activation and again
+before each managed launch. This is distinct from Windows Authenticode signing.
+
+Users of 0.12.1 or older need to download 0.13.0 once, because their EXE does not include
+an application updater. Later releases only need publication on the project feed.
+Updating app code does not automatically make unknown future Forever loaders compatible.
+Those still need a tested compatible Live module. The separate local Builder folder is
+included in the full release ZIP; it is not replaced by the Inventory EXE updater.
 
 ## Live module updates and persistent game session
 
@@ -223,11 +244,12 @@ Live heartbeat correction: file timestamps and the JavaScript clock are compared
 
 The verified Recruit's Mask is retained at its native level 0 even though its native identifier contains UNEQUIPPED; catalogue filtering does not remove this legitimate starter item.
 
-## Developing from the Git repository
+Version 0.12.1 also tolerates up to 32 ms of Windows file/JavaScript clock skew. Larger future timestamps, stale signals and corrupt snapshots remain blocked. The 0.12.0 signed module is retained unchanged; 0.12.1 has its own signed manifest.
 
-The release ZIP contains the portable EXE and Node runtimes. Git excludes those
-binaries. With Node.js 24 installed, prepare the Inventory runtime before starting
-or building from a clone. Run these commands inside `Source-Code`:
+## Running a Git source checkout
+
+Release ZIPs bundle Node runtimes and the EXE. Git excludes these binaries.
+Install Node.js 24, then run inside `Source-Code`:
 
 ```text
 node -e "require('node:fs').copyFileSync(process.execPath,'runtime/node.exe')"
@@ -237,9 +259,5 @@ npm start
 npm run build
 ```
 
-For the local Builder from Git, use an installed Node.js 24 to run
-`node server.cjs` inside `Builder-Local`. Its release launcher includes its own
-runtime. The signing private key is deliberately absent from source and releases;
-maintainers need their own protected release key to publish trusted modules.
-
-Version 0.12.1 also tolerates up to 32 ms of Windows file/JavaScript clock skew while rejecting larger future timestamps and stale signals.
+For the separate local Builder, run `node server.cjs` inside `Builder-Local`.
+The protected signing key is never included in the repository or ZIP.
