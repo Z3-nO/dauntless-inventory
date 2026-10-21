@@ -1,0 +1,46 @@
+name: Recycle
+description: Dealing repeated damage to the same part grants a stacking damage buff.
+type: Finesse
+effects:
+  '1':
+    description: >-
+      Dealing damage to the same part consecutively grants {{percentIncreasedDamage}}% increased damage. Stacks up to
+      {{maxStacks}} times.
+    values:
+      percentIncreasedDamage: 10
+      maxStacks: 1
+  '2':
+    description: >-
+      Dealing damage to the same part consecutively grants {{percentIncreasedDamage}}% increased damage. Stacks up to
+      {{maxStacks}} times.
+    values:
+      percentIncreasedDamage: 10
+      maxStacks: 2
+  '3':
+    description: >-
+      Dealing damage to the same part consecutively grants {{percentIncreasedDamage}}% increased damage. Stacks up to
+      {{maxStacks}} times.
+    values:
+      percentIncreasedDamage: 10
+      maxStacks: 3
+  '4':
+    description: >-
+      Dealing damage to the same part consecutively grants {{percentIncreasedDamage}}% increased damage. Stacks up to
+      {{maxStacks}} times.
+    values:
+      percentIncreasedDamage: 10
+      maxStacks: 4
+  '5':
+    description: >-
+      Dealing damage to the same part consecutively grants {{percentIncreasedDamage}}% increased damage. Stacks up to
+      {{maxStacks}} times.
+    values:
+      percentIncreasedDamage: 10
+      maxStacks: 5
+  '6':
+    description: >-
+      Dealing damage to the same part consecutively grants {{percentIncreasedDamage}}% increased damage. Stacks up to
+      {{maxStacks}} times.
+    values:
+      percentIncreasedDamage: 10
+      maxStacks: 6

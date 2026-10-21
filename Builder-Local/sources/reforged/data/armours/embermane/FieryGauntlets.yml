@@ -1,0 +1,18 @@
+name: Fiery Gauntlets
+description: "{{typeAlt}} protection forged from {{behemoth}} trophies."
+behemoth: Embermane
+icon: /assets/icons/armours/embermane/FieryGauntlets.png
+type: Arms
+strength: Blaze
+weakness: Frost
+cells: Finesse
+resistance:
+  base: 5
+  powerSurged: 30
+perks:
+  - name: Endurance
+    value: 1
+    powerSurged: false
+  - name: Endurance
+    value: 3
+    powerSurged: true

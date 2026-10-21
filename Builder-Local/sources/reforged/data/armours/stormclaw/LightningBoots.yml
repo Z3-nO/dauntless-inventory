@@ -1,0 +1,18 @@
+name: Lightning Boots
+description: "{{typeAlt}} protection forged from {{behemoth}} trophies."
+behemoth: Stormclaw
+icon: /assets/icons/armours/stormclaw/LightningBoots.png
+type: Legs
+strength: Shock
+weakness: Terra
+cells: Alacrity
+resistance:
+  base: 20
+  powerSurged: 30
+perks:
+  - name: Aetheric Evasion
+    value: 2
+    powerSurged: false
+  - name: Aetheric Evasion
+    value: 3
+    powerSurged: true

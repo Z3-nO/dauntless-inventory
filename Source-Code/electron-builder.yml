@@ -1,0 +1,34 @@
+appId: com.dauntless.materiali.livepreview
+productName: Dauntless Inventory Live Preview
+artifactName: DauntlessInventoryLive.exe
+asar: true
+files:
+  - main.cjs
+  - preload.cjs
+  - package.json
+extraResources:
+  - from: .
+    to: tool
+    filter:
+      - "**/*"
+      - "!Anteprima*.png"
+      - "!Launcher.cs"
+      - "!Build.ps1"
+      - "!Avvia.*"
+      - "!Chiudi.*"
+      - "!logs/**/*"
+      - "!node_modules/**/*"
+      - "!dist/**/*"
+win:
+  target:
+    - target: portable
+      arch: x64
+  icon: assets/helmet.ico
+  signAndEditExecutable: true
+  signExecutable: false
+portable:
+  unpackDirName: dauntless-materiali-live-0120
+directories:
+  output: dist
+
+compression: normal

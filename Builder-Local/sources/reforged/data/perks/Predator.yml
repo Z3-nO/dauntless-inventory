@@ -1,0 +1,46 @@
+name: Predator
+description: Increases damage after avoiding damage for a short time.
+type: Finesse
+effects:
+  '1':
+    description: >-
+      After not taking hostile damage for {{damageTime}} seconds, deal +{{percentDamage}}%
+      damage - bonus lost when hit.
+    values:
+      percentDamage: 4
+      damageTime: 15
+  '2':
+    description: >-
+      After not taking hostile damage for {{damageTime}} seconds, deal +{{percentDamage}}%
+      damage - bonus lost when hit.
+    values:
+      percentDamage: 8
+      damageTime: 15
+  '3':
+    description: >-
+      After not taking hostile damage for {{damageTime}} seconds, deal +{{percentDamage}}%
+      damage - bonus lost when hit.
+    values:
+      percentDamage: 14
+      damageTime: 15
+  '4':
+    description: >-
+      After not taking hostile damage for {{damageTime}} seconds, deal +{{percentDamage}}%
+      damage - bonus lost when hit.
+    values:
+      percentDamage: 20
+      damageTime: 15
+  '5':
+    description: >-
+      After not taking hostile damage for {{damageTime}} seconds, deal +{{percentDamage}}%
+      damage - bonus lost when hit.
+    values:
+      percentDamage: 27
+      damageTime: 15
+  '6':
+    description: >-
+      After not taking hostile damage for {{damageTime}} seconds, deal +{{percentDamage}}%
+      damage - bonus lost when hit.
+    values:
+      percentDamage: 35
+      damageTime: 15

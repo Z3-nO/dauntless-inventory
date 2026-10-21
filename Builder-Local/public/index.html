@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover"
+    />
+    <title>Dauntless Forever Builder · Local</title>
+    <meta
+      name="description"
+      content="Local build planner and complete item catalogue for Dauntless Forever 1.6.2 and 1.14.7."
+    />
+    <link rel="stylesheet" href="/fonts.css" />
+    <link rel="icon" type="image/webp" href="/assets/helmet.webp" />
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/local.css" />
+    <script type="module" src="/app.js"></script>
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="top">
+        <div class="brand">
+          <img src="/assets/helmet.webp" alt="Dauntless Forever helmet" />
+          <h1>
+            <small id="version-label">For Dauntless 1.6.2</small>Dauntless
+            Forever Builder
+          </h1>
+        </div>
+        <p id="version-description">
+          Choose equipment and cells, then export your build.
+        </p>
+      </header>
+      <div class="bar version-bar">
+        <label for="game-version">Game version</label>
+        <select id="game-version">
+          <option value="1.6.2">1.6.2 · Classic</option>
+          <option value="1.14.7">1.14.7 · Reforged</option>
+        </select>
+        <nav aria-label="Workspace">
+          <button
+            class="btn tab on"
+            id="tab-planner"
+            type="button"
+            aria-pressed="true"
+          >
+            Build planner</button
+          ><button
+            class="btn tab"
+            id="tab-catalogue"
+            type="button"
+            aria-pressed="false"
+          >
+            Item catalogue
+          </button>
+        </nav>
+        <span class="note local-badge">LOCAL · OFFLINE</span>
+      </div>
+      <div class="bar">
+        <span class="flag" id="example-flag" hidden>Example build</span>
+        <button class="btn primary" id="b-card" type="button">Make card</button>
+        <button class="btn" id="b-copytext" type="button">Copy as text</button>
+        <button class="btn" id="b-reset" type="button">Start empty</button>
+        <button class="btn" id="b-library" type="button">Saved builds</button>
+        <button class="btn" id="b-import" type="button">Import build</button>
+        <button class="btn" id="b-export" type="button">Export build</button>
+        <button
+          class="btn"
+          id="b-theme"
+          type="button"
+          aria-label="Switch between dark and light"
+        >
+          Light mode
+        </button>
+        <span class="note" id="msg" role="status" aria-live="polite"></span>
+      </div>
+      <section id="planner-view" aria-label="Build planner">
+        <div class="bar name-bar">
+          <label for="build-name">Build name</label
+          ><input
+            id="build-name"
+            placeholder="Untitled build"
+            maxlength="80"
+          /><button class="btn" id="b-save" type="button">Save build</button
+          ><label class="note new-filter" id="new-gear-label" hidden
+            ><input type="checkbox" id="new-gear" /> Show new gear in
+            pickers</label
+          >
+        </div>
+        <div class="grid">
+          <section class="rack" id="rack" aria-label="Gear"></section>
+          <aside class="side">
+            <div class="warnbox" id="warn" hidden></div>
+            <div class="card">
+              <h2>Stats</h2>
+              <div class="stats" id="stats"></div>
+              <div class="elems" id="elems"></div>
+            </div>
+            <div class="card">
+              <h2>Perks <span id="perk-count"></span></h2>
+              <div class="perks" id="perks"></div>
+            </div>
+            <div class="card">
+              <h2>Unique effects</h2>
+              <div class="ue" id="ue"></div>
+            </div>
+            <div class="card">
+              <h2>Build code <span>paste one to load it</span></h2>
+              <div class="codebox">
+                <input
+                  id="code"
+                  aria-label="Build code"
+                  spellcheck="false"
+                  autocomplete="off"
+                /><button class="btn primary" id="b-copycode" type="button">
+                  Copy code</button
+                ><button class="btn" id="b-load" type="button">Load</button>
+              </div>
+              <p class="note" id="format-note"></p>
+            </div>
+          </aside>
+        </div>
+      </section>
+      <section id="catalogue-view" aria-label="Item catalogue" hidden>
+        <div class="card">
+          <h2>Item catalogue <span id="catalogue-count"></span></h2>
+          <p class="note">
+            Items from the selected game version. Select supported equipment to
+            add it to your build.
+          </p>
+          <div class="catalogue-tools">
+            <input
+              type="search"
+              id="catalogue-search"
+              placeholder="Search item names or codes"
+              aria-label="Search catalogue"
+            /><select id="catalogue-group" aria-label="Catalogue category">
+              <option value="">All categories</option></select
+            ><label class="note"
+              ><input type="checkbox" id="catalogue-new" /> New identifiers
+              since 1.6.2</label
+            >
+          </div>
+        </div>
+        <div id="catalogue-items" class="catalogue-items"></div>
+        <div class="bar pagination">
+          <button class="btn" id="catalogue-prev">Previous</button
+          ><span class="note" id="catalogue-page"></span
+          ><button class="btn" id="catalogue-next">Next</button>
+        </div>
+      </section>
+      <footer>
+        <p class="foot">
+          Local adaptation of
+          <a href="https://builder.dauntlessforever.com/"
+            >Dauntless Forever Builder</a
+          >
+          by A2K (Addison2k). Catalogue data from
+          <a href="https://github.com/addison2k/DauntlessForever"
+            >Dauntless Forever</a
+          >; gear and perk data from
+          <a href="https://github.com/atomicptr/dauntless-builder-legacy"
+            >Dauntless Builder legacy</a
+          >
+          and
+          <a href="https://github.com/atomicptr/dauntless-builder-reforged"
+            >Dauntless Builder Reforged</a
+          >
+          by atomicptr and contributors.
+        </p>
+        <p class="foot by">
+          AGPL-3.0-only ·
+          <a href="/README.md" target="_blank"
+            >Readme, data sources and limits</a
+          >
+          · <a href="/LICENSE" target="_blank">Licence</a>. Dauntless and game
+          artwork belong to their respective rights holders. Unofficial fan
+          project.
+        </p>
+      </footer>
+    </div>
+    <dialog id="dlg" aria-labelledby="dlg-title">
+      <div class="dlg">
+        <div class="dlg-head">
+          <h3 id="dlg-title">Pick</h3>
+          <button class="xbtn" id="dlg-x" type="button" aria-label="Close">
+            ×
+          </button>
+        </div>
+        <div class="dlg-tools">
+          <input
+            id="dlg-q"
+            type="search"
+            placeholder="Search"
+            autocomplete="off"
+            aria-label="Search gear"
+          />
+          <div class="chips" id="dlg-chips"></div>
+        </div>
+        <div class="list" id="dlg-list"></div>
+      </div>
+    </dialog>
+    <dialog id="cdlg" aria-labelledby="cdlg-title">
+      <div class="dlg cdlg">
+        <div class="dlg-head">
+          <h3 id="cdlg-title">Build card</h3>
+          <button
+            class="xbtn"
+            id="cdlg-x"
+            type="button"
+            aria-label="Close card"
+          >
+            ×
+          </button>
+        </div>
+        <canvas
+          id="card-canvas"
+          width="1200"
+          height="675"
+          aria-label="Build card"
+        ></canvas>
+        <div class="cdlg-bar">
+          <button class="btn primary" id="b-card-copy" type="button">
+            Copy image</button
+          ><button class="btn" id="b-card-dl" type="button">Download PNG</button
+          ><span class="note" id="cdlg-msg" role="status"></span>
+        </div>
+        <p class="note">
+          Share the image with friends. Use Copy code or Export build for the
+          complete, importable build.
+        </p>
+      </div>
+    </dialog>
+    <dialog id="library" aria-labelledby="library-title">
+      <div class="dlg">
+        <div class="dlg-head">
+          <h3 id="library-title">Saved builds</h3>
+          <button
+            class="xbtn"
+            id="library-close"
+            aria-label="Close saved builds"
+          >
+            ×
+          </button>
+        </div>
+        <div id="library-list" class="list"></div>
+      </div>
+    </dialog>
+    <input type="file" id="build-file" accept=".json,.txt,.dfbuild" hidden />
+    <noscript><p>Enable JavaScript to use the local Builder.</p></noscript>
+  </body>
+</html>

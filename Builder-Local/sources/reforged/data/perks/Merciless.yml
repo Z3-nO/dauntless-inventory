@@ -1,0 +1,45 @@
+name: Merciless
+description: >-
+  Increases Wound damage against Staggered behemoths. At later ranks, increases
+  wound duration.
+type: Finesse
+effects:
+  '1':
+    description:
+      - +{{woundDamageVsStaggered}} wound damage vs staggered Behemoths
+      - null
+    values:
+      woundDamageVsStaggered: 40
+  '2':
+    description:
+      - +{{woundDamageVsStaggered}} wound damage vs staggered Behemoths
+      - null
+    values:
+      woundDamageVsStaggered: 60
+  '3':
+    description:
+      - +{{woundDamageVsStaggered}} wound damage vs staggered Behemoths
+      - null
+    values:
+      woundDamageVsStaggered: 80
+  '4':
+    description:
+      - +{{woundDamageVsStaggered}} wound damage vs staggered Behemoths
+      - Increases the duration a part stays wounded by {{percentWoundDuration}}%.
+    values:
+      woundDamageVsStaggered: 100
+      percentWoundDuration: 20
+  '5':
+    description:
+      - +{{woundDamageVsStaggered}} wound damage vs staggered Behemoths
+      - Increases the duration a part stays wounded by {{percentWoundDuration}}%.
+    values:
+      woundDamageVsStaggered: 115
+      percentWoundDuration: 40
+  '6':
+    description:
+      - +{{woundDamageVsStaggered}} wound damage vs staggered Behemoths
+      - Increases the duration a part stays wounded by {{percentWoundDuration}}%.
+    values:
+      woundDamageVsStaggered: 130
+      percentWoundDuration: 60

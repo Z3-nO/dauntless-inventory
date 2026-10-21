@@ -1,0 +1,37 @@
+name: Brutality of Boreus
+description: A Slayer's {{type}} forged with {{behemoth}} trophies.
+behemoth: Boreus
+icon: /assets/icons/weapons/boreus/BrutalityOfBoreus.png
+type: Hammer
+damage: Blunt
+elemental: Frost
+cells:
+  - Brutality
+  - Fortitude
+power:
+  base: 20
+  powerSurged: 120
+perks:
+  - name: Conditioning
+    value: 1
+    powerSurged: false
+  - name: Conditioning
+    value: 3
+    powerSurged: true
+unique_effects:
+  - name: BoreusFrostSprite
+    description: &boreusUeDescription >-
+      After spending ammo, generate generate {{spriteGenerate}} Frost Sprites that grant your
+      next attack +{{spriteDamage}} damage and minor frost damage (Max {{spriteMaxSprites}} Sprites)
+    values:
+      spriteGenerate: 2
+      spriteDamage: 30
+      spriteMaxSprites: 4
+    powerSurged: false
+  - name: BoreusFrostSprite
+    description: *boreusUeDescription
+    values:
+      spriteGenerate: 2
+      spriteDamage: 60
+      spriteMaxSprites: 4
+    powerSurged: true

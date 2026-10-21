@@ -1,0 +1,18 @@
+name: Light's Virtue
+description: "{{typeAlt}} protection forged from {{behemoth}} trophies."
+behemoth: Rezakiri
+icon: /assets/icons/armours/rezakiri/LightsVirtue.png
+type: Torso
+strength: Radiant
+weakness: Umbral
+cells: Insight
+resistance:
+  base: 20
+  powerSurged: 30
+perks:
+  - name: Cunning
+    value: 2
+    powerSurged: false
+  - name: Cunning
+    value: 3
+    powerSurged: true

@@ -1,0 +1,34 @@
+name: Ember Cutlass
+description: A Slayer's {{type}} forged with {{behemoth}} trophies.
+behemoth: Embermane
+icon: /assets/icons/weapons/embermane/EmberCutlass.png
+type: Sword
+damage: Slashing
+elemental: Blaze
+cells:
+  - Finesse
+  - Alacrity
+power:
+  base: 20
+  powerSurged: 120
+perks:
+  - name: Evasive Fury
+    value: 1
+    powerSurged: false
+  - name: Evasive Fury
+    value: 3
+    powerSurged: true
+unique_effects:
+  - name: HitPartDamage
+    description: &embermaneUeDescription >-
+      The {{hitSuccession}}th hit in a row deals +{{bonusDamage}}% part damage
+    values:
+      hitSuccession: 6
+      bonusDamage: 100
+    powerSurged: false
+  - name: HitPartDamage
+    description: *embermaneUeDescription
+    values:
+      hitSuccession: 6
+      bonusDamage: 250
+    powerSurged: true

@@ -1,0 +1,8 @@
+name: Extraction Catalyst
+icon: /assets/icons/parts/repeaters/mods/ExtractionCatalyst.png
+part_effect:
+  - >-
+    Reduce both ability cooldowns by {{cooldownReduction}} seconds when dodging through Behemoth
+    attacks.
+values:
+  cooldownReduction: 2

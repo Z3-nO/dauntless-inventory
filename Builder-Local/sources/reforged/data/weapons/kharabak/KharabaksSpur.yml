@@ -1,0 +1,34 @@
+name: Kharabak's Spur
+description: A Slayer's {{type}} forged with {{behemoth}} trophies.
+behemoth: Kharabak
+icon: /assets/icons/weapons/kharabak/KharabaksSpur.png
+type: Sword
+damage: Slashing
+elemental: Terra
+cells:
+  - Finesse
+  - Alacrity
+power:
+  base: 40
+  powerSurged: 120
+perks:
+  - name: Bladestorm
+    value: 1
+    powerSurged: false
+  - name: Bladestorm
+    value: 3
+    powerSurged: true
+unique_effects:
+  - name: KharabacBlades
+    description: &kharabakUeDescription >-
+      Once charged, your next attack unleashes whirling blades that deal {{damage}}
+      terra damage. Additional attacks speed up the blades, which explode at the
+      end of the duration and deal damage based on blade speed.
+    values:
+      damage: 25
+    powerSurged: false
+  - name: KharabacBlades
+    description: *kharabakUeDescription
+    values:
+      damage: 75
+    powerSurged: true

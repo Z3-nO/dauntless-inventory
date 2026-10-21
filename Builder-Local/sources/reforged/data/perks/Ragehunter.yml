@@ -1,0 +1,28 @@
+name: Ragehunter
+description: Increases damage against enraged Behemoths.
+type: Brutality
+effects:
+  '1':
+    description: +{{percentDamageVsEnraged}}% Damage vs Enraged Behemoths
+    values:
+      percentDamageVsEnraged: 5
+  '2':
+    description: +{{percentDamageVsEnraged}}% Damage vs Enraged Behemoths
+    values:
+      percentDamageVsEnraged: 10
+  '3':
+    description: +{{percentDamageVsEnraged}}% Damage vs Enraged Behemoths
+    values:
+      percentDamageVsEnraged: 15
+  '4':
+    description: +{{percentDamageVsEnraged}}% Damage vs Enraged Behemoths
+    values:
+      percentDamageVsEnraged: 20
+  '5':
+    description: +{{percentDamageVsEnraged}}% Damage vs Enraged Behemoths
+    values:
+      percentDamageVsEnraged: 30
+  '6':
+    description: +{{percentDamageVsEnraged}}% Damage vs Enraged Behemoths
+    values:
+      percentDamageVsEnraged: 40

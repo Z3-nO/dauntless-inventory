@@ -1,0 +1,42 @@
+name: Pangar's Punishers
+description: A Slayer's {{type}} forged with {{behemoth}} trophies.
+behemoth: Pangar
+icon: /assets/icons/weapons/pangar/PangarsPunishers.png
+type: Aether Strikers
+damage: Blunt
+elemental: Frost
+cells:
+  - Finesse
+  - Fortitude
+power:
+  base: 40
+  powerSurged: 120
+perks:
+  - name: Knockout King
+    value: 1
+    powerSurged: false
+  - name: Knockout King
+    value: 3
+    powerSurged: true
+unique_effects:
+  - name: PangarBomb
+    description: &pangarUeDescription >-
+      Once charged, your next attack places a frost brand that deals {{damage}} frost
+      damage after {{time}} seconds. Slayers
+
+      can destroy the brand, prematurely detonating it for {{damagePrematurely}}% increased damage.
+      Charges every {{cooldown}} seconds.
+    values:
+      damage: 1000
+      time: 30
+      damagePrematurely: 50
+      cooldown: 90
+    powerSurged: false
+  - name: PangarBomb
+    description: *pangarUeDescription
+    values:
+      damage: 2500
+      time: 30
+      damagePrematurely: 50
+      cooldown: 90
+    powerSurged: true

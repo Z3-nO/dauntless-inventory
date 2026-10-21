@@ -1,0 +1,29 @@
+name: Chaos & Entropy
+description: A Slayer's {{type}} forged with {{behemoth}} trophies.
+behemoth: Chronovore
+icon: /assets/icons/weapons/chronovore/ChaosAndEntropy.png
+type: Aether Strikers
+damage: Blunt
+elemental: Radiant
+cells:
+  - Prismatic
+  - Prismatic
+power:
+  base: 100
+  powerSurged: 120
+bond:
+  elemental: Radiant
+unique_effects:
+  - name: ChronovoreLegendaryAbility
+    description: &chronovoreUeDescription >-
+      Legendary Ability: Rewind to your position {{rewindTime}} seconds prior to activation.
+      Restores health and stamina lost
+
+      in that time, and removes debuffs. Become invulnerable and gain increased
+      move speed for {{moveSpeedTime}} seconds. Usable
+
+      while downed. Resets on Behemoth kill or after {{killResetTime}} seconds.
+    values:
+      rewindTime: 3
+      moveSpeedTime: 6
+      killResetTime: 90

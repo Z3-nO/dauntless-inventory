@@ -1,0 +1,24 @@
+DAUNTLESS BUILDER LOCALE — 1.6.2 E 1.14.7
+
+1. Estrai tutta la cartella dallo ZIP.
+2. Apri Start-Builder.cmd. Il sito si apre nel browser.
+3. Seleziona la versione dal menu Game version.
+4. Clicca su armi, armature e celle per preparare una build.
+
+Saved builds: salva le build nel browser di questo PC.
+Export build / Import build: scambia file di build tra PC.
+Copy code / Load: copia o carica codici 162 oppure 1147.
+Make card: crea un'immagine condivisibile della build.
+Item catalogue: consulta tutti gli oggetti dei due cataloghi.
+
+Tieni aperta la finestra del programma mentre usi il sito.
+Chiudila per arrestare il server locale. Non serve Internet durante l'uso.
+Non aprire direttamente public/index.html: usa Start-Builder.cmd.
+
+Questo sito pianifica build e non modifica i salvataggi del gioco.
+I codici 162 restano compatibili con il Builder originale e con l'editor.
+Per applicare una build 1147 al personaggio usa Dauntless Inventory 0.6.0:
+chiudi gioco e server, scegli 1.14.7, collega il personaggio e apri il file
+esportato oppure incolla il codice. Seleziona lo slot e conferma backup e importazione.
+
+Licenza AGPL-3.0-only. Crediti, fonti dati e limiti in README.md e NOTICE.txt.

@@ -1,0 +1,18 @@
+name: Malkarion's Sight
+description: "{{typeAlt}} protection forged from {{behemoth}} trophies."
+behemoth: Malkarion
+icon: /assets/icons/armours/malkarion/MalkarionsSight.png
+type: Head
+strength: Shock
+weakness: Terra
+cells: Alacrity
+resistance:
+  base: 25
+  powerSurged: 30
+perks:
+  - name: Grace
+    value: 2
+    powerSurged: false
+  - name: Grace
+    value: 3
+    powerSurged: true

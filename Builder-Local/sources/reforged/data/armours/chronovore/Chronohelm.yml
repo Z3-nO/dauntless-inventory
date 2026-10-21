@@ -1,0 +1,18 @@
+name: Chronohelm
+description: "{{typeAlt}} protection forged from {{behemoth}} trophies."
+behemoth: Chronovore
+icon: /assets/icons/armours/chronovore/Chronohelm.png
+type: Head
+strength: Radiant
+weakness: Umbral
+cells: Brutality
+resistance:
+  base: 25
+  powerSurged: 30
+perks:
+  - name: Zeal
+    value: 2
+    powerSurged: false
+  - name: Zeal
+    value: 3
+    powerSurged: true

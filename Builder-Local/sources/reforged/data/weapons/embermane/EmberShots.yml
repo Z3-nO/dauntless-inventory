@@ -1,0 +1,34 @@
+name: Ember Shots
+description: A Slayer's {{type}} forged with {{behemoth}} trophies.
+behemoth: Embermane
+icon: /assets/icons/weapons/embermane/EmberShots.png
+type: Repeater
+damage: Slashing
+elemental: Blaze
+cells:
+  - Finesse
+  - Alacrity
+power:
+  base: 20
+  powerSurged: 120
+perks:
+  - name: Evasive Fury
+    value: 1
+    powerSurged: false
+  - name: Evasive Fury
+    value: 3
+    powerSurged: true
+unique_effects:
+  - name: HitBonusPercentDamage
+    description: &embermaneUeDescription >-
+      The {{hitSuccession}}th hit in a row deals +{{percentPartDamage}}% part damage
+    values:
+      hitSuccession: 6
+      percentPartDamage: 150
+    powerSurged: false
+  - name: HitBonusPercentDamage
+    description: *embermaneUeDescription
+    values:
+      hitSuccession: 6
+      percentPartDamage: 250
+    powerSurged: true

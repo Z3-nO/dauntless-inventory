@@ -1,0 +1,18 @@
+name: Adversary's Drive
+description: "{{typeAlt}} protection forged from {{behemoth}} trophies."
+behemoth: Urska
+icon: /assets/icons/armours/urska/AdversarysDrive.png
+type: Legs
+strength: Frost
+weakness: Blaze
+cells: Insight
+resistance:
+  base: 25
+  powerSurged: 30
+perks:
+  - name: Guardian
+    value: 2
+    powerSurged: false
+  - name: Guardian
+    value: 3
+    powerSurged: true

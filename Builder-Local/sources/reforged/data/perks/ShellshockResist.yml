@@ -1,0 +1,26 @@
+name: Shellshock Resist
+description: Protects against the explosion damage and status effect of Shellshock.
+type: Fortitude
+effects:
+  '1':
+    description: Reduces shellshocked explosion damage and status effect duration by {{percentShockedReduction}}%
+    values:
+      percentShockedReduction: 10
+  '2':
+    description: Reduces shellshocked explosion damage and status effect duration by {{percentShockedReduction}}%
+    values:
+      percentShockedReduction: 20
+  '3':
+    description: Reduces shellshocked explosion damage and status effect duration by {{percentShockedReduction}}%
+    values:
+      percentShockedReduction: 40
+  '4':
+    description: Reduces shellshocked explosion damage and status effect duration by {{percentShockedReduction}}%
+    values:
+      percentShockedReduction: 60
+  '5':
+    description: Reduces shellshocked explosion damage and status effect duration by {{percentShockedReduction}}%
+    values:
+      percentShockedReduction: 80
+  '6':
+    description: Immune to shellshocked explosion damage and status effect

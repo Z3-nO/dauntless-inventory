@@ -1,0 +1,22 @@
+name: Voidbane
+description: A Slayer's {{type}} forged with {{behemoth}} trophies.
+behemoth: Thrax
+icon: /assets/icons/weapons/thrax/Voidbane.png
+type: Sword
+damage: Slashing
+elemental: Umbral
+cells:
+  - Prismatic
+  - Prismatic
+power:
+  base: 100
+  powerSurged: 120
+bond:
+  elemental: Umbral
+unique_effects:
+  - name: ThraxLegendaryAbility
+    icon: /assets/icons/abilities/ThraxLegendaryWeaponAbility.png
+    description: >-
+      Legendary Ability: Deal umbral damage to nearby enemies and teleport high
+      into the sky. Then choose a spot to slam down on to, dealing additional
+      umbral damage. Usable once, but resets on Behemoth kill.

@@ -1,0 +1,18 @@
+name: Thrax's Embrace
+description: "{{typeAlt}} protection forged from {{behemoth}} trophies."
+behemoth: Thrax
+icon: /assets/icons/armours/thrax/ThraxsEmbrace.png
+type: Arms
+strength: Umbral
+weakness: Radiant
+cells: Brutality
+resistance:
+  base: 25
+  powerSurged: 30
+perks:
+  - name: Nine Lives
+    value: 2
+    powerSurged: false
+  - name: Nine Lives
+    value: 3
+    powerSurged: true

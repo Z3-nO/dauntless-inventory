@@ -1,0 +1,45 @@
+name: Pulse
+description: >-
+  Guarantees a critical hit after a number of hits. At higher ranks, also
+  increases critical damage.
+type: Finesse
+effects:
+  '1':
+    description:
+      - Every {{hits}}th hit with your weapon is a critical hit.
+      - null
+    values:
+      hits: 10
+  '2':
+    description:
+      - Every {{hits}}th hit with your weapon is a critical hit.
+      - null
+    values:
+      hits: 9
+  '3':
+    description:
+      - Every {{hits}}th hit with your weapon is a critical hit.
+      - null
+    values:
+      hits: 8
+  '4':
+    description:
+      - Every {{hits}}th hit with your weapon is a critical hit.
+      - +{{percentCritDamage}}% critical strike damage
+    values:
+      hits: 7
+      percentCritDamage: 5
+  '5':
+    description:
+      - Every {{hits}}th hit with your weapon is a critical hit.
+      - +{{percentCritDamage}}% critical strike damage
+    values:
+      hits: 6
+      percentCritDamage: 10
+  '6':
+    description:
+      - Every {{hits}}th hit with your weapon is a critical hit.
+      - +{{percentCritDamage}}% critical strike damage
+    values:
+      hits: 5
+      percentCritDamage: 15

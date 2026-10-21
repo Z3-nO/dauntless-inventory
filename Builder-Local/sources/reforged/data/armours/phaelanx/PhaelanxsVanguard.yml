@@ -1,0 +1,18 @@
+name: Phaelanx's Vanguard
+description: "{{typeAlt}} protection forged from {{behemoth}} trophies."
+behemoth: Phaelanx
+icon: /assets/icons/armours/phaelanx/PhaelanxsVanguard.png
+type: Torso
+strength: Blaze
+weakness: Frost
+cells: Fortitude
+resistance:
+  base: 20
+  powerSurged: 30
+perks:
+  - name: Parasitic
+    value: 2
+    powerSurged: false
+  - name: Parasitic
+    value: 3
+    powerSurged: true

@@ -1,0 +1,34 @@
+name: Inferno's Razor
+description: A Slayer's {{type}} forged with {{behemoth}} trophies.
+behemoth: Hellion
+icon: /assets/icons/weapons/hellion/InfernosRazor.png
+type: Sword
+damage: Cutting
+elemental: Blaze
+cells:
+  - Brutality
+  - Brutality
+power:
+  base: 80
+  powerSurged: 120
+perks:
+  - name: Overpower
+    value: 2
+    powerSurged: false
+  - name: Overpower
+    value: 3
+    powerSurged: true
+unique_effects:
+  - name: BlazeDamageOnNthHit
+    description: &hellionUeDescription >-
+      The {{hitCount}}th hit in a row deals +{{damage}} damage and major blaze damage
+    values:
+      hitCount: 8
+      damage: 150
+    powerSurged: false
+  - name: BlazeDamageOnNthHit
+    description: *hellionUeDescription
+    values:
+      hitCount: 8
+      damage: 225
+    powerSurged: true

@@ -1,0 +1,31 @@
+name: Tragic Echo
+description: >-
+  Tragic Echo is a piece of craftable Exotic armour in Dauntless. It is crafted
+  from Shrowd reagents.
+behemoth: Shrowd
+icon: /assets/icons/armours/shrowd/TragicEcho.png
+type: Head
+strength: Umbral
+weakness: Radiant
+cells: Brutality
+rarity: exotic
+resistance:
+  base: 20
+  powerSurged: 30
+perks:
+  - name: Rage
+    value: 2
+    powerSurged: false
+  - name: Rage
+    value: 3
+    powerSurged: true
+unique_effects:
+  - name: TragicEchoDamageIncrease
+    icon: /assets/icons/abilities/TragicEchoBuff.png
+    description: &shrowdUeDescription >-
+      Upon your first death, become a shadow clone that deals {{damage}}% increased
+      damage for {{damageTime}} seconds.
+    values:
+      damage: 100
+      damageTime: 15
+

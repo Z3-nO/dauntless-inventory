@@ -1,0 +1,17 @@
+name: Timeweave Robes
+description: "{{typeAlt}} protection, part of the Timeweave set."
+icon: /assets/icons/armours/timeweave/TimeweaveRobes.png
+type: Torso
+strength: Radiant
+weakness: Umbral
+cells: Brutality
+resistance:
+  base: 20
+  powerSurged: 30
+perks:
+  - name: Overpower
+    value: 2
+    powerSurged: false
+  - name: Overpower
+    value: 3
+    powerSurged: true

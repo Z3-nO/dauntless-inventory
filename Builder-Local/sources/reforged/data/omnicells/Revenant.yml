@@ -1,0 +1,24 @@
+name: Revenant
+icon: /assets/icons/omnicells/Revenant.png
+ability_icon: /assets/icons/omnicells/RevenantAbility.png
+passive: >-
+  Lifesteal +{{percentLifesteal}}%. When Revenant state ends, each stack of Void
+  Energy grants {{health}} health per second for {{healthTime}} seconds.
+active: >-
+  Drain up to {{healthDrain}} health to enter Revenant state and spawn a Void Orb.
+  For every {{drainedHealth}} health drained, summon an Umbral Tendril that deals
+  {{umbralDamage}} umbral damage. If an Umbral Tendril hits a target, it spawns an
+  additional Void Orb upon impact. Picking up a Void Orb grants a stack of Void Energy, 
+  which gives +{{percentDamage}}% damage and extends Revenant state by {{revenantDurationExtend}} 
+  second. Revenant state lasts for {{revenantTime}} seconds and prevents all healing.
+passive_values:
+  percentLifesteal: 2
+  health: 115
+  healthTime: 10
+active_values:
+  healthDrain: 500
+  drainedHealth: 100
+  umbralDamage: 700
+  percentDamage: 4
+  revenantDurationExtend: 1
+  revenantTime: 15

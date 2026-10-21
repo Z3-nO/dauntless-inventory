@@ -1,0 +1,18 @@
+name: Hellplate Cuirass
+description: "{{typeAlt}} protection forged from {{behemoth}} trophies."
+behemoth: Hellion
+icon: /assets/icons/armours/hellion/HellplateCuirass.png
+type: Torso
+strength: Blaze
+weakness: Frost
+cells: Finesse
+resistance:
+  base: 20
+  powerSurged: 30
+perks:
+  - name: Molten
+    value: 2
+    powerSurged: false
+  - name: Molten
+    value: 3
+    powerSurged: true

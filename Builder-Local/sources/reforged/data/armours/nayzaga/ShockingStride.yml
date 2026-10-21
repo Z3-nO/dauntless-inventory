@@ -1,0 +1,18 @@
+name: Shocking Stride
+description: "{{typeAlt}} protection forged from {{behemoth}} trophies."
+behemoth: Nayzaga
+icon: /assets/icons/armours/nayzaga/ShockingStride.png
+type: Legs
+strength: Shock
+weakness: Terra
+cells: Fortitude
+resistance:
+  base: 10
+  powerSurged: 30
+perks:
+  - name: Energized
+    value: 1
+    powerSurged: false
+  - name: Energized
+    value: 3
+    powerSurged: true

@@ -1,0 +1,17 @@
+✔ Classic 162 codes preserve original indexes and the complete original build (1.7291ms)
+✔ Modern build roundtrip retains stable item keys, levels, parts, omnicell, bond and all cells (0.7011ms)
+✔ Malformed and incompatible modern imports fail rather than discard selected items (1.895ms)
+✔ Every modern weapon and armour piece survives code export/import at its supported level (10.0987ms)
+✔ Modern sockets reject legacy families, wrong ranks and incompatible cell placement (0.5868ms)
+✔ Both catalogues retain every source entry and all new identifiers (33.2739ms)
+✔ Legacy metadata is preserved while modern balance and templates remain separate (5.1934ms)
+✔ Every planner icon resolves offline and every category has unique stable keys (28.2505ms)
+✔ Local server serves both versions and refuses writes, traversal, nonlocal hosts and runtime downloads (134.3144ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 289.9917

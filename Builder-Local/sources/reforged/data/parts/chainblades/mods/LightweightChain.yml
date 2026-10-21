@@ -1,0 +1,10 @@
+name: Lightweight Chain
+icon: /assets/icons/parts/chainblades/mods/LightweightChain.png
+part_effect:
+  - >-
+    Increase the length of your chains by +{{lengthBonus}}%. Your Chain Pull deals +{{damage}}%
+    damage and generates an additional {{meter}} meter.
+values:
+  lengthBonus: 25
+  damage: 25
+  meter: 20

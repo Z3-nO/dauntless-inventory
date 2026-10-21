@@ -1,0 +1,49 @@
+name: Barbed
+description: Adds a flat amount of Wound damage on hit.
+type: Finesse
+effects:
+  '1':
+    description:
+      - +{{woundDamage}} wound damage
+      - null
+    values:
+      woundDamage: 10
+  '2':
+    description:
+      - +{{woundDamage}} wound damage
+      - null
+    values:
+      woundDamage: 20
+  '3':
+    description:
+      - +{{woundDamage}} wound damage
+      - null
+    values:
+      woundDamage: 30
+  '4':
+    description:
+      - +{{woundDamage}} wound damage
+      - >-
+        After dodging through an attack,
+        your next attack deals +{{woundDamageNextAttack}} wound damage
+    values:
+      woundDamage: 40
+      woundDamageNextAttack: 250
+  '5':
+    description:
+      - +{{woundDamage}} wound damage
+      - >-
+        After dodging through an attack,
+        your next attack deals +{{woundDamageNextAttack}} wound damage
+    values:
+      woundDamage: 50
+      woundDamageNextAttack: 350
+  '6':
+    description:
+      - +{{woundDamage}} wound damage
+      - >-
+        After dodging through an attack,
+        your next attack deals +{{woundDamageNextAttack}} wound damage
+    values:
+      woundDamage: 60
+      woundDamageNextAttack: 500

@@ -1,0 +1,28 @@
+name: Zeal
+description: Increases the effectiveness of Lantern abilities.
+type: Insight
+effects:
+  '1':
+    description: +{{percentLanternEffect}}% Lantern ability effectiveness.
+    values:
+      percentLanternEffect: 15
+  '2':
+    description: +{{percentLanternEffect}}% Lantern ability effectiveness.
+    values:
+      percentLanternEffect: 25
+  '3':
+    description: +{{percentLanternEffect}}% Lantern ability effectiveness.
+    values:
+      percentLanternEffect: 35
+  '4':
+    description: +{{percentLanternEffect}}% Lantern ability effectiveness.
+    values:
+      percentLanternEffect: 45
+  '5':
+    description: +{{percentLanternEffect}}% Lantern ability effectiveness.
+    values:
+      percentLanternEffect: 55
+  '6':
+    description: +{{percentLanternEffect}}% Lantern ability effectiveness.
+    values:
+      percentLanternEffect: 65

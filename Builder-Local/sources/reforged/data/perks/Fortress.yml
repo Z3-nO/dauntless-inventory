@@ -1,0 +1,40 @@
+name: Fortress
+description: Grants a small shield after avoiding hostile damage for a short time.
+type: Fortitude
+effects:
+  '1':
+    description: After not taking hostile damage for {{shieldProcTime}} seconds, gain a {{shield}} health shield. Stacks {{shieldStacks}} times.
+    values:
+      shield: 65
+      shieldProcTime: 10
+      shieldStacks: 3
+  '2':
+    description: After not taking hostile damage for {{shieldProcTime}} seconds, gain a {{shield}} health shield. Stacks {{shieldStacks}} times.
+    values:
+      shield: 75
+      shieldProcTime: 10
+      shieldStacks: 3
+  '3':
+    description: After not taking hostile damage for {{shieldProcTime}} seconds, gain a {{shield}} health shield. Stacks {{shieldStacks}} times.
+    values:
+      shield: 90
+      shieldProcTime: 10
+      shieldStacks: 3
+  '4':
+    description: After not taking hostile damage for {{shieldProcTime}} seconds, gain a {{shield}} health shield. Stacks {{shieldStacks}} times.
+    values:
+      shield: 105
+      shieldProcTime: 10
+      shieldStacks: 3
+  '5':
+    description: After not taking hostile damage for {{shieldProcTime}} seconds, gain a {{shield}} health shield. Stacks {{shieldStacks}} times.
+    values:
+      shield: 120
+      shieldProcTime: 10
+      shieldStacks: 3
+  '6':
+    description: After not taking hostile damage for {{shieldProcTime}} seconds, gain a {{shield}} health shield. Stacks {{shieldStacks}} times.
+    values:
+      shield: 135
+      shieldProcTime: 10
+      shieldStacks: 3

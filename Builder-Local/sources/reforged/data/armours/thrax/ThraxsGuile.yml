@@ -1,0 +1,18 @@
+name: Thrax's Guile
+description: "{{typeAlt}} protection forged from {{behemoth}} trophies."
+behemoth: Thrax
+icon: /assets/icons/armours/thrax/ThraxsGuile.png
+type: Legs
+strength: Umbral
+weakness: Radiant
+cells: Finesse
+resistance:
+  base: 25
+  powerSurged: 30
+perks:
+  - name: Cunning
+    value: 2
+    powerSurged: false
+  - name: Cunning
+    value: 3
+    powerSurged: true

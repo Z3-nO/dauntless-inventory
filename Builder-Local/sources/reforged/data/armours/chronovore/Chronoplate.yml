@@ -1,0 +1,18 @@
+name: Chronoplate
+description: "{{typeAlt}} protection forged from {{behemoth}} trophies."
+behemoth: Chronovore
+icon: /assets/icons/armours/chronovore/Chronoplate.png
+type: Torso
+strength: Radiant
+weakness: Umbral
+cells: Finesse
+resistance:
+  base: 25
+  powerSurged: 30
+perks:
+  - name: Grace
+    value: 2
+    powerSurged: false
+  - name: Grace
+    value: 3
+    powerSurged: true

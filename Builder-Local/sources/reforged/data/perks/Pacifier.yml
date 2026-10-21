@@ -1,0 +1,28 @@
+name: Pacifier
+description: Increases stagger damage against enraged Behemoths.
+type: Brutality
+effects:
+  '1':
+    description: +{{percentStaggerVsEnraged}}% Stagger vs Enraged Behemoths
+    values:
+      percentStaggerVsEnraged: 10
+  '2':
+    description: +{{percentStaggerVsEnraged}}% Stagger vs Enraged Behemoths
+    values:
+      percentStaggerVsEnraged: 20
+  '3':
+    description: +{{percentStaggerVsEnraged}}% Stagger vs Enraged Behemoths
+    values:
+      percentStaggerVsEnraged: 30
+  '4':
+    description: +{{percentStaggerVsEnraged}}% Stagger vs Enraged Behemoths
+    values:
+      percentStaggerVsEnraged: 40
+  '5':
+    description: +{{percentStaggerVsEnraged}}% Stagger vs Enraged Behemoths
+    values:
+      percentStaggerVsEnraged: 50
+  '6':
+    description: +{{percentStaggerVsEnraged}}% Stagger vs Enraged Behemoths
+    values:
+      percentStaggerVsEnraged: 60

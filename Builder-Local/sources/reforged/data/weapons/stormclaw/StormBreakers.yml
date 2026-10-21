@@ -1,0 +1,32 @@
+name: Storm Breakers
+description: A Slayer's {{type}} forged with {{behemoth}} trophies.
+behemoth: Stormclaw
+icon: /assets/icons/weapons/stormclaw/StormBreakers.png
+type: Aether Strikers
+damage: Blunt
+elemental: Shock
+cells:
+  - Finesse
+  - Alacrity
+power:
+  base: 80
+  powerSurged: 120
+perks:
+  - name: Aetheric Attunement
+    value: 1
+    powerSurged: false
+  - name: Aetheric Attunement
+    value: 3
+    powerSurged: true
+unique_effects:
+  - name: DodgeExtendMantra
+    description: &stormclawUeDescription >-
+      After dodging though an attack, extend Mantra timeout by {{bonusTime}} seconds
+    values:
+      bonusTime: 2
+    powerSurged: false
+  - name: DodgeExtendMantra
+    description: *stormclawUeDescription
+    values:
+      bonusTime: 3
+    powerSurged: true

@@ -1,0 +1,18 @@
+name: Dark Marrow
+description: "{{typeAlt}} protection forged from {{behemoth}} trophies."
+behemoth: Shrowd
+icon: /assets/icons/armours/shrowd/DarkMarrow.png
+type: Torso
+strength: Umbral
+weakness: Radiant
+cells: Brutality
+resistance:
+  base: 20
+  powerSurged: 30
+perks:
+  - name: Rage
+    value: 2
+    powerSurged: false
+  - name: Rage
+    value: 3
+    powerSurged: true

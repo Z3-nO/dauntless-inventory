@@ -1,0 +1,34 @@
+name: Ember Pike
+description: A Slayer's {{type}} forged with {{behemoth}} trophies.
+behemoth: Embermane
+icon: /assets/icons/weapons/embermane/EmberPike.png
+type: War Pike
+damage: Piercing
+elemental: Blaze
+cells:
+  - Finesse
+  - Alacrity
+power:
+  base: 20
+  powerSurged: 120
+perks:
+  - name: Evasive Fury
+    value: 1
+    powerSurged: false
+  - name: Evasive Fury
+    value: 3
+    powerSurged: true
+unique_effects:
+  - name: HitWoundDamage
+    description: &embermaneUeDescription >-
+      The {{hitSuccession}}th hit in a row deals +{{bonusDamage}} wound damage
+    values:
+      hitSuccession: 7
+      bonusDamage: 100
+    powerSurged: false
+  - name: HitWoundDamage
+    description: *embermaneUeDescription
+    values:
+      hitSuccession: 7
+      bonusDamage: 300
+    powerSurged: true

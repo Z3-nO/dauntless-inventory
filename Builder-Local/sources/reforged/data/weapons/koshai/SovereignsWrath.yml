@@ -1,0 +1,36 @@
+name: Sovereign's Wrath
+description: A Slayer's {{type}} forged with {{behemoth}} trophies.
+behemoth: Koshai
+icon: /assets/icons/weapons/koshai/SovereignsWrath.png
+type: Axe
+damage: Slashing
+elemental: Terra
+cells:
+  - Brutality
+  - Insight
+power:
+  base: 60
+  powerSurged: 120
+perks:
+  - name: Sharpened
+    value: 2
+    powerSurged: false
+  - name: Sharpened
+    value: 3
+    powerSurged: true
+unique_effects:
+  - name: NoAttackDamage
+    description: >-
+      After not dealing damage for {{cooldownTime}} seconds, your next attack deals +{{damage}}% damage.
+    values:
+      cooldownTime: 4
+      damage: 50
+    powerSurged: false
+  - name: NoAttackDamage
+    description: >-
+      After not dealing damage for {{cooldownTime}} seconds, your next {{hits}} attacks deal +{{damage}}% damage.
+    values:
+      cooldownTime: 4
+      hits: 2
+      damage: 50
+    powerSurged: true

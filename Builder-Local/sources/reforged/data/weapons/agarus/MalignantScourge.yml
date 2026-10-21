@@ -1,0 +1,21 @@
+name: Malignant Scourge
+description: A Slayer's {{type}} forged with {{behemoth}} trophies.
+behemoth: Agarus
+icon: /assets/icons/weapons/agarus/MalignantScourge.png
+type: Axe
+damage: Slashing
+elemental: Terra
+cells:
+  - Prismatic
+  - Prismatic
+power:
+  base: 100
+  powerSurged: 120
+bond:
+  elemental: Terra
+unique_effects:
+  - name: AgarusLegendaryAbility
+    icon: /assets/icons/abilities/AgarusLegendaryWeaponAbility.png
+    description: >
+      Legendary Ability: Revive all Slayers in a large radius, granting them
+      healing over time and immunity to stagger. Usable while downed.

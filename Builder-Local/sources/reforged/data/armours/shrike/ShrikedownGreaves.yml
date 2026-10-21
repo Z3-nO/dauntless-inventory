@@ -1,0 +1,18 @@
+name: Shrikedown Greaves
+description: "{{typeAlt}} protection forged from {{behemoth}} trophies."
+behemoth: Shrike
+icon: /assets/icons/armours/shrike/ShrikedownGreaves.png
+type: Legs
+strength: null
+weakness: null
+cells: Alacrity
+resistance:
+  base: 10
+  powerSurged: 30
+perks:
+  - name: Grace
+    value: 1
+    powerSurged: false
+  - name: Grace
+    value: 3
+    powerSurged: true

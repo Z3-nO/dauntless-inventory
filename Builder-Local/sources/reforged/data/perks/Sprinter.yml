@@ -1,0 +1,34 @@
+name: Sprinter
+description: Increases movespeed and reduces sprint cost.
+type: Alacrity
+effects:
+  '1':
+    description: +{{percentMoveSpeed}}% movement speed and {{percentSprintCost}}% reduced sprint cost
+    values:
+      percentMoveSpeed: 5
+      percentSprintCost: -10
+  '2':
+    description: +{{percentMoveSpeed}}% movement speed and {{percentSprintCost}}% reduced sprint cost
+    values:
+      percentMoveSpeed: 7.5
+      percentSprintCost: -15
+  '3':
+    description: +{{percentMoveSpeed}}% movement speed and {{percentSprintCost}}% reduced sprint cost
+    values:
+      percentMoveSpeed: 10
+      percentSprintCost: -20
+  '4':
+    description: +{{percentMoveSpeed}}% movement speed and {{percentSprintCost}}% reduced sprint cost
+    values:
+      percentMoveSpeed: 12.5
+      percentSprintCost: -25
+  '5':
+    description: +{{percentMoveSpeed}}% movement speed and {{percentSprintCost}}% reduced sprint cost
+    values:
+      percentMoveSpeed: 15
+      percentSprintCost: -30
+  '6':
+    description: +{{percentMoveSpeed}}% movement speed and {{percentSprintCost}}% reduced sprint cost
+    values:
+      percentMoveSpeed: 17.5
+      percentSprintCost: -35

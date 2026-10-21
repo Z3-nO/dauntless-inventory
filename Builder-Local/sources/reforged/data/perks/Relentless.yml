@@ -1,0 +1,45 @@
+name: Relentless
+description: >-
+  Increases the duration of your aether rush. At higher ranks,
+  also increases the effects of aether rush.
+type: Finesse
+effects:
+  '1':
+    description:
+      - Increases the duration of your aether rush by +{{percentAetherRushDuration}}%
+      - null
+    values:
+      percentAetherRushDuration: 20
+  '2':
+    description:
+      - Increases the duration of your aether rush by +{{percentAetherRushDuration}}%
+      - null
+    values:
+      percentAetherRushDuration: 30
+  '3':
+    description:
+      - Increases the duration of your aether rush by +{{percentAetherRushDuration}}%
+      - null
+    values:
+      percentAetherRushDuration: 50
+  '4':
+    description:
+      - Increases the duration of your aether rush by +{{percentAetherRushDuration}}%
+      - Increases the effects of your aether rush by +{{percentAetherRushEffect}}%
+    values:
+      percentAetherRushDuration: 50
+      percentAetherRushEffect: 40
+  '5':
+    description:
+      - Increases the duration of your aether rush by +{{percentAetherRushDuration}}%
+      - Increases the effects of your aether rush by +{{percentAetherRushEffect}}%
+    values:
+      percentAetherRushDuration: 50
+      percentAetherRushEffect: 70
+  '6':
+    description:
+      - Increases the duration of your aether rush by +{{percentAetherRushDuration}}%
+      - Increases the effects of your aether rush by +{{percentAetherRushEffect}}%
+    values:
+      percentAetherRushDuration: 50
+      percentAetherRushEffect: 100

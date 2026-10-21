@@ -1,0 +1,18 @@
+name: Agaric Branches
+description: "{{typeAlt}} protection forged from {{behemoth}} trophies."
+behemoth: Agarus
+icon: /assets/icons/armours/agarus/AgaricBranches.png
+type: Arms
+strength: Terra
+weakness: Shock
+cells: Fortitude
+resistance:
+  base: 25
+  powerSurged: 30
+perks:
+  - name: Sturdy
+    value: 2
+    powerSurged: false
+  - name: Sturdy
+    value: 3
+    powerSurged: true

@@ -1,0 +1,24 @@
+{
+  "legacy": {
+    "weapons": 156,
+    "armours": 103,
+    "cells": 61,
+    "parts": 80,
+    "lanterns": 8,
+    "omnicells": 0
+  },
+  "modern": {
+    "weapons": 231,
+    "armours": 139,
+    "cells": 81,
+    "parts": 58,
+    "lanterns": 8,
+    "omnicells": 6
+  },
+  "perks": 81,
+  "catalogue": {
+    "1.6.2": 5407,
+    "1.14.7": 5805
+  },
+  "unresolvedTemplates": []
+}

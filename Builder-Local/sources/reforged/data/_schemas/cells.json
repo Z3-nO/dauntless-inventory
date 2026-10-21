@@ -1,0 +1,42 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "additionalProperties": false,
+    "properties": {
+        "name": {
+            "type": "string"
+        },
+        "slot": {
+            "type": "string"
+        },
+        "variants": {
+            "additionalProperties": false,
+            "patternProperties": {
+                "^\\+[1-3]\\s[A-Z](.*)\\sCell$": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "perks": {
+                            "patternProperties": {
+                                "^[A-Z][a-z]+$": {
+                                    "type": "number"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "rarity": {
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "required": [
+        "name",
+        "slot",
+        "variants"
+    ],
+    "title": "Dauntless-Builder Cell Schema",
+    "type": "object"
+}

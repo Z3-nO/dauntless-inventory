@@ -1,0 +1,52 @@
+name: Guardian
+description: Grant a portion of any shield applied to your nearest ally.
+type: Fortitude
+effects:
+  '1':
+    description: >- 
+      +{{percentShieldShare}}% of health shields applied to you are also applied 
+      to your nearest ally for {{shieldShareTime}} seconds (max {{maxShields}} shields).
+    values:
+      percentShieldShare: 5
+      shieldShareTime: 15
+      maxShields: 600
+  '2':
+    description: >-
+      +{{percentShieldShare}}% of health shields applied to you are also applied 
+      to your nearest ally for {{shieldShareTime}} seconds (max {{maxShields}} shields).
+    values:
+      percentShieldShare: 10
+      shieldShareTime: 15
+      maxShields: 600
+  '3':
+    description: >-
+      +{{percentShieldShare}}% of health shields applied to you are also applied 
+      to your nearest ally for {{shieldShareTime}} seconds (max {{maxShields}} shields).
+    values:
+      percentShieldShare: 15
+      shieldShareTime: 15
+      maxShields: 600
+  '4':
+    description: >-
+      +{{percentShieldShare}}% of health shields applied to you are also applied 
+      to your nearest ally for {{shieldShareTime}} seconds (max {{maxShields}} shields).
+    values:
+      percentShieldShare: 20
+      shieldShareTime: 15
+      maxShields: 600
+  '5':
+    description: >-
+      +{{percentShieldShare}}% of health shields applied to you are also applied 
+      to your nearest ally for {{shieldShareTime}} seconds (max {{maxShields}} shields).
+    values:
+      percentShieldShare: 25
+      shieldShareTime: 15
+      maxShields: 600
+  '6':
+    description: >-
+      +{{percentShieldShare}}% of health shields applied to you are also applied 
+      to your nearest ally for {{shieldShareTime}} seconds (max {{maxShields}} shields).
+    values:
+      percentShieldShare: 30
+      shieldShareTime: 15
+      maxShields: 600

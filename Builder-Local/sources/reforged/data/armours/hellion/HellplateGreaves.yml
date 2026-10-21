@@ -1,0 +1,18 @@
+name: Hellplate Greaves
+description: "{{typeAlt}} protection forged from {{behemoth}} trophies."
+behemoth: Hellion
+icon: /assets/icons/armours/hellion/HellplateGreaves.png
+type: Legs
+strength: Blaze
+weakness: Frost
+cells: Brutality
+resistance:
+  base: 20
+  powerSurged: 30
+perks:
+  - name: Fortress
+    value: 2
+    powerSurged: false
+  - name: Fortress
+    value: 3
+    powerSurged: true

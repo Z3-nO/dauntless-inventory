@@ -1,0 +1,10 @@
+name: Recruit's Lantern
+icon: /assets/icons/lanterns/RecruitsLantern.png
+description: null
+cells: null
+lantern_ability:
+  instant: null
+  hold: Grants a {{shield}} hit point shield that lasts {{shieldTime}} seconds.
+values:
+  shield: 300
+  shieldTime: 15

@@ -1,0 +1,12 @@
+name: Shrike's Zeal
+icon: /assets/icons/lanterns/ShrikesZeal.png
+description: null
+cells: Insight
+lantern_ability:
+  instant: null
+  hold: >-
+    Creates an aura that grants nearby Slayers {{percentIncreasedMovementAndAttackSpeed}}% increased move speed and
+    attack speed for {{attackSpeedTime}} seconds.
+values:
+  percentIncreasedMovementAndAttackSpeed: 15
+  attackSpeedTime: 10

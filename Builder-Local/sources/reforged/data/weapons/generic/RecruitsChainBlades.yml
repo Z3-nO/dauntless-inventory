@@ -1,0 +1,9 @@
+name: Recruit's Chain Blades
+description: A Slayer Recruit's chain blades.
+icon: /assets/icons/weapons/generic/RecruitsChainBlades.png
+type: Chain Blades
+damage: Slashing
+elemental: null
+cells: null
+power:
+  base: 10

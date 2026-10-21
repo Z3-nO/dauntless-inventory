@@ -1,0 +1,18 @@
+name: Shrikedown Plate
+description: "{{typeAlt}} protection forged from {{behemoth}} trophies."
+behemoth: Shrike
+icon: /assets/icons/armours/shrike/ShrikedownPlate.png
+type: Torso
+strength: null
+weakness: null
+cells: Alacrity
+resistance:
+  base: 10
+  powerSurged: 30
+perks:
+  - name: Evasion
+    value: 1
+    powerSurged: false
+  - name: Evasion
+    value: 3
+    powerSurged: true

@@ -1,0 +1,18 @@
+name: Gnasher Cap
+description: "{{typeAlt}} protection forged from {{behemoth}} trophies."
+behemoth: Gnasher
+icon: /assets/icons/armours/gnasher/GnasherCap.png
+type: Head
+strength: null
+weakness: null
+cells: Fortitude
+resistance:
+  base: 10
+  powerSurged: 30
+perks:
+  - name: Tenacious
+    value: 1
+    powerSurged: false
+  - name: Tenacious
+    value: 3
+    powerSurged: true

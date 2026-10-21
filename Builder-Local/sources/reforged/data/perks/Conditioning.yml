@@ -1,0 +1,28 @@
+name: Conditioning
+description: Increases Stamina Regen.
+type: Alacrity
+effects:
+  '1':
+    description: +{{staminaRegeneration}} stamina regeneration
+    values:
+      staminaRegeneration: 5
+  '2':
+    description: +{{staminaRegeneration}} stamina regeneration
+    values:
+      staminaRegeneration: 10
+  '3':
+    description: +{{staminaRegeneration}} stamina regeneration
+    values:
+      staminaRegeneration: 15
+  '4':
+    description: +{{staminaRegeneration}} stamina regeneration
+    values:
+      staminaRegeneration: 20
+  '5':
+    description: +{{staminaRegeneration}} stamina regeneration
+    values:
+      staminaRegeneration: 25
+  '6':
+    description: +{{staminaRegeneration}} stamina regeneration
+    values:
+      staminaRegeneration: 30

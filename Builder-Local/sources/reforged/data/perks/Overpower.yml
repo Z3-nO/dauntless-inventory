@@ -1,0 +1,28 @@
+name: Overpower
+description: Increases damage against staggered Behemoths.
+type: Brutality
+effects:
+  '1':
+    description: +{{percentDamageVsStaggered}}% Damage vs Staggered Behemoths
+    values:
+      percentDamageVsStaggered: 10
+  '2':
+    description: +{{percentDamageVsStaggered}}% Damage vs Staggered Behemoths
+    values:
+      percentDamageVsStaggered: 15
+  '3':
+    description: +{{percentDamageVsStaggered}}% Damage vs Staggered Behemoths
+    values:
+      percentDamageVsStaggered: 20
+  '4':
+    description: +{{percentDamageVsStaggered}}% Damage vs Staggered Behemoths
+    values:
+      percentDamageVsStaggered: 30
+  '5':
+    description: +{{percentDamageVsStaggered}}% Damage vs Staggered Behemoths
+    values:
+      percentDamageVsStaggered: 35
+  '6':
+    description: +{{percentDamageVsStaggered}}% Damage vs Staggered Behemoths
+    values:
+      percentDamageVsStaggered: 40

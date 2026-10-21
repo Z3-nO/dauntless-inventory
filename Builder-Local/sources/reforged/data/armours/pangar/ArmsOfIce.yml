@@ -1,0 +1,18 @@
+name: Arms of Ice
+description: "{{typeAlt}} protection forged from {{behemoth}} trophies."
+behemoth: Pangar
+icon: /assets/icons/armours/pangar/ArmsOfIce.png
+type: Arms
+strength: Frost
+weakness: Blaze
+cells: Fortitude
+resistance:
+  base: 10
+  powerSurged: 30
+perks:
+  - name: Knockout King
+    value: 1
+    powerSurged: false
+  - name: Knockout King
+    value: 3
+    powerSurged: true

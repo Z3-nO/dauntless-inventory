@@ -1,0 +1,13 @@
+node_modules/
+dist/
+artifacts/
+*.exe
+*.zip
+*.pdb
+*.lib
+*.pem
+*.key
+*.log
+state.json
+undaunted.db
+directories.json

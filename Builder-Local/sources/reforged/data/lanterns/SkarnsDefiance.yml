@@ -1,0 +1,16 @@
+name: Skarn's Defiance
+icon: /assets/icons/lanterns/SkarnsDefiance.png
+description: null
+cells: Insight
+lantern_ability:
+  instant: null
+  hold: >-
+    Surrounds the slayer in swirling stone that deals {{terraDamage}} Terra damage to
+    nearby enemies for {{damageTime}} seconds. Also generates {{shield}} hit point shields per
+    second that expire after {{shieldTime}} seconds. (Max {{maxShield}} shields)
+values:
+  terraDamage: 2500
+  damageTime: 10
+  shield: 30
+  shieldTime: 25
+  maxShield: 600

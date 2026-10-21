@@ -1,0 +1,18 @@
+name: Thunderdeep's Turbines
+description: "{{typeAlt}} protection forged from {{behemoth}} trophies."
+behemoth: Thunderdeep Drask
+icon: /assets/icons/armours/thunderdeep/ThunderdeepsTurbines.png
+type: Legs
+strength: Shock
+weakness: Terra
+cells: Finesse
+resistance:
+  base: 20
+  powerSurged: 30
+perks:
+  - name: Zeal
+    value: 2
+    powerSurged: false
+  - name: Zeal
+    value: 3
+    powerSurged: true

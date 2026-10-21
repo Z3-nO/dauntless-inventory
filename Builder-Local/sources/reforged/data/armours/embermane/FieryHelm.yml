@@ -1,0 +1,18 @@
+name: Fiery Helm
+description: "{{typeAlt}} protection forged from {{behemoth}} trophies."
+behemoth: Embermane
+icon: /assets/icons/armours/embermane/FieryHelm.png
+type: Head
+strength: Blaze
+weakness: Frost
+cells: Alacrity
+resistance:
+  base: 5
+  powerSurged: 30
+perks:
+  - name: Evasive Fury
+    value: 1
+    powerSurged: false
+  - name: Evasive Fury
+    value: 3
+    powerSurged: true

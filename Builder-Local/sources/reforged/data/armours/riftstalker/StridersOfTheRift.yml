@@ -1,0 +1,18 @@
+name: Striders of the Rift
+description: "{{typeAlt}} protection forged from {{behemoth}} trophies."
+behemoth: Riftstalker
+icon: /assets/icons/armours/riftstalker/StridersOfTheRift.png
+type: Legs
+strength: Umbral
+weakness: Radiant
+cells: Alacrity
+resistance:
+  base: 15
+  powerSurged: 30
+perks:
+  - name: Conduit
+    value: 2
+    powerSurged: false
+  - name: Conduit
+    value: 3
+    powerSurged: true

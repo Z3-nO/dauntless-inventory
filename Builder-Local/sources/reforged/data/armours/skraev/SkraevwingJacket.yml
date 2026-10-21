@@ -1,0 +1,18 @@
+name: Skraevwing Jacket
+description: "{{typeAlt}} protection forged from {{behemoth}} trophies."
+behemoth: Skraev
+icon: /assets/icons/armours/skraev/SkraevwingJacket.png
+type: Torso
+strength: Frost
+weakness: Blaze
+cells: Alacrity
+resistance:
+  base: 15
+  powerSurged: 30
+perks:
+  - name: Adrenaline
+    value: 2
+    powerSurged: false
+  - name: Adrenaline
+    value: 3
+    powerSurged: true

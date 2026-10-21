@@ -1,0 +1,6 @@
+name: Railsplitter's Canteen
+icon: /assets/icons/parts/axe/mods/RailsplittersCanteen.png
+part_effect:
+  - Tonics consumed while your axe is thrown have +{{effect}}% effectiveness.
+values:
+  effect: 50

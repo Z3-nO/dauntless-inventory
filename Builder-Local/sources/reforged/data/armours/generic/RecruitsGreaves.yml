@@ -1,0 +1,9 @@
+name: Recruit's Greaves
+description: "{{typeAlt}} protection for the novice Slayer."
+icon: /assets/icons/armours/generic/RecruitsGreaves.png
+type: Legs
+strength: null
+weakness: null
+cells: null
+resistance:
+  base: 20

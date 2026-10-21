@@ -1,0 +1,18 @@
+name: Spellbound Gauntlets
+description: "{{typeAlt}} protection forged from {{behemoth}} trophies."
+behemoth: Alyra
+icon: /assets/icons/armours/alyra/SpellboundGauntlets.png
+type: Arms
+strength: Radiant
+weakness: Umbral
+cells: Insight
+resistance:
+  base: 20
+  powerSurged: 30
+perks:
+  - name: Invigorated
+    value: 2
+    powerSurged: false
+  - name: Invigorated
+    value: 3
+    powerSurged: true

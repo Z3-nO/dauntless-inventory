@@ -1,0 +1,28 @@
+name: Evasion
+description: Increases the time you are invincible when dodging.
+type: Alacrity
+effects:
+  '1':
+    description: Increases dodge invulnerability windows by {{percentDodgeInvulnerability}}%
+    values:
+      percentDodgeInvulnerability: 7
+  '2':
+    description: Increases dodge invulnerability windows by {{percentDodgeInvulnerability}}%
+    values:
+      percentDodgeInvulnerability: 14
+  '3':
+    description: Increases dodge invulnerability windows by {{percentDodgeInvulnerability}}%
+    values:
+      percentDodgeInvulnerability: 21
+  '4':
+    description: Increases dodge invulnerability windows by {{percentDodgeInvulnerability}}%
+    values:
+      percentDodgeInvulnerability: 28
+  '5':
+    description: Increases dodge invulnerability windows by {{percentDodgeInvulnerability}}%
+    values:
+      percentDodgeInvulnerability: 35
+  '6':
+    description: Increases dodge invulnerability windows by {{percentDodgeInvulnerability}}%
+    values:
+      percentDodgeInvulnerability: 42

@@ -1,0 +1,35 @@
+name: Glyph Weaver Maul
+description: A Slayer's {{type}} forged with {{behemoth}} trophies.
+behemoth: Alyra
+icon: /assets/icons/weapons/alyra/GlyphWeaverMaul.png
+type: Hammer
+damage: Blunt
+elemental: Radiant
+cells:
+  - Brutality
+  - Fortitude
+power:
+  base: 80
+  powerSurged: 120
+perks:
+  - name: Aetheric Attunement
+    value: 2
+    powerSurged: false
+  - name: Aetheric Attunement
+    value: 3
+    powerSurged: true
+unique_effects:
+  - name: AlyraUeDescription
+    description: &alyraUeDescription >-
+      On lantern use, spawn a glyph based on your active glyph type that charges
+      after three seconds. Once charged, the glyph will activate when a Behemoth
+      makes contact.{{NL}} {{NL}} Red Glyph: Deals {{damage}} radiant damage in a
+      radius.{{NL}} Blue Glyph: Grants {{shields}} stacking shields that expire after
+      {{shieldsTime}}s to slayers in a large radius (max {{shieldsMax}} shields).{{NL}} Jump to change
+      the active glyph type. Glyphs expire after {{glyphsTime}}s.
+    values:
+      damage: 1500
+      shields: 150
+      shieldsTime: 25
+      shieldsMax: 600
+      glyphsTime: 10

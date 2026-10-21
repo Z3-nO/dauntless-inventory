@@ -1,0 +1,18 @@
+{
+  "name": "dauntless-forever-builder-local",
+  "version": "1.0.2",
+  "private": true,
+  "license": "AGPL-3.0-only",
+  "description": "Offline build planner and item catalogue for Dauntless Forever 1.6.2 and 1.14.7",
+  "scripts": {
+    "start": "node server.cjs --open",
+    "test": "node --test tests/*.test.mjs",
+    "build:data": "node scripts/build-data.cjs",
+    "format": "prettier --write public/*.js public/*.mjs public/*.html public/*.css scripts/*.cjs server.cjs tests/*.mjs"
+  },
+  "devDependencies": {
+    "js-yaml": "4.3.2",
+    "prettier": "3.6.2"
+  },
+  "packageManager": "pnpm@11.25.0"
+}

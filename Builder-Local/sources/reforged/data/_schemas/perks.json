@@ -1,0 +1,48 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "additionalProperties": false,
+    "properties": {
+        "description": {
+            "type": "string"
+        },
+        "effects": {
+            "patternProperties": {
+                "^[1-6]$": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "description": {
+                            "type": [
+                                "string",
+                                "array"
+                            ]
+                        },
+                        "values": {
+                            "type": [
+                                "object",
+                                "null"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "description"
+                    ],
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "name": {
+            "type": "string"
+        },
+        "type": {
+            "type": "string"
+        }
+    },
+    "required": [
+        "name",
+        "type",
+        "effects"
+    ],
+    "title": "Dauntless-Builder Perk Schema",
+    "type": "object"
+}

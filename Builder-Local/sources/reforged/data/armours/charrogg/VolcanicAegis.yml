@@ -1,0 +1,18 @@
+name: Volcanic Aegis
+description: "{{typeAlt}} protection forged from {{behemoth}} trophies."
+behemoth: Charrogg
+icon: /assets/icons/armours/charrogg/VolcanicAegis.png
+type: Torso
+strength: Blaze
+weakness: Frost
+cells: Insight
+resistance:
+  base: 10
+  powerSurged: 30
+perks:
+  - name: Aetherhunter
+    value: 1
+    powerSurged: false
+  - name: Aetherhunter
+    value: 3
+    powerSurged: true

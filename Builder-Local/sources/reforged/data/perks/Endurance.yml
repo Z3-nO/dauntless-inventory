@@ -1,0 +1,28 @@
+name: Endurance
+description: Increases Max Stamina.
+type: Alacrity
+effects:
+  '1':
+    description: +{{maxStamina}} max stamina
+    values:
+      maxStamina: 10
+  '2':
+    description: +{{maxStamina}} max stamina
+    values:
+      maxStamina: 20
+  '3':
+    description: +{{maxStamina}} max stamina
+    values:
+      maxStamina: 40
+  '4':
+    description: +{{maxStamina}} max stamina
+    values:
+      maxStamina: 60
+  '5':
+    description: +{{maxStamina}} max stamina
+    values:
+      maxStamina: 80
+  '6':
+    description: +{{maxStamina}} max stamina
+    values:
+      maxStamina: 100

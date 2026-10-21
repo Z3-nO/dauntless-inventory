@@ -1,0 +1,28 @@
+name: Aetherhunter
+description: Increases damage against aether charged Behemoths.
+type: Brutality
+effects:
+  '1':
+    description: +{{percentDamageVsAether}}% Damage vs Aether-charged Behemoths
+    values:
+      percentDamageVsAether: 5
+  '2':
+    description: +{{percentDamageVsAether}}% Damage vs Aether-charged Behemoths
+    values:
+      percentDamageVsAether: 10
+  '3':
+    description: +{{percentDamageVsAether}}% Damage vs Aether-charged Behemoths
+    values:
+      percentDamageVsAether: 20
+  '4':
+    description: +{{percentDamageVsAether}}% Damage vs Aether-charged Behemoths
+    values:
+      percentDamageVsAether: 30
+  '5':
+    description: +{{percentDamageVsAether}}% Damage vs Aether-charged Behemoths
+    values:
+      percentDamageVsAether: 40
+  '6':
+    description: +{{percentDamageVsAether}}% Damage vs Aether-charged Behemoths
+    values:
+      percentDamageVsAether: 50

@@ -1,0 +1,43 @@
+name: Acidic
+description: Increases Wound damage at the cost of Part damage.
+type: Finesse
+effects:
+  '1':
+    description:
+      - Converts {{percentPartToWoundDamage}}% of Part Damage to Wound Damage
+      - null
+    values:
+      percentPartToWoundDamage: 30
+  '2':
+    description:
+      - Converts {{percentPartToWoundDamage}}% of Part Damage to Wound Damage
+      - null
+    values:
+      percentPartToWoundDamage: 40
+  '3':
+    description:
+      - Converts {{percentPartToWoundDamage}}% of Part Damage to Wound Damage
+      - null
+    values:
+      percentPartToWoundDamage: 50
+  '4':
+    description:
+      - Converts {{percentPartToWoundDamage}}% of Part Damage to Wound Damage
+      - +{{percentPartDamage}}% Part damage
+    values:
+      percentPartToWoundDamage: 50
+      percentPartDamage: 10
+  '5':
+    description:
+      - Converts {{percentPartToWoundDamage}}% of Part Damage to Wound Damage
+      - +{{percentPartDamage}}% Part damage
+    values:
+      percentPartToWoundDamage: 50
+      percentPartDamage: 15
+  '6':
+    description:
+      - Converts {{percentPartToWoundDamage}}% of Part Damage to Wound Damage
+      - +{{percentPartDamage}}% Part damage
+    values:
+      percentPartToWoundDamage: 50
+      percentPartDamage: 20

@@ -1,0 +1,20 @@
+name: Quillshot's Stingers
+description: A Slayer's {{type}} forged with {{behemoth}} trophies.
+behemoth: Quillshot
+icon: /assets/icons/weapons/quillshot/QuillshotsStingers.png
+type: Repeater
+damage: Slashing
+elemental: null
+cells:
+  - Brutality
+  - Fortitude
+power:
+  base: 20
+  powerSurged: 120
+perks:
+  - name: Acidic
+    value: 1
+    powerSurged: false
+  - name: Acidic
+    value: 3
+    powerSurged: true

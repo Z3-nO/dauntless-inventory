@@ -1,0 +1,34 @@
+name: Ember Scythe
+description: A Slayer's {{type}} forged with {{behemoth}} trophies.
+behemoth: Embermane
+icon: /assets/icons/weapons/embermane/EmberScythe.png
+type: Axe
+damage: Slashing
+elemental: Blaze
+cells:
+  - Brutality
+  - Alacrity
+power:
+  base: 20
+  powerSurged: 120
+perks:
+  - name: Evasive Fury
+    value: 1
+    powerSurged: false
+  - name: Evasive Fury
+    value: 3
+    powerSurged: true
+unique_effects:
+  - name: HitBonusDamage
+    description: &embermaneUeDescription >-
+      The {{hitSuccession}}rd hit in quick succession deals +{{bonusDamage}} bonus part damage.
+    values:
+      hitSuccession: 3
+      bonusDamage: 100
+    powerSurged: false
+  - name: HitBonusDamage
+    description: *embermaneUeDescription
+    values:
+      hitSuccession: 3
+      bonusDamage: 250
+    powerSurged: true

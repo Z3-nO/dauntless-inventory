@@ -1,0 +1,27 @@
+name: Hands of Night
+description: A Slayer's {{type}} forged with {{behemoth}} trophies.
+behemoth: Shrowd
+icon: /assets/icons/weapons/shrowd/HandsOfNight.png
+type: Aether Strikers
+damage: Blunt
+elemental: Umbral
+cells:
+  - Finesse
+  - Insight
+power:
+  base: 80
+  powerSurged: 120
+perks:
+  - name: Cunning
+    value: 2
+    powerSurged: false
+  - name: Cunning
+    value: 3
+    powerSurged: true
+unique_effects:
+  - name: LowHpDamage
+    description: &shrowdUeDescription >-
+      When under {{life}}% health, deal +{{damage}}% damage
+    values:
+      life: 20
+      damage: 50

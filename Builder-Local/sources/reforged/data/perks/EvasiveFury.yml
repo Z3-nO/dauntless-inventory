@@ -1,0 +1,34 @@
+name: Evasive Fury
+description: Temporarily increases attack speed when dodging through a Behemoth's attack.
+type: Alacrity
+effects:
+  '1':
+    description: After dodging through an attack, gain +{{percentAttackSpeed}}% attack speed for {{attackSpeedTime}} seconds
+    values:
+      percentAttackSpeed: 4
+      attackSpeedTime: 25
+  '2':
+    description: After dodging through an attack, gain +{{percentAttackSpeed}}% attack speed for {{attackSpeedTime}} seconds
+    values:
+      percentAttackSpeed: 6
+      attackSpeedTime: 25
+  '3':
+    description: After dodging through an attack, gain +{{percentAttackSpeed}}% attack speed for {{attackSpeedTime}} seconds
+    values:
+      percentAttackSpeed: 8
+      attackSpeedTime: 25
+  '4':
+    description: After dodging through an attack, gain +{{percentAttackSpeed}}% attack speed for {{attackSpeedTime}} seconds
+    values:
+      percentAttackSpeed: 4
+      attackSpeedTime: 25
+  '5':
+    description: After dodging through an attack, gain +{{percentAttackSpeed}}% attack speed for {{attackSpeedTime}} seconds
+    values:
+      percentAttackSpeed: 12.5
+      attackSpeedTime: 25
+  '6':
+    description: After dodging through an attack, gain +{{percentAttackSpeed}}% attack speed for {{attackSpeedTime}} seconds
+    values:
+      percentAttackSpeed: 15
+      attackSpeedTime: 25

@@ -1,0 +1,34 @@
+name: Storm Pike
+description: A Slayer's {{type}} forged with {{behemoth}} trophies.
+behemoth: Stormclaw
+icon: /assets/icons/weapons/stormclaw/StormPike.png
+type: War Pike
+damage: Piercing
+elemental: Shock
+cells:
+  - Finesse
+  - Alacrity
+power:
+  base: 80
+  powerSurged: 120
+perks:
+  - name: Energized
+    value: 1
+    powerSurged: false
+  - name: Energized
+    value: 3
+    powerSurged: true
+unique_effects:
+  - name: DodgeMeterGain
+    description: &stormclawUeDescription >-
+      After dodging through an attack, your attacks gain {{bonus}}% bonus meter for +{{bonusTime}} seconds
+    values:
+      bonus: 100
+      bonusTime: 3
+    powerSurged: false
+  - name: DodgeMeterGain
+    description: *stormclawUeDescription
+    values:
+      bonus: 100
+      bonusTime: 4
+    powerSurged: true

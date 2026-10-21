@@ -1,0 +1,18 @@
+name: Core of Ice
+description: "{{typeAlt}} protection forged from {{behemoth}} trophies."
+behemoth: Pangar
+icon: /assets/icons/armours/pangar/CoreOfIce.png
+type: Torso
+strength: Frost
+weakness: Blaze
+cells: Brutality
+resistance:
+  base: 10
+  powerSurged: 30
+perks:
+  - name: Fortress
+    value: 1
+    powerSurged: false
+  - name: Fortress
+    value: 3
+    powerSurged: true

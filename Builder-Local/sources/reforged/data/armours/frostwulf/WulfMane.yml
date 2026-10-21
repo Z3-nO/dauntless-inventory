@@ -1,0 +1,18 @@
+name: Wülf Mane
+description: "{{typeAlt}} protection forged from {{behemoth}} trophies."
+behemoth: Frostwülf
+icon: /assets/icons/armours/frostwulf/WulfMane.png
+type: Head
+strength: Frost
+weakness: Blaze
+cells: Brutality
+resistance:
+  base: 15
+  powerSurged: 30
+perks:
+  - name: Aegis
+    value: 2
+    powerSurged: false
+  - name: Aegis
+    value: 3
+    powerSurged: true

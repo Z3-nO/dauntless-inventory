@@ -1,0 +1,18 @@
+name: Draskscale Helmet
+description: "{{typeAlt}} protection forged from {{behemoth}} trophies."
+behemoth: Drask
+icon: /assets/icons/armours/drask/DraskscaleHelmet.png
+type: Head
+strength: Shock
+weakness: Terra
+cells: Brutality
+resistance:
+  base: 5
+  powerSurged: 30
+perks:
+  - name: Aetheric Attunement
+    value: 1
+    powerSurged: false
+  - name: Aetheric Attunement
+    value: 3
+    powerSurged: true

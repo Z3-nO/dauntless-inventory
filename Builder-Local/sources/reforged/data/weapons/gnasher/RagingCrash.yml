@@ -1,0 +1,33 @@
+name: Raging Crash
+description: A Slayer's {{type}} forged with {{behemoth}} trophies.
+behemoth: Gnasher
+icon: /assets/icons/weapons/gnasher/RagingCrash.png
+type: Hammer
+damage: Blunt
+elemental: null
+cells:
+  - Brutality
+  - Insight
+power:
+  base: 20
+  powerSurged: 120
+perks:
+  - name: Ragehunter
+    value: 1
+    powerSurged: false
+  - name: Ragehunter
+    value: 3
+    powerSurged: true
+unique_effects:
+  - name: GnasherRage
+    description: &gnasherUeDescription >-
+      Periodically enter a rage, dealing +{{damage}}% damage and gaining immunity to
+      stagger. Taking damage causes you to enrage more quickly.
+    values:
+      damage: 5
+    powerSurged: false
+  - name: GnasherRage
+    description: *gnasherUeDescription
+    values:
+      damage: 15
+    powerSurged: true

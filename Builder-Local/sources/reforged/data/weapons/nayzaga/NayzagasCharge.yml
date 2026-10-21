@@ -1,0 +1,32 @@
+name: Nayzaga's Charge
+description: A Slayer's {{type}} forged with {{behemoth}} trophies.
+behemoth: Nayzaga
+icon: /assets/icons/weapons/nayzaga/NayzagasCharge.png
+type: Hammer
+damage: Blunt
+elemental: Shock
+cells:
+  - Brutality
+  - Insight
+power:
+  base: 40
+  powerSurged: 120
+perks:
+  - name: Savagery
+    value: 1
+    powerSurged: false
+  - name: Savagery
+    value: 3
+    powerSurged: true
+unique_effects:
+  - name: StaggerHeal
+    description: &nayzagaUeDescription >-
+      After a Behemoth is staggered, heal for {{heal}}
+    values:
+      heal: 100
+    powerSurged: false
+  - name: StaggerHeal
+    description: *nayzagaUeDescription
+    values:
+      heal: 300
+    powerSurged: true

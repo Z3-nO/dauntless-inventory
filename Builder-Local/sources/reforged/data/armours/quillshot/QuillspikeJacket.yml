@@ -1,0 +1,18 @@
+name: Quillspike Jacket
+description: "{{typeAlt}} protection forged from {{behemoth}} trophies."
+behemoth: Quillshot
+icon: /assets/icons/armours/quillshot/QuillspikeJacket.png
+type: Torso
+strength: null
+weakness: null
+cells: Finesse
+resistance:
+  base: 10
+  powerSurged: 30
+perks:
+  - name: Savagery
+    value: 1
+    powerSurged: false
+  - name: Savagery
+    value: 3
+    powerSurged: true

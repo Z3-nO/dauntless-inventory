@@ -1,0 +1,18 @@
+name: Thrax's Scream
+description: "{{typeAlt}} protection forged from {{behemoth}} trophies."
+behemoth: Thrax
+icon: /assets/icons/armours/thrax/ThraxsScream.png
+type: Head
+strength: Umbral
+weakness: Radiant
+cells: Insight
+resistance:
+  base: 25
+  powerSurged: 30
+perks:
+  - name: Catalyst
+    value: 2
+    powerSurged: false
+  - name: Catalyst
+    value: 3
+    powerSurged: true

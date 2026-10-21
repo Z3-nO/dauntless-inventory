@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="tool-token" content="__TOKEN__" />
+    <title>Dauntless Inventory · Live Preview</title>
+    <link rel="icon" type="image/webp" href="/ui/helmet.webp" />
+    <link rel="stylesheet" href="/style.css" />
+    <script src="/visibility.js" defer></script>
+    <script src="/live-session.js" defer></script>
+    <script src="/app.js" defer></script>
+    <script src="/build-ui.js" defer></script>
+    <script src="/slots-ui.js" defer></script>
+    <script src="/settings-ui.js" defer></script>
+    <script src="/reset-ui.js" defer></script>
+    <script src="/live-ui.js" defer></script>
+    <script src="/updates-ui.js" defer></script>
+  </head>
+  <body>
+    <aside>
+      <div class="brand">
+        <img src="/ui/helmet.webp" alt="Dauntless Forever helmet" />
+        <span><small>DAUNTLESS FOREVER</small>INVENTORY</span>
+      </div>
+      <label for="version">Game version</label>
+      <select id="version">
+        <option>1.6.2</option>
+        <option>1.14.7</option>
+      </select>
+      <button id="open-settings" class="settings-button" type="button">
+        Settings &amp; directories
+      </button>
+      <nav id="groups" aria-label="Item categories"></nav>
+      <div class="aside-note">
+        <span class="local-dot"></span> Automatic backups
+      </div>
+    </aside>
+    <main>
+      <header>
+        <span class="eyebrow">DAUNTLESS INVENTORY · LIVE PREVIEW</span
+        ><span id="connection">● Catalogue · no save connected</span>
+      </header>
+      <section class="intro">
+        <div>
+          <h1>Inventory &amp; loadouts</h1>
+        </div>
+        <span class="badge"
+          ><span class="local-dot"></span> LIVE PREVIEW 0.12.0</span
+        >
+      </section>
+      <p
+        id="live-status"
+        class="hint"
+        role="status"
+        aria-live="polite"
+        hidden
+      ></p>
+      <div class="setup-grid">
+        <section class="connect panel">
+          <div class="section-title">
+            01
+            <h2>Connect your character</h2>
+          </div>
+          <p class="hint">
+            Choose your folders in Settings, then connect your character.
+          </p>
+          <button id="connect" type="button" class="primary">
+            Connect character
+          </button>
+          <div class="connect-row">
+            <label for="character">Character</label
+            ><select id="character" disabled>
+              <option>Connect a save</option>
+            </select>
+          </div>
+          <p class="hint">
+            With Live disconnected, close the game and Forever server before
+            applying changes. A full backup is created before each save.
+          </p>
+        </section>
+        <section class="panel">
+          <div class="section-title">
+            SLOTS
+            <h2>Your equipment presets</h2>
+          </div>
+          <p id="slot-counts" class="hint"></p>
+          <p class="hint">
+            Each slot stores one build for this character. Importing into a slot
+            replaces that preset; it does not create another character.
+          </p>
+          <div class="preset-export">
+            <label for="preset-export-slot">In-game preset to export</label>
+            <select id="preset-export-slot" disabled>
+              <option value="">Connect a character first</option>
+            </select>
+            <button id="preset-export-generate" class="primary" disabled>
+              Create Builder code
+            </button>
+            <p class="hint">
+              Reads the last preset saved by the game. Includes equipment,
+              levels, cells and weapon parts. Cosmetics and consumables are
+              outside the Builder format.
+            </p>
+            <div id="preset-export-result" hidden>
+              <p id="preset-export-summary" class="hint" role="status"></p>
+              <label for="preset-export-code">Builder code</label>
+              <textarea
+                id="preset-export-code"
+                rows="4"
+                readonly
+                spellcheck="false"
+              ></textarea>
+              <div class="connect-row">
+                <button id="preset-export-copy">Copy code</button>
+                <button id="preset-export-download">Save build file</button>
+              </div>
+              <p class="hint">
+                Paste the code or open the .dfbuild.json file in the local
+                Builder. It selects the matching game version automatically.
+              </p>
+            </div>
+          </div>
+          <details id="slot-options" class="slot-options" hidden>
+            <summary>Create more equipment presets</summary>
+            <label for="slot-source">Preset to use as a starting point</label>
+            <select id="slot-source" disabled>
+              <option value="">Connect a character first</option>
+            </select>
+            <label for="slots-to-add">How many new presets?</label>
+            <div class="connect-row">
+              <input
+                id="slots-to-add"
+                type="number"
+                min="1"
+                value="1"
+                disabled
+              /><button id="add-slots-review" disabled>
+                Review new presets
+              </button>
+            </div>
+            <p class="hint">
+              Limits are read from the connected server. Existing slots and the
+              active slot are preserved.
+            </p>
+          </details>
+        </section>
+      </div>
+      <section class="build-panel panel">
+        <div class="section-title">
+          02
+          <h2>Import build</h2>
+        </div>
+        <p class="section-description">
+          Open a Builder file or paste a code, then choose a slot.
+        </p>
+        <div class="file-import">
+          <span class="file-import-icon" aria-hidden="true">↥</span>
+          <div class="file-import-copy">
+            <strong>Import a build file</strong>
+            <p>Choose the .dfbuild.json file exported from the Builder.</p>
+            <span id="build-file-name" role="status" aria-live="polite"
+              >No file selected · 1.6.2 builds</span
+            >
+          </div>
+          <button id="build-file-button" type="button" class="file-picker">
+            Choose build file <span aria-hidden="true">↗</span>
+          </button>
+          <input
+            id="build-file"
+            type="file"
+            accept=".json,.dfbuild.json"
+            hidden
+          />
+        </div>
+        <label for="build-code">Or paste a build code / shared link</label>
+        <div class="connect-row">
+          <input
+            id="build-code"
+            placeholder="Paste a 1.6.2 build code"
+            autocomplete="off"
+          /><button id="build-preview">Read build</button>
+        </div>
+        <p id="build-format-hint" class="hint">
+          Choose a build for 1.6.2, then select the equipment preset to replace.
+        </p>
+        <label for="build-slot"
+          >Loadout slot to update — selection required</label
+        >
+        <select id="build-slot" disabled>
+          <option value="">Connect a character first</option>
+        </select>
+        <div id="build-result">
+          <p class="hint">
+            Read a build to review its components before importing it.
+          </p>
+        </div>
+        <button id="build-review" class="primary" disabled>
+          Review import into selected slot
+        </button>
+      </section>
+      <div class="workspace">
+        <section class="catalog">
+          <div class="catalog-heading">
+            <div>
+              <span class="eyebrow">03 · CATALOGUE</span>
+              <h2 id="group-title">All items</h2>
+            </div>
+            <span id="count"></span>
+          </div>
+          <div class="filters">
+            <input
+              id="search"
+              type="search"
+              placeholder="Search item names or codes…"
+              aria-label="Search items"
+            /><label class="check"
+              ><input id="owned" type="checkbox" /> Owned only</label
+            >
+          </div>
+          <div id="cards" class="cards"></div>
+          <div class="pagination">
+            <button id="prev">← Previous</button><span id="page"></span
+            ><button id="next">Next →</button>
+          </div>
+        </section>
+        <section class="basket panel">
+          <span class="eyebrow">04 · CHANGES</span>
+          <h2>Your selection <span id="basket-count">0</span></h2>
+          <label for="mode">Quantity mode</label>
+          <select id="mode">
+            <option value="add">Add to owned quantities</option>
+            <option value="set">Set final totals</option>
+          </select>
+          <label class="check" id="maximize-option"
+            ><input id="maximize" type="checkbox" checked /> Upgrade equipment
+            to maximum</label
+          >
+          <div id="selection">
+            <p class="empty">Select an item from the catalogue to begin.</p>
+          </div>
+          <div class="bulk">
+            <label for="bulk-quantity">Quantity for filtered results</label>
+            <div class="connect-row">
+              <input
+                id="bulk-quantity"
+                type="number"
+                min="0"
+                max="99999999"
+                value="100"
+              /><button id="bulk">Select all</button>
+            </div>
+          </div>
+          <button class="primary" id="review" disabled>Review changes</button>
+          <button class="subtle" id="clear">Clear selection</button>
+          <p class="hint">
+            Unique equipment and unlocks are granted once. Existing equipment
+            instances are never removed.
+          </p>
+        </section>
+      </div>
+      <footer>
+        Local save editor · automatic backups · unofficial fan tool.
+      </footer>
+    </main>
+    <p
+      id="live-status"
+      class="hint"
+      role="status"
+      aria-live="polite"
+      hidden
+    ></p>
+    <div id="status" role="status" aria-live="polite"></div>
+    <dialog id="settings-dialog" aria-labelledby="settings-title">
+      <div class="settings-heading">
+        <div>
+          <h2 id="settings-title">Settings</h2>
+        </div>
+        <button id="close-settings" type="button">Close</button>
+      </div>
+      <label for="settings-version">Directories for game version</label>
+      <select id="settings-version">
+        <option>1.6.2</option>
+        <option>1.14.7</option>
+      </select>
+      <p class="hint">
+        Each version has its own folders. These preferences are saved on this
+        PC.
+      </p>
+      <div class="directory-guide">
+        <div class="directory-guide-heading">
+          <div>
+            <h3>Directory examples</h3>
+          </div>
+          <button id="use-directory-examples" type="button">
+            Auto-find directories
+          </button>
+        </div>
+        <p class="hint">
+          The save folder belongs to Forever. The game folder contains Archon.
+          Auto-find reads the installed launcher configuration. Save directories
+          to keep your selection.
+        </p>
+        <div class="path-example">
+          <span>FOREVER DATA</span><code id="data-path-example"></code>
+        </div>
+        <div class="path-example">
+          <span>GAME INSTALLATION</span><code id="game-path-example"></code>
+        </div>
+        <div class="path-example">
+          <span>STANDARD TEXTURES</span><code id="texture-path-example"></code>
+        </div>
+      </div>
+      <label for="root">Dauntless Forever data folder</label>
+      <div class="connect-row">
+        <input
+          id="root"
+          placeholder="Select the Forever folder containing your saves"
+          autocomplete="off"
+        />
+      </div>
+      <p class="hint">
+        Choose the Forever launcher data folder, or the version folder
+        containing data. Leave blank to use automatic detection.
+      </p>
+      <label for="game-root">Game installation folder</label>
+      <div class="connect-row">
+        <input
+          id="game-root"
+          placeholder="Select the game folder containing Archon"
+          autocomplete="off"
+        />
+      </div>
+      <p class="hint">
+        Used to locate original textures in Archon/Content/Paks. Leave blank to
+        read the Forever configuration.
+      </p>
+      <button id="save-settings" class="primary" type="button">
+        Save directories
+      </button>
+      <p id="settings-status" class="hint" role="status" aria-live="polite"></p>
+      <section class="images-panel">
+        <h3>Live connection · preview</h3>
+        <p class="hint">
+          Install once with Forever and Dauntless closed. Both versions include
+          an optional native extension for automatic inventory and build refresh
+          in single-player. Original loader and backend files are backed up.
+          Native refresh follows the game directory configured in Forever; start
+          it with the version folder’s 2 - PLAY.bat. Wait for server and client
+          acknowledgement before another change. Reset, restore and adding slots
+          remain offline.
+        </p>
+        <div class="connect-row">
+          <button id="live-install" type="button">
+            Install Live connection</button
+          ><button id="live-uninstall" type="button">
+            Remove Live and restore originals
+          </button>
+        </div>
+        <p id="live-settings-status" class="hint" role="status"></p>
+      </section>
+      <section class="images-panel">
+        <h3>Live module updates</h3>
+        <p id="updates-version" class="hint"></p>
+        <p class="hint">
+          Only signed releases from this project are installed. Updates wait
+          until the game and Forever server are closed. The previous module is
+          backed up and restored if installation fails.
+        </p>
+        <label
+          ><input id="updates-check-auto" type="checkbox" /> Check and download
+          automatically</label
+        >
+        <label
+          ><input id="updates-install-auto" type="checkbox" /> Install updates
+          when the game and server are closed</label
+        >
+        <div class="connect-row">
+          <button id="updates-check" type="button">Check for updates</button>
+          <button id="updates-apply" type="button">
+            Update installed Live module
+          </button>
+          <button id="updates-import" type="button">
+            Import update folder
+          </button>
+        </div>
+        <details>
+          <summary>Update source</summary>
+          <label for="update-feed">Signed update feed</label
+          ><input
+            id="update-feed"
+            type="url"
+            placeholder="https://…/updates/latest.json"
+            autocomplete="off"
+          />
+        </details>
+        <button id="updates-save" type="button">Save update preferences</button>
+        <p
+          id="updates-status"
+          class="hint"
+          role="status"
+          aria-live="polite"
+        ></p>
+      </section>
+      <section class="images-panel">
+        <h3>Preview images</h3>
+        <p id="standard-images" class="hint"></p>
+        <label for="image-root">Folder containing exported game images</label>
+        <div class="connect-row">
+          <input
+            id="image-root"
+            placeholder="D:\Dauntless\Exports\Textures"
+            autocomplete="off"
+          /><button id="scan-images">Link images</button>
+        </div>
+        <p id="image-report" class="hint">
+          PNG, JPEG and WebP, including subfolders. Match by item code or name,
+          or use Choose preview on any card. Unreal .pak and .uasset files
+          require texture export first.
+        </p>
+      </section>
+      <section class="reset-panel">
+        <h3>Reset character</h3>
+        <p id="reset-target" class="hint">Connect a character first.</p>
+        <p class="hint">
+          Reset the connected character's inventory, equipment and character
+          quests. Name and appearance stay. Shared account progress and other
+          characters stay unchanged.
+        </p>
+        <button id="reset-review" type="button" disabled>
+          Reset selected character…
+        </button>
+        <label for="reset-backup">Before-reset backups</label>
+        <select id="reset-backup" disabled>
+          <option value="">Connect a character first</option>
+        </select>
+        <button id="restore-review" type="button" disabled>
+          Restore selected backup…
+        </button>
+        <p id="reset-status" class="hint" role="status"></p>
+      </section>
+    </dialog>
+    <dialog id="confirm">
+      <span class="eyebrow">REVIEW</span>
+      <h2>Apply inventory changes</h2>
+      <p id="summary"></p>
+      <p>
+        Offline requires the game and server closed. Native Live requests
+        inventory and build refresh automatically in single-player on both
+        versions. Reopen Equipment after application is confirmed. The original
+        save will be backed up to
+        <strong>backup/materiali-tool</strong>.
+      </p>
+      <div class="connect-row">
+        <button id="cancel">Cancel</button
+        ><button class="primary" id="apply">Back up and apply</button>
+      </div>
+    </dialog>
+  </body>
+</html>

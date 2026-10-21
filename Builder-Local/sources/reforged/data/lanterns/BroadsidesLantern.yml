@@ -1,0 +1,12 @@
+name: Broadsides Lantern
+icon: /assets/icons/lanterns/BroadsidesLantern.png
+description: null
+cells: Insight
+lantern_ability:
+  instant: null
+  hold: >-
+    Drop a bomb from above that explodes after {{bombTime}} second. 
+    Deals {{damage}} damage and can interrupt Behemoths.
+values:
+  bombTime: 1
+  damage: 2750

@@ -1,0 +1,18 @@
+name: Shocking Heart
+description: "{{typeAlt}} protection forged from {{behemoth}} trophies."
+behemoth: Nayzaga
+icon: /assets/icons/armours/nayzaga/ShockingHeart.png
+type: Torso
+strength: Shock
+weakness: Terra
+cells: Fortitude
+resistance:
+  base: 10
+  powerSurged: 30
+perks:
+  - name: Medic
+    value: 1
+    powerSurged: false
+  - name: Medic
+    value: 3
+    powerSurged: true

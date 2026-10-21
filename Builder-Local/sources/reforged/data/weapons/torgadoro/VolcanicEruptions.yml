@@ -1,0 +1,27 @@
+name: Volcanic Eruptions
+description: A Slayer's {{type}} forged with {{behemoth}} trophies.
+behemoth: Torgadoro
+icon: /assets/icons/weapons/torgadoro/VolcanicEruptions.png
+type: Repeater
+damage: Slashing
+elemental: Blaze
+cells:
+  - Prismatic
+  - Prismatic
+power:
+  base: 100
+  powerSurged: 120
+bond:
+  elemental: Blaze
+unique_effects:
+  - name: TorgadoroLegendaryAbility
+    icon: /assets/icons/abilities/TorgadoroLegendaryWeaponAbility.png
+    description: &thunderdeepUeDescription >-
+      Legendary Ability: Enter a rage, gaining new attacks for {{rageTime}} seconds. Deals
+      +{{damage}}% damage when the target is below
+
+      {{healthBelow}}% health. Usable once, but resets on Behemoth kill.
+    values:
+      rageTime: 15
+      damage: 25
+      healthBelow: 50

@@ -1,0 +1,12 @@
+name: Cyclonic Strikeplate
+icon: /assets/icons/parts/aetherstrikers/mods/CyclonicStrikeplate.png
+part_effect:
+  - >-
+    Tempest Form duration increased by {{timeIncreased}} seconds. When Tempest Form has less
+    than {{timeLess}} seconds remaining, deal +{{damage}}% damage.
+values: 
+  timeIncreased: 10
+  timeLess: 10
+  damage: 15
+tags:
+  - Recommended

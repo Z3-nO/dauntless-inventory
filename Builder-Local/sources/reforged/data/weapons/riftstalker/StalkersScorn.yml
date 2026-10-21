@@ -1,0 +1,39 @@
+name: Stalker's Scorn
+description: A Slayer's {{type}} forged with {{behemoth}} trophies.
+behemoth: Riftstalker
+icon: /assets/icons/weapons/riftstalker/StalkersScorn.png
+type: Aether Strikers
+damage: Blunt
+elemental: Umbral
+cells:
+  - Finesse
+  - Insight
+power:
+  base: 60
+  powerSurged: 120
+perks:
+  - name: Assassin's Frenzy
+    value: 2
+    powerSurged: false
+  - name: Assassin's Frenzy
+    value: 3
+    powerSurged: true
+unique_effects:
+  - name: DamageShadowOrbs
+    description: &riftstalkerUeDescription >-
+      Dealing damage has a chance (based on damage dealt) to generate a shadow
+      orb that increases damage dealt by {{damage}}% for {{damageTime}} seconds. If {{orbsMinCount}} or more orbs
+      are present, the bonus doubles.
+    values:
+      damage: 1.5
+      damageTime: 5
+      orbsMinCount: 5
+    powerSurged: false
+  - name: DamageShadowOrbs
+    description: *riftstalkerUeDescription
+    values:
+      damage: 2.25
+      damageTime: 5
+      orbsMinCount: 5
+    powerSurged: true
+

@@ -1,0 +1,46 @@
+name: Tough
+description: Increases Max Health.
+type: Fortitude
+effects:
+  '1':
+    description:
+      - +{{maxHealth}} max health
+      - +{{percentHealing}}% increased healing from all sources
+    values:
+      maxHealth: 50
+      percentHealing: 5
+  '2':
+    description:
+      - +{{maxHealth}} max health
+      - +{{percentHealing}}% increased healing from all sources
+    values:
+      maxHealth: 100
+      percentHealing: 10
+  '3':
+    description:
+      - +{{maxHealth}} max health
+      - +{{percentHealing}}% increased healing from all sources
+    values:
+      maxHealth: 150
+      percentHealing: 15
+  '4':
+    description:
+      - +{{maxHealth}} max health
+      - +{{percentHealing}}% increased healing from all sources
+    values:
+      maxHealth: 250
+      percentHealing: 25
+  '5':
+    description:
+      - +{{maxHealth}} max health
+      - +{{percentHealing}}% increased healing from all sources
+    values:
+      maxHealth: 300
+      percentHealing: 35
+  '6':
+    description:
+      - +{{maxHealth}} max health
+      - +{{percentHealing}}% increased healing from all sources
+    values:
+      maxHealth: 500
+      percentHealing: 50

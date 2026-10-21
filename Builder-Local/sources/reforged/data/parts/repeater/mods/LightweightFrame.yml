@@ -1,0 +1,7 @@
+name: Lightweight Frame
+icon: /assets/icons/parts/repeaters/mods/LightweightFrame.png
+part_effect:
+  - Gain {{percentMovespeed}}% increased movespeed when at {{currentAmmo}} or less ammo.
+values:
+  percentMovespeed: 20
+  currentAmmo: 6

@@ -1,0 +1,18 @@
+name: Boreal March
+description: "{{typeAlt}} protection forged from {{behemoth}} trophies."
+behemoth: Boreus
+icon: /assets/icons/armours/boreus/BorealMarch.png
+type: Legs
+strength: Frost
+weakness: Blaze
+cells: Finesse
+resistance:
+  base: 5
+  powerSurged: 30
+perks:
+  - name: Tenacious
+    value: 1
+    powerSurged: false
+  - name: Tenacious
+    value: 3
+    powerSurged: true

@@ -1,0 +1,30 @@
+name: Molten Edict
+description: >-
+  The Molten Edict is a craftable Exotic weapon in Dauntless. It is crafted from
+  Firebrand Charrogg reagents.
+behemoth: Charrogg
+icon: /assets/icons/weapons/charrogg/MoltenEdict.png
+type: Hammer
+damage: Blunt
+elemental: Blaze
+cells:
+  - Brutality
+  - Prismatic
+rarity: exotic
+restrict_specials: true
+power:
+  base: 40
+  powerSurged: 120
+perks:
+  - name: Berserker
+    value: 2
+    powerSurged: false
+  - name: Berserker
+    value: 3
+    powerSurged: true
+unique_effects:
+  - name: HammerBlastFireballs
+    icon: /assets/icons/parts/hammer/specials/MoltenEdict.png
+    description: >-
+      Replaces all hammer blasts with unique fireball abilities that deal blaze
+      damage.

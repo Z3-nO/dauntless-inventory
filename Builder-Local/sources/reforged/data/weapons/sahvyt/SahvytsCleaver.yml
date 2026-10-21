@@ -1,0 +1,34 @@
+name: Sahvyt's Cleaver
+description: A Slayer's {{type}} forged with {{behemoth}} trophies.
+behemoth: Sahvyt
+icon: /assets/icons/weapons/sahvyt/SahvytsCleaver.png
+type: Axe
+damage: Slashing
+elemental: Shock
+cells:
+  - Finesse
+  - Finesse
+power:
+  base: 60
+  powerSurged: 120
+perks:
+  - name: Pulse
+    value: 2
+    powerSurged: false
+  - name: Pulse
+    value: 3
+    powerSurged: true
+unique_effects:
+  - name: SahvytBoomerang
+    description: &sahvytUeDescription >-
+      Once charged, your next weapon swing/shot unleashes a boomerang projectile
+      that frequently deals {{damage}} shock damage to any target hit. Dodging through
+      an attack reduces charge cooldown.
+    values:
+      damage: 250
+    powerSurged: false
+  - name: SahvytBoomerang
+    description: *sahvytUeDescription
+    values:
+      damage: 325
+    powerSurged: true

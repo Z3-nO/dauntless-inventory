@@ -1,0 +1,34 @@
+name: Charred Saber
+description: A Slayer's {{type}} forged with {{behemoth}} trophies.
+behemoth: Charrogg
+icon: /assets/icons/weapons/charrogg/CharredSaber.png
+type: Sword
+damage: Cutting
+elemental: Blaze
+cells:
+  - Brutality
+  - Fortitude
+power:
+  base: 40
+  powerSurged: 120
+perks:
+  - name: Aetherhunter
+    value: 1
+    powerSurged: false
+  - name: Aetherhunter
+    value: 3
+    powerSurged: true
+unique_effects:
+  - name: CharrogSpentStaminaFireDamage
+    description: &charrogUeDescription >-
+      After spending {{stamina}} stamina, next attack emits a cone of flame that deals +{{blazeDamage}} blaze damage to each unique target within the cone
+    powerSurged: false
+    values:
+      stamina: 75
+      blazeDamage: 100
+  - name: CharrogSpentStaminaFireDamage
+    description: *charrogUeDescription
+    powerSurged: true
+    values:
+      stamina: 75
+      blazeDamage: 200

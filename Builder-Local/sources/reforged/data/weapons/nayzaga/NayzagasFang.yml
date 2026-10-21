@@ -1,0 +1,32 @@
+name: Nayzaga's Fang
+description: A Slayer's {{type}} forged with {{behemoth}} trophies.
+behemoth: Nayzaga
+icon: /assets/icons/weapons/nayzaga/NayzagasFang.png
+type: War Pike
+damage: Piercing
+elemental: Shock
+cells:
+  - Finesse
+  - Insight
+power:
+  base: 40
+  powerSurged: 120
+perks:
+  - name: Barbed
+    value: 1
+    powerSurged: false
+  - name: Barbed
+    value: 3
+    powerSurged: true
+unique_effects:
+  - name: WoundedPartsLifesteal
+    description: &nayzagaUeDescription >-
+      +{{heal}}% lifesteal vs wounded parts
+    values:
+      heal: 3
+    powerSurged: false
+  - name: WoundedPartsLifesteal
+    description: *nayzagaUeDescription
+    values:
+      heal: 5
+    powerSurged: true

@@ -1,0 +1,54 @@
+name: Aegis
+description: >-
+  Increases amount of shields received. At later ranks, after gaining 1000
+  shields, ignore the next incoming hit within 15 seconds.
+type: Fortitude
+effects:
+  '1':
+    description:
+      - Increases all shields received by {{percentShields}}%
+      - null
+    values:
+      percentShields: 5
+  '2':
+    description:
+      - Increases all shields received by {{percentShields}}%
+      - null
+    values:
+      percentShields: 8
+  '3':
+    description:
+      - Increases all shields received by {{percentShields}}%
+      - null
+    values:
+      percentShields: 11
+  '4':
+    description:
+      - Increases all shields received by {{percentShields}}%
+      - >-
+        After gaining {{shieldGained}} shield from any source, ignore the next incoming hit
+        within the next {{ignoreTime}} seconds.
+    values:
+      percentShields: 14
+      shieldGained: 1000
+      ignoreTime: 15
+  '5':
+    description:
+      - Increases all shields received by {{percentShields}}%
+      - >-
+        After gaining {{shieldGained}} shield from any source, ignore the next incoming hit
+        within the next {{ignoreTime}} seconds.
+    values:
+      percentShields: 17
+      shieldGained: 1000
+      ignoreTime: 15
+  '6':
+    description:
+      - Increases all shields received by {{percentShields}}%
+      - >-
+        After gaining {{shieldGained}} shield from any source, ignore the next incoming hit
+        within the next {{ignoreTime}} seconds.
+    values:
+      percentShields: 20
+      shieldGained: 1000
+      ignoreTime: 15

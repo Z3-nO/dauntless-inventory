@@ -1,0 +1,32 @@
+name: Breakdown Voltage
+description: A Slayer's {{type}} forged with {{behemoth}} trophies.
+behemoth: Thunderdeep Drask
+icon: /assets/icons/weapons/thunderdeep/BreakdownVoltage.png
+type: Axe
+damage: Slashing
+elemental: Shock
+cells:
+  - Brutality
+  - Finesse
+power:
+  base: 80
+  powerSurged: 120
+perks:
+  - name: Aetheric Evasion
+    value: 2
+    powerSurged: false
+  - name: Aetheric Evasion
+    value: 3
+    powerSurged: true
+unique_effects:
+  - name: HeadDamage
+    description: &thunderdeepUeDescription >-
+      {{damage}}% damage vs Behemoth Heads
+    values:
+      damage: 20
+    powerSurged: false
+  - name: HeadDamage
+    description: *thunderdeepUeDescription
+    values:
+      damage: 30
+    powerSurged: true

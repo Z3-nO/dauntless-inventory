@@ -1,0 +1,41 @@
+name: Frostwülf's Rip
+description: A Slayer's {{type}} forged with {{behemoth}} trophies.
+behemoth: Frostwülf
+icon: /assets/icons/weapons/frostwulf/FrostwulfsRip.png
+type: War Pike
+damage: Piercing
+elemental: Frost
+cells:
+  - Insight
+  - Fortitude
+power:
+  base: 60
+  powerSurged: 120
+perks:
+  - name: Galvanized
+    value: 2
+    powerSurged: false
+  - name: Galvanized
+    value: 3
+    powerSurged: true
+unique_effects:
+  - name: LanternsMakeGeyser
+    description: &frostwulfUeDescription >-
+      After using your Lantern ability, create a geyser that frequently deals {{frostDamage}}
+      frost damage. Any Slayer moving through the geyser for the first time is
+      granted a stackable {{health}} health shield that lasts for {{shieldTime}} seconds (max {{shieldMax}}
+      shields).
+    values:
+      frostDamage: 50
+      health: 125
+      shieldTime: 25
+      shieldMax: 600
+    powerSurged: false
+  - name: LanternsMakeGeyser
+    description: *frostwulfUeDescription
+    values:
+      frostDamage: 70
+      health: 125
+      shieldTime: 25
+      shieldMax: 600
+    powerSurged: true

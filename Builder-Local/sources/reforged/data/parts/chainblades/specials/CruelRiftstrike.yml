@@ -1,0 +1,15 @@
+name: Cruel Riftstrike
+icon: /assets/icons/parts/chainblades/specials/CruelRiftstrike.png
+part_effect:
+  - >-
+    Teleport forward with invulnerability and strike the nearest Behemoth part,
+    dealing {{damage}} damage and applying a mark that deals {{damageMark}} damage per second for {{damageMarkTime}}
+    seconds. When a mark expires, it deals {{damageMarkExpires}} damage for each other mark active
+    at the time. Mark duration increased to {{timeMarkIncreased}} seconds if an attack is avoided
+    during the teleport.
+values:
+  damage: 75
+  damageMark: 25
+  damageMarkTime: 7
+  damageMarkExpires: 200
+  timeMarkIncreased: 10

@@ -1,0 +1,18 @@
+name: Shrikedown Gloves
+description: "{{typeAlt}} protection forged from {{behemoth}} trophies."
+behemoth: Shrike
+icon: /assets/icons/armours/shrike/ShrikedownGloves.png
+type: Arms
+strength: null
+weakness: null
+cells: Alacrity
+resistance:
+  base: 10
+  powerSurged: 30
+perks:
+  - name: Weighted Strikes
+    value: 1
+    powerSurged: false
+  - name: Weighted Strikes
+    value: 3
+    powerSurged: true

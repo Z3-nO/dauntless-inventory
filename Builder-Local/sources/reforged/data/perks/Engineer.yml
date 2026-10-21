@@ -1,0 +1,28 @@
+name: Engineer
+description: Increases range of pylons.
+type: Insight
+effects:
+  '1':
+    description: +{{percentagePylonRange}}% increase Pylon range
+    values:
+      percentagePylonRange: 35
+  '2':
+    description: +{{percentagePylonRange}}% increase Pylon range
+    values:
+      percentagePylonRange: 50
+  '3':
+    description: +{{percentagePylonRange}}% increase Pylon range
+    values:
+      percentagePylonRange: 65
+  '4':
+    description: +{{percentagePylonRange}}% increase Pylon range
+    values:
+      percentagePylonRange: 80
+  '5':
+    description: +{{percentagePylonRange}}% increase Pylon range
+    values:
+      percentagePylonRange: 115
+  '6':
+    description: +{{percentagePylonRange}}% increase Pylon range
+    values:
+      percentagePylonRange: 150

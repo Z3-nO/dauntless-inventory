@@ -1,0 +1,13 @@
+name: Ardent Cyclone
+icon: /assets/icons/parts/sword/specials/ArdentCyclone.png
+part_effect:
+  - >-
+    Activate at full meter to spin, dealing {{damage}} damage constantly to nearby
+    enemies. Grants {{valour}} Valour every {{valourTime}} seconds. Reactivate to slash in a
+    direction, dealing {{reactivateDamage}} + ({{hitBonusDamage}} x number of spin hits) to the first enemy hit.
+values:
+  damage: 70
+  valour: 1
+  valourTime: 4
+  reactivateDamage: 500
+  hitBonusDamage: 10

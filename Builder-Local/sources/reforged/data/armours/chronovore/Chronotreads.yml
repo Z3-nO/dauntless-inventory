@@ -1,0 +1,18 @@
+name: Chronotreads
+description: "{{typeAlt}} protection forged from {{behemoth}} trophies."
+behemoth: Chronovore
+icon: /assets/icons/armours/chronovore/Chronotreads.png
+type: Legs
+strength: Radiant
+weakness: Umbral
+cells: Finesse
+resistance:
+  base: 25
+  powerSurged: 30
+perks:
+  - name: Pulse
+    value: 2
+    powerSurged: false
+  - name: Pulse
+    value: 3
+    powerSurged: true

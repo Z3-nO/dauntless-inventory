@@ -1,0 +1,1 @@
+Builder preview icons are in builder/. Map entries are stored in data/icon-map.json. Optional user-exported previews can be named ITEM_CODE.png here or linked using the application. No Unreal archive extractor or 3D models are included.

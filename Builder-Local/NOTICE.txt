@@ -1,0 +1,30 @@
+Dauntless Forever Builder Local — version 1.0.0
+Application source distributed under GNU AGPL version 3 only. See LICENSE.
+
+Derived visual style, legacy dataset/code order, original renderer, preview icons,
+helmet and voxel card sprites:
+Dauntless Forever Builder by A2K (Addison2k), https://builder.dauntlessforever.com/
+Adapted on 20 October 2026: separated readable source files, dual-version data,
+modern sockets/omnicells/bonds/repeaters, strict code import, local library,
+file exchange, complete catalogue browsing, local assets and static server.
+
+Catalogue data from Dauntless Forever by Addison2k and contributors:
+https://github.com/addison2k/DauntlessForever
+Original input attribution: commit 7981dfd367960be2d31f7f077719e7ec42695299,
+catalog162-ids.txt, catalog-1147.json and both versions' items.json.
+Filtered/normalised catalogue records and original source references are retained.
+
+Original legacy equipment data credited by the public Builder:
+https://github.com/atomicptr/dauntless-builder-legacy
+Credit to atomicptr and contributors. AGPL-3.0.
+
+Reforged YAML data and additional icons:
+https://github.com/atomicptr/dauntless-builder-reforged
+Commit d3ec4a1a26c4d189792e7bd2e824df4cb080756b, 28 March 2024.
+Copyright notices and licence retained in sources/reforged/LICENSE.
+Upstream balance label is 1.14.6. Local target is 1.14.7 CL647472;
+this is not a claim of a new native extraction/validation of every game stat.
+
+Fonts retain their SIL Open Font License notices under public/assets/fonts.
+Bundled Node.js retains its notices under runtime/LICENSE-node.txt.
+Game assets retain the rights of their respective owners. Unofficial fan project.

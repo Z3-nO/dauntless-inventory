@@ -1,0 +1,18 @@
+name: Eye of the Swarm
+description: "{{typeAlt}} protection forged from {{behemoth}} trophies."
+behemoth: Kharabak
+icon: /assets/icons/armours/kharabak/EyeOfTheSwarm.png
+type: Head
+strength: Terra
+weakness: Shock
+cells: Alacrity
+resistance:
+  base: 10
+  powerSurged: 30
+perks:
+  - name: Assassin's Frenzy
+    value: 1
+    powerSurged: false
+  - name: Assassin's Frenzy
+    value: 3
+    powerSurged: true

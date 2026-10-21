@@ -1,0 +1,18 @@
+name: Might of Stone
+description: "{{typeAlt}} protection forged from {{behemoth}} trophies."
+behemoth: Skarn
+icon: /assets/icons/armours/skarn/MightOfStone.png
+type: Arms
+strength: Terra
+weakness: Shock
+cells: Fortitude
+resistance:
+  base: 5
+  powerSurged: 30
+perks:
+  - name: Fortress
+    value: 1
+    powerSurged: false
+  - name: Fortress
+    value: 3
+    powerSurged: true

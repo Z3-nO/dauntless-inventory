@@ -1,0 +1,18 @@
+name: Dark Watch
+description: "{{typeAlt}} protection forged from {{behemoth}} trophies."
+behemoth: Shrowd
+icon: /assets/icons/armours/shrowd/DarkWatch.png
+type: Head
+strength: Umbral
+weakness: Radiant
+cells: Brutality
+resistance:
+  base: 20
+  powerSurged: 30
+perks:
+  - name: Cunning
+    value: 2
+    powerSurged: false
+  - name: Cunning
+    value: 3
+    powerSurged: true

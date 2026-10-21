@@ -1,0 +1,18 @@
+name: Spellbound Wings
+description: "{{typeAlt}} protection forged from {{behemoth}} trophies."
+behemoth: Alyra
+icon: /assets/icons/armours/alyra/SpellboundWings.png
+type: Torso
+strength: Radiant
+weakness: Umbral
+cells: Fortitude
+resistance:
+  base: 20
+  powerSurged: 30
+perks:
+  - name: Galvanized
+    value: 2
+    powerSurged: false
+  - name: Galvanized
+    value: 3
+    powerSurged: true

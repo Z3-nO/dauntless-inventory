@@ -1,0 +1,28 @@
+name: Deconstruction
+description: Bonus damage against objects created by Behemoths.
+type: Brutality
+effects:
+  '1':
+    description: Deal +{{percentDamageToObjects}}% damage to objects created by Behemoths
+    values:
+      percentDamageToObjects: 10
+  '2':
+    description: Deal +{{percentDamageToObjects}}% damage to objects created by Behemoths
+    values:
+      percentDamageToObjects: 20
+  '3':
+    description: Deal +{{percentDamageToObjects}}% damage to objects created by Behemoths
+    values:
+      percentDamageToObjects: 30
+  '4':
+    description: Deal +{{percentDamageToObjects}}% damage to objects created by Behemoths
+    values:
+      percentDamageToObjects: 50
+  '5':
+    description: Deal +{{percentDamageToObjects}}% damage to objects created by Behemoths
+    values:
+      percentDamageToObjects: 70
+  '6':
+    description: Deal +{{percentDamageToObjects}}% damage to objects created by Behemoths
+    values:
+      percentDamageToObjects: 100

@@ -1,0 +1,32 @@
+name: Thundering Bolts
+description: A Slayer's {{type}} forged with {{behemoth}} trophies.
+behemoth: Drask
+icon: /assets/icons/weapons/drask/ThunderingBolts.png
+type: Aether Strikers
+damage: Blunt
+elemental: Shock
+cells:
+  - Finesse
+  - Brutality
+power:
+  base: 20
+  powerSurged: 120
+perks:
+  - name: Aetheric Attunement
+    value: 2
+    powerSurged: false
+  - name: Aetheric Attunement
+    value: 3
+    powerSurged: true
+unique_effects:
+  - name: TailDamage
+    description: &draskUeDescription >-
+      {{damage}}% damage vs Behemoth Heads
+    values:
+      damage: 20
+    powerSurged: false
+  - name: TailDamage
+    description: *draskUeDescription
+    values:
+      damage: 30
+    powerSurged: true

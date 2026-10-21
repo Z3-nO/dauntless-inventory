@@ -1,0 +1,18 @@
+name: Feet of Ice
+description: "{{typeAlt}} protection forged from {{behemoth}} trophies."
+behemoth: Pangar
+icon: /assets/icons/armours/pangar/FeetOfIce.png
+type: Legs
+strength: Frost
+weakness: Blaze
+cells: Fortitude
+resistance:
+  base: 10
+  powerSurged: 30
+perks:
+  - name: Overpower
+    value: 1
+    powerSurged: false
+  - name: Overpower
+    value: 3
+    powerSurged: true

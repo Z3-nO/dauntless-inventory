@@ -1,0 +1,18 @@
+name: Hands of the Rift
+description: "{{typeAlt}} protection forged from {{behemoth}} trophies."
+behemoth: Riftstalker
+icon: /assets/icons/armours/riftstalker/HandsOfTheRift.png
+type: Arms
+strength: Umbral
+weakness: Radiant
+cells: Alacrity
+resistance:
+  base: 15
+  powerSurged: 30
+perks:
+  - name: Evasion
+    value: 2
+    powerSurged: false
+  - name: Evasion
+    value: 3
+    powerSurged: true

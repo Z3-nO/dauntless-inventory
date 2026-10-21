@@ -1,0 +1,18 @@
+name: Light's Walk
+description: "{{typeAlt}} protection forged from {{behemoth}} trophies."
+behemoth: Rezakiri
+icon: /assets/icons/armours/rezakiri/LightsWalk.png
+type: Legs
+strength: Radiant
+weakness: Umbral
+cells: Alacrity
+resistance:
+  base: 20
+  powerSurged: 30
+perks:
+  - name: Agility
+    value: 2
+    powerSurged: false
+  - name: Agility
+    value: 3
+    powerSurged: true

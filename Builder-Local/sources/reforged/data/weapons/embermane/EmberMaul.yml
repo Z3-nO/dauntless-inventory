@@ -1,0 +1,34 @@
+name: Ember Maul
+description: A Slayer's {{type}} forged with {{behemoth}} trophies.
+behemoth: Embermane
+icon: /assets/icons/weapons/embermane/EmberMaul.png
+type: Hammer
+damage: Blunt
+elemental: Blaze
+cells:
+  - Brutality
+  - Alacrity
+power:
+  base: 20
+  powerSurged: 120
+perks:
+  - name: Evasive Fury
+    value: 1
+    powerSurged: false
+  - name: Evasive Fury
+    value: 3
+    powerSurged: true
+unique_effects:
+  - name: HitStaggerDamage
+    description: &embermaneUeDescription >-
+      The {{hitSuccession}}th hit in a row deals +{{bonusDamage}}% stagger damage
+    values:
+      hitSuccession: 4
+      bonusDamage: 50
+    powerSurged: false
+  - name: HitStaggerDamage
+    description: *embermaneUeDescription
+    values:
+      hitSuccession: 4
+      bonusDamage: 150
+    powerSurged: true

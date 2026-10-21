@@ -1,0 +1,18 @@
+name: Light's Refuge
+description: "{{typeAlt}} protection forged from {{behemoth}} trophies."
+behemoth: Rezakiri
+icon: /assets/icons/armours/rezakiri/LightsRefuge.png
+type: Arms
+strength: Radiant
+weakness: Umbral
+cells: Finesse
+resistance:
+  base: 20
+  powerSurged: 30
+perks:
+  - name: Conduit
+    value: 2
+    powerSurged: false
+  - name: Conduit
+    value: 3
+    powerSurged: true
