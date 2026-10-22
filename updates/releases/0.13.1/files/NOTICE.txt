@@ -1,0 +1,39 @@
+Dauntless Materiali — editor indipendente, 2026.
+Release 0.12.0 adds signed optional Live-module distribution, transactional
+replacement/restore and automatic tracking of the active local game character.
+Compatibility fix 2026-10-21: the 1.14.7 native module incorporates
+Loader1147-FpsFix-source from Dauntless Forever commit
+96d878736eaa37927a767a81fe09332bcb52bf0d (Addison2k and contributors,
+AGPL-3.0-only). Optional Live refresh shares the upstream client tick.
+Licensed under GNU AGPL version 3 only. Full source is shipped with this tool.
+
+Catalog data derived from Dauntless Forever:
+Copyright (C) 2026 Addison2k.
+https://github.com/addison2k/DauntlessForever
+Commit 7981dfd367960be2d31f7f077719e7ec42695299
+Inputs: resources/versions/1.14.7/package/tools/catalog-1147.json,
+resources/versions/1.6.2/package/tools/catalog162-ids.txt,
+and both versions' package/items.json.
+Modified: filtered and normalized into data/catalogs.json. Gameplay assets are not included.
+Original source and licence remain available at the repository above.
+Dauntless is a trademark of its respective owners. Unofficial fan tool, no affiliation.
+
+Bundled Node.js: see runtime/LICENSE-node.txt for its licence and third-party notices.
+
+Release 0.3.0: Dauntless Inventory desktop UI (English). Builder code format, ordered item identifiers and preview icons sourced from https://builder.dauntlessforever.com/ on 2026-10-20. In-game loadout field names cross-checked against the public Undaunted SDK (https://github.com/SyST3MDeV/Undaunted). This application is independently written; gameplay assets retain their original rights. Electron runtime third-party notices are included in the packaged distribution.
+
+Release 0.6.0: versioned modern build decoder and metadata derived from Dauntless Builder Local and the pinned AGPL-3.0 Reforged data, atomicptr/dauntless-builder-reforged commit d3ec4a1a26c4d189792e7bd2e824df4cb080756b. Credit to atomicptr and contributors. Modern item mappings checked against the user's installed CL647472 catalogue tables and English localization. Raw game archives and player data are excluded.
+
+Release 0.7.0: helmet logo and local typography from the Forever Builder. Font licences are included in public/ui/fonts. Saira Condensed and JetBrains Mono retain their SIL Open Font Licence notices.
+
+Release 0.9.0: catalogue presence and IsStackable checked against the installed 1.6.2 and 1.14.7 clients. Starter reset/loadout fields follow the versioned Dauntless Forever backends (Addison2k and contributors), based on Undaunted (gwog and contributors), under AGPL-3.0. Raw game archives, player saves and keys are excluded from distribution.
+
+Live Preview 0.10.0 adds an authenticated loopback bridge and an optional native local refresh.
+The 1.14.7 DLL derives from Addison2k / Dauntless Forever Loader1147-SigGuard and KombatKing equipment/startup fixes, under AGPL-3.0-only, based in part on Undaunted by gwog and contributors. Full corresponding native source and build instructions accompany this preview. MinHook retains its own BSD licence in Native-Source/minhook/LICENSE.txt.
+
+Live Preview 0.11.0 adds native inventory/loadout refresh for both inspected clients. The 1.6.2 extension keeps the original Forever server as a separate, unmodified DLL. Shared protocol and extension source accompany the binaries under AGPL-3.0-only. MinHook retains its BSD licence.
+
+Release 0.13.1: the modern native module incorporates Loader1147-ChatCpu-source
+from Addison2k / Dauntless Forever at 6053ab79e717d54f5813a8ad915a48697d150eef
+(AGPL-3.0-only), retaining upstream chat, CPU and boss-health-bar fixes.
+Signed baseline hashes identify the inspected Forever package files.

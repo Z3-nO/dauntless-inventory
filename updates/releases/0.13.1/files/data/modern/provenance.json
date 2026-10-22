@@ -1,0 +1,3726 @@
+{
+  "game": "1.14.7 CL647472",
+  "method": "Unique normalized English display names from installed catalogue tables and Game/en/Game.locres; explicit legacy naming aliases reviewed separately.",
+  "upstream": "atomicptr/dauntless-builder-reforged",
+  "commit": "d3ec4a1a26c4d189792e7bd2e824df4cb080756b",
+  "unsupported": [
+    "Silver Sword",
+    "The Golden Claws"
+  ],
+  "nativeNames": [
+    {
+      "id": "AR_ARMSTRONG_ARMS",
+      "name": "Torgadoro's Brawn",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Arms"
+    },
+    {
+      "id": "AR_MINT_ARMS",
+      "name": "Adversary's Wrath",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Arms"
+    },
+    {
+      "id": "AR_ARMSTRONG_CHEST",
+      "name": "Torgadoro's Core",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Chest"
+    },
+    {
+      "id": "AR_MINT_CHEST",
+      "name": "Adversary's Pride",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Chest"
+    },
+    {
+      "id": "AR_ARMSTRONG_HELM",
+      "name": "Torgadoro's Apex",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Helm"
+    },
+    {
+      "id": "AR_MINT_HELM",
+      "name": "Adversary's Guile",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Helm"
+    },
+    {
+      "id": "AR_ARMSTRONG_LEGS",
+      "name": "Torgadoro's Gait",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Legs"
+    },
+    {
+      "id": "AR_MINT_LEGS",
+      "name": "Adversary's Drive",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Legs"
+    },
+    {
+      "id": "AR_BEAVER_ARMS",
+      "name": "Gnasher Grips",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Arms"
+    },
+    {
+      "id": "AR_BEAVER_CHEST",
+      "name": "Gnasher Cloak",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Chest"
+    },
+    {
+      "id": "AR_BEAVER_HELM",
+      "name": "Gnasher Cap",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Helm"
+    },
+    {
+      "id": "AR_BEAVER_LEGS",
+      "name": "Gnasher Treads",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Legs"
+    },
+    {
+      "id": "AR_BEGINNER_ARMS",
+      "name": "Recruit's Gloves",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Arms"
+    },
+    {
+      "id": "AR_BEGINNER_CHEST",
+      "name": "Recruit's Jacket",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Chest"
+    },
+    {
+      "id": "AR_BEGINNER_LEGS",
+      "name": "Recruit's Trousers",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Legs"
+    },
+    {
+      "id": "AR_BUGBEAR_ARMS",
+      "name": "Light's Refuge",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Arms"
+    },
+    {
+      "id": "AR_BUGBEAR_CHEST",
+      "name": "Light's Virtue",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Chest"
+    },
+    {
+      "id": "AR_BUGBEAR_EXOTIC_HELM",
+      "name": "Prismatic Grace",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Helm"
+    },
+    {
+      "id": "AR_BUGBEAR_HELM",
+      "name": "Light's Crown",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Helm"
+    },
+    {
+      "id": "AR_BUGBEAR_LEGS",
+      "name": "Light's Walk",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Legs"
+    },
+    {
+      "id": "AR_BULLSEYE_ARMS",
+      "name": "Quillspike Grips",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Arms"
+    },
+    {
+      "id": "AR_BULLSEYE_CHEST",
+      "name": "Quillspike Jacket",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Chest"
+    },
+    {
+      "id": "AR_BULLSEYE_HELM",
+      "name": "Quillspike Mask",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Helm"
+    },
+    {
+      "id": "AR_BULLSEYE_LEGS",
+      "name": "Quillspike Boots",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Legs"
+    },
+    {
+      "id": "AR_CROWBEAR_ARMS",
+      "name": "Dark Embrace",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Arms"
+    },
+    {
+      "id": "AR_CROWBEAR_CHEST",
+      "name": "Dark Marrow",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Chest"
+    },
+    {
+      "id": "AR_CROWBEAR_EXOTIC_HELM",
+      "name": "Tragic Echo",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Helm"
+    },
+    {
+      "id": "AR_CROWBEAR_HELM",
+      "name": "Dark Watch",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Helm"
+    },
+    {
+      "id": "AR_CROWBEAR_LEGS",
+      "name": "Dark Path",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Legs"
+    },
+    {
+      "id": "AR_ELECTROQUILL_ARMS",
+      "name": "Shocking Grasp",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Arms"
+    },
+    {
+      "id": "AR_ELECTROQUILL_CHEST",
+      "name": "Shocking Heart",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Chest"
+    },
+    {
+      "id": "AR_ELECTROQUILL_HELM",
+      "name": "Shocking Gaze",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Helm"
+    },
+    {
+      "id": "AR_ELECTROQUILL_LEGS",
+      "name": "Shocking Stride",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Legs"
+    },
+    {
+      "id": "AR_FULGAR_ARMS",
+      "name": "Draskscale Gauntlets",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Arms"
+    },
+    {
+      "id": "AR_FULGAR_ALPHA_ARMS",
+      "name": "Thunderdeep's Regulators",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Arms"
+    },
+    {
+      "id": "AR_FULGAR_CHEST",
+      "name": "Draskscale Plate",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Chest"
+    },
+    {
+      "id": "AR_FULGAR_ALPHA_CHEST",
+      "name": "Thunderdeep's Dynamo",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Chest"
+    },
+    {
+      "id": "AR_FULGAR_HELM",
+      "name": "Draskscale Helmet",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Helm"
+    },
+    {
+      "id": "AR_FULGAR_ALPHA_HELM",
+      "name": "Thunderdeep's Capacitor",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Helm"
+    },
+    {
+      "id": "AR_FULGAR_LEGS",
+      "name": "Draskscale Greaves",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Legs"
+    },
+    {
+      "id": "AR_FULGAR_ALPHA_LEGS",
+      "name": "Thunderdeep's Turbines",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Legs"
+    },
+    {
+      "id": "AR_HOST_ARMS",
+      "name": "Boreal Might",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Arms"
+    },
+    {
+      "id": "AR_HOST_CHEST",
+      "name": "Boreal Resolve",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Chest"
+    },
+    {
+      "id": "AR_HOST_HELM",
+      "name": "Boreal Epiphany",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Helm"
+    },
+    {
+      "id": "AR_HOST_LEGS",
+      "name": "Boreal March",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Legs"
+    },
+    {
+      "id": "AR_LAVAROLLER_ARMS",
+      "name": "Hellplate Bracers",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Arms"
+    },
+    {
+      "id": "AR_LAVAROLLER_CHEST",
+      "name": "Hellplate Cuirass",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Chest"
+    },
+    {
+      "id": "AR_LAVAROLLER_HELM",
+      "name": "Hellplate Casque",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Helm"
+    },
+    {
+      "id": "AR_LAVAROLLER_LEGS",
+      "name": "Hellplate Greaves",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Legs"
+    },
+    {
+      "id": "AR_LERAWR_ARMS",
+      "name": "Fiery Gauntlets",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Arms"
+    },
+    {
+      "id": "AR_LERAWR_CHEST",
+      "name": "Fiery Breastplate",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Chest"
+    },
+    {
+      "id": "AR_LERAWR_HELM",
+      "name": "Fiery Helm",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Helm"
+    },
+    {
+      "id": "AR_LERAWR_LEGS",
+      "name": "Fiery Greaves",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Legs"
+    },
+    {
+      "id": "AR_MCROLLIN_ARMS",
+      "name": "Arms of Ice",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Arms"
+    },
+    {
+      "id": "AR_MCROLLIN_CHEST",
+      "name": "Core of Ice",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Chest"
+    },
+    {
+      "id": "AR_MCROLLIN_HELM",
+      "name": "Brow of Ice",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Helm"
+    },
+    {
+      "id": "AR_MCROLLIN_LEGS",
+      "name": "Feet of Ice",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Legs"
+    },
+    {
+      "id": "AR_MOONFACE_ARMS",
+      "name": "Shrikedown Gloves",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Arms"
+    },
+    {
+      "id": "AR_MOONFACE_CHEST",
+      "name": "Shrikedown Plate",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Chest"
+    },
+    {
+      "id": "AR_MOONFACE_HELM",
+      "name": "Shrikedown Helm",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Helm"
+    },
+    {
+      "id": "AR_MOONFACE_LEGS",
+      "name": "Shrikedown Greaves",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Legs"
+    },
+    {
+      "id": "AR_PAPER_ARMS",
+      "name": "Grasp of Thorns",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Arms"
+    },
+    {
+      "id": "AR_PAPER_CHEST",
+      "name": "Mantle of Thorns",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Chest"
+    },
+    {
+      "id": "AR_PAPER_HELM",
+      "name": "Visage of Thorns",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Helm"
+    },
+    {
+      "id": "AR_PAPER_LEGS",
+      "name": "Stride of Thorns",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Legs"
+    },
+    {
+      "id": "AR_FUNGUY_CHEST",
+      "name": "Agaric Bole",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Chest"
+    },
+    {
+      "id": "AR_FUNGUY_ARMS",
+      "name": "Agaric Branches",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Arms"
+    },
+    {
+      "id": "AR_FUNGUY_HELM",
+      "name": "Agaric Canopy",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Helm"
+    },
+    {
+      "id": "AR_FUNGUY_LEGS",
+      "name": "Agaric Roots",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Legs"
+    },
+    {
+      "id": "AR_RANDALL_ARMS",
+      "name": "Thrax's Embrace",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Arms"
+    },
+    {
+      "id": "AR_RANDALL_CHEST",
+      "name": "Thrax's Shadow",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Chest"
+    },
+    {
+      "id": "AR_RANDALL_HELM",
+      "name": "Thrax's Scream",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Helm"
+    },
+    {
+      "id": "AR_RANDALL_LEGS",
+      "name": "Thrax's Guile",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Legs"
+    },
+    {
+      "id": "AR_ROCK_ARMS",
+      "name": "Might of Stone",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Arms"
+    },
+    {
+      "id": "AR_ROCK_CHEST",
+      "name": "Heart of Stone",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Chest"
+    },
+    {
+      "id": "AR_ROCK_HELM",
+      "name": "Sight of Stone",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Helm"
+    },
+    {
+      "id": "AR_ROCK_LEGS",
+      "name": "Pillars of Stone",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Legs"
+    },
+    {
+      "id": "AR_SALLY_ARMS",
+      "name": "Volcanic Grips",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Arms"
+    },
+    {
+      "id": "AR_SALLY_CHEST",
+      "name": "Volcanic Aegis",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Chest"
+    },
+    {
+      "id": "AR_SALLY_EXOTIC_HELM",
+      "name": "The Skullforge",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Helm"
+    },
+    {
+      "id": "AR_SALLY_HELM",
+      "name": "Volcanic Helm",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Helm"
+    },
+    {
+      "id": "AR_SALLY_LEGS",
+      "name": "Volcanic Treads",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Legs"
+    },
+    {
+      "id": "AR_SALT_ARMS",
+      "name": "Gauntlets of Valour",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Arms"
+    },
+    {
+      "id": "AR_SALT_CHEST",
+      "name": "Aegis of Valour",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Chest"
+    },
+    {
+      "id": "AR_SALT_HELM",
+      "name": "Crest of Valour",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Helm"
+    },
+    {
+      "id": "AR_SALT_LEGS",
+      "name": "Greaves of Valour",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Legs"
+    },
+    {
+      "id": "AR_SCISSORS_ARMS",
+      "name": "Clutches of the Swarm",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Arms"
+    },
+    {
+      "id": "AR_SCISSORS_CHEST",
+      "name": "Shell of the Swarm",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Chest"
+    },
+    {
+      "id": "AR_SCISSORS_HELM",
+      "name": "Eye of the Swarm",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Helm"
+    },
+    {
+      "id": "AR_SCISSORS_LEGS",
+      "name": "Dance of the Swarm",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Legs"
+    },
+    {
+      "id": "AR_SHADOWCAT_ARMS",
+      "name": "Gauntlets of the Rift",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Arms"
+    },
+    {
+      "id": "AR_SHADOWCAT_CHEST",
+      "name": "Mantle of the Rift",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Chest"
+    },
+    {
+      "id": "AR_SHADOWCAT_HELM",
+      "name": "Guise of the Rift",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Helm"
+    },
+    {
+      "id": "AR_SHADOWCAT_LEGS",
+      "name": "Striders of the Rift",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Legs"
+    },
+    {
+      "id": "AR_SHOCKMANE_ARMS",
+      "name": "Lightning Gloves",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Arms"
+    },
+    {
+      "id": "AR_SHOCKMANE_CHEST",
+      "name": "Lightning Plate",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Chest"
+    },
+    {
+      "id": "AR_SHOCKMANE_HELM",
+      "name": "Lightning Helm",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Helm"
+    },
+    {
+      "id": "AR_SHOCKMANE_LEGS",
+      "name": "Lightning Boots",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Legs"
+    },
+    {
+      "id": "AR_SNOWFLAKE_ARMS",
+      "name": "Skraevwing Gloves",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Arms"
+    },
+    {
+      "id": "AR_SNOWFLAKE_CHEST",
+      "name": "Skraevwing Jacket",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Chest"
+    },
+    {
+      "id": "AR_SNOWFLAKE_HELM",
+      "name": "Skraevwing Helmet",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Helm"
+    },
+    {
+      "id": "AR_SNOWFLAKE_LEGS",
+      "name": "Skraevwing Boots",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Legs"
+    },
+    {
+      "id": "AR_THUNDERBIRD_ARMS",
+      "name": "Malkarion's Grasp",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Arms"
+    },
+    {
+      "id": "AR_THUNDERBIRD_CHEST",
+      "name": "Malkarion's Soul",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Chest"
+    },
+    {
+      "id": "AR_THUNDERBIRD_HELM",
+      "name": "Malkarion's Sight",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Helm"
+    },
+    {
+      "id": "AR_THUNDERBIRD_LEGS",
+      "name": "Malkarion's March",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Legs"
+    },
+    {
+      "id": "AR_GLITTER_HELM",
+      "name": "Chronohelm",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Helm"
+    },
+    {
+      "id": "AR_GLITTER_CHEST",
+      "name": "Chronoplate",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Chest"
+    },
+    {
+      "id": "AR_GLITTER_ARMS",
+      "name": "Chronogrips",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Arms"
+    },
+    {
+      "id": "AR_GLITTER_LEGS",
+      "name": "Chronotreads",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Legs"
+    },
+    {
+      "id": "AR_CRYSTAL_HELM",
+      "name": "Timeweave Helm",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Helm"
+    },
+    {
+      "id": "AR_CRYSTAL_CHEST",
+      "name": "Timeweave Robes",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Chest"
+    },
+    {
+      "id": "AR_CRYSTAL_ARMS",
+      "name": "Timeweave Gauntlets",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Arms"
+    },
+    {
+      "id": "AR_CRYSTAL_LEGS",
+      "name": "Timeweave Leggings",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Legs"
+    },
+    {
+      "id": "AR_UNEQUIPPED_HELM",
+      "name": "Unequipped",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Helm"
+    },
+    {
+      "id": "AR_NAKED_HELM",
+      "name": "Krolachi Shave",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Helm"
+    },
+    {
+      "id": "AR_NAKED_CHEST",
+      "name": "Krolachi Tunic",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Chest"
+    },
+    {
+      "id": "AR_NAKED_ARMS",
+      "name": "Krolachi Wraps",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Arms"
+    },
+    {
+      "id": "AR_NAKED_LEGS",
+      "name": "Krolachi Shorts",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Legs"
+    },
+    {
+      "id": "AR_HABANERO_HELM",
+      "name": "Phaelanx's Spearhead",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Helm"
+    },
+    {
+      "id": "AR_HABANERO_CHEST",
+      "name": "Phaelanx's Vanguard",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Chest"
+    },
+    {
+      "id": "AR_HABANERO_ARMS",
+      "name": "Phaelanx's Firearms",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Arms"
+    },
+    {
+      "id": "AR_HABANERO_LEGS",
+      "name": "Phaelanx's Heatsinks",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Legs"
+    },
+    {
+      "id": "AR_MANTIS_HELM",
+      "name": "Bladed Mask",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Helm"
+    },
+    {
+      "id": "AR_MANTIS_CHEST",
+      "name": "Bladed Jacket",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Chest"
+    },
+    {
+      "id": "AR_MANTIS_ARMS",
+      "name": "Bladed Gloves",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Arms"
+    },
+    {
+      "id": "AR_MANTIS_LEGS",
+      "name": "Bladed Boots",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Legs"
+    },
+    {
+      "id": "AR_FROSTWOLF_ARMS",
+      "name": "Wülf Claws",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Arms"
+    },
+    {
+      "id": "AR_FROSTWOLF_CHEST",
+      "name": "Wülf Plate",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Chest"
+    },
+    {
+      "id": "AR_FROSTWOLF_HELM",
+      "name": "Wülf Mane",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Helm"
+    },
+    {
+      "id": "AR_FROSTWOLF_LEGS",
+      "name": "Wülf Paws",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Legs"
+    },
+    {
+      "id": "AR_AMBER_ARMS",
+      "name": "Spellbound Gauntlets",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Arms"
+    },
+    {
+      "id": "AR_AMBER_CHEST",
+      "name": "Spellbound Wings",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Chest"
+    },
+    {
+      "id": "AR_AMBER_HELM",
+      "name": "Spellbound Hood",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Helm"
+    },
+    {
+      "id": "AR_AMBER_LEGS",
+      "name": "Spellbound Boots",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Legs"
+    },
+    {
+      "id": "AR_FENROAR_ARMS",
+      "name": "Stonewood Gauntlets",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Arms"
+    },
+    {
+      "id": "AR_FENROAR_CHEST",
+      "name": "Stonewood Chest Plate",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Chest"
+    },
+    {
+      "id": "AR_FENROAR_HELM",
+      "name": "Stonewood Great Helm",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Helm"
+    },
+    {
+      "id": "AR_FENROAR_LEGS",
+      "name": "Stonewood Boots",
+      "table": "armour_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Legs"
+    },
+    {
+      "id": "LT_BEGINNER",
+      "name": "Recruit's Lantern",
+      "table": "lantern_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Lantern"
+    },
+    {
+      "id": "LT_FULGAR",
+      "name": "Drask's Eye",
+      "table": "lantern_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Lantern"
+    },
+    {
+      "id": "LT_LERAWR",
+      "name": "Embermane's Rapture",
+      "table": "lantern_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Lantern"
+    },
+    {
+      "id": "LT_MCROLLIN",
+      "name": "Pangar's Shine",
+      "table": "lantern_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Lantern"
+    },
+    {
+      "id": "LT_MOONFACE",
+      "name": "Shrike's Zeal",
+      "table": "lantern_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Lantern"
+    },
+    {
+      "id": "LT_PAPER",
+      "name": "Koshai's Bloom",
+      "table": "lantern_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Lantern"
+    },
+    {
+      "id": "LT_ROCK",
+      "name": "Skarn's Defiance",
+      "table": "lantern_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Lantern"
+    },
+    {
+      "id": "LT_TRIALS_00",
+      "name": "Broadsides Lantern",
+      "table": "lantern_gameplay_catalog",
+      "kind": "EItemGroupType::Armour_Lantern"
+    },
+    {
+      "id": "WP_AC_ARMSTRONG",
+      "name": "Tectonic Faults",
+      "table": "weapon_ac_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_AC"
+    },
+    {
+      "id": "WP_AC_MINT",
+      "name": "Ice Breakers",
+      "table": "weapon_ac_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_AC"
+    },
+    {
+      "id": "WP_AC_GLITTER",
+      "name": "Chaos & Entropy",
+      "table": "weapon_ac_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_AC"
+    },
+    {
+      "id": "WP_AC_BEAVER",
+      "name": "Raging Fists",
+      "table": "weapon_ac_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_AC"
+    },
+    {
+      "id": "WP_AC_BEGINNER",
+      "name": "Recruit's Strikers",
+      "table": "weapon_ac_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_AC"
+    },
+    {
+      "id": "WP_AC_BUGBEAR",
+      "name": "Hands of Dawn",
+      "table": "weapon_ac_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_AC"
+    },
+    {
+      "id": "WP_AC_BULLSEYE",
+      "name": "Quillshot's Shredders",
+      "table": "weapon_ac_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_AC"
+    },
+    {
+      "id": "WP_AC_CROWBEAR",
+      "name": "Hands of Night",
+      "table": "weapon_ac_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_AC"
+    },
+    {
+      "id": "WP_AC_ELECTROQUILL",
+      "name": "Nayzaga's Shockers",
+      "table": "weapon_ac_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_AC"
+    },
+    {
+      "id": "WP_AC_FULGAR",
+      "name": "Thundering Bolts",
+      "table": "weapon_ac_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_AC"
+    },
+    {
+      "id": "WP_AC_FULGAR_ALPHA",
+      "name": "Surge Projectors",
+      "table": "weapon_ac_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_AC"
+    },
+    {
+      "id": "WP_AC_HOST",
+      "name": "Brawlers of Boreus",
+      "table": "weapon_ac_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_AC"
+    },
+    {
+      "id": "WP_AC_LAVAROLLER",
+      "name": "Inferno's Flames",
+      "table": "weapon_ac_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_AC"
+    },
+    {
+      "id": "WP_AC_LERAWR",
+      "name": "Ember Fists",
+      "table": "weapon_ac_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_AC"
+    },
+    {
+      "id": "WP_AC_MCROLLIN",
+      "name": "Pangar's Punishers",
+      "table": "weapon_ac_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_AC"
+    },
+    {
+      "id": "WP_AC_MOONFACE",
+      "name": "Fists of the Shrike",
+      "table": "weapon_ac_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_AC"
+    },
+    {
+      "id": "WP_AC_PAPER",
+      "name": "Sovereign's Sceptres",
+      "table": "weapon_ac_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_AC"
+    },
+    {
+      "id": "WP_AC_RANDALL",
+      "name": "Fractured Realities",
+      "table": "weapon_ac_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_AC"
+    },
+    {
+      "id": "WP_AC_FUNGUY",
+      "name": "Agents of Decay",
+      "table": "weapon_ac_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_AC"
+    },
+    {
+      "id": "WP_AC_ROCK",
+      "name": "Skarn's Smashers",
+      "table": "weapon_ac_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_AC"
+    },
+    {
+      "id": "WP_AC_SALLY",
+      "name": "Charred Hands",
+      "table": "weapon_ac_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_AC"
+    },
+    {
+      "id": "WP_AC_SALT",
+      "name": "Valomyr's Visions",
+      "table": "weapon_ac_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_AC"
+    },
+    {
+      "id": "WP_AC_SCISSORS",
+      "name": "Kharabak's Pincers",
+      "table": "weapon_ac_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_AC"
+    },
+    {
+      "id": "WP_AC_SHADOWCAT",
+      "name": "Stalker's Scorn",
+      "table": "weapon_ac_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_AC"
+    },
+    {
+      "id": "WP_AC_SHOCKMANE",
+      "name": "Storm Breakers",
+      "table": "weapon_ac_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_AC"
+    },
+    {
+      "id": "WP_AC_SNOWFLAKE",
+      "name": "Winter Wolves",
+      "table": "weapon_ac_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_AC"
+    },
+    {
+      "id": "WP_AC_THUNDERBIRD",
+      "name": "Mistral Currents",
+      "table": "weapon_ac_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_AC"
+    },
+    {
+      "id": "WP_AC_HABANERO",
+      "name": "Fists of the Firebird",
+      "table": "weapon_ac_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_AC"
+    },
+    {
+      "id": "WP_AC_MANTIS",
+      "name": "Sahvyt's Grapplers",
+      "table": "weapon_ac_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_AC"
+    },
+    {
+      "id": "WP_AC_FROSTWOLF",
+      "name": "Frostwülf's Tacklers",
+      "table": "weapon_ac_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_AC"
+    },
+    {
+      "id": "WP_AC_AMBER",
+      "name": "Glyph Weaver Claws",
+      "table": "weapon_ac_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_AC"
+    },
+    {
+      "id": "WP_AC_FENROAR",
+      "name": "Fenroar's Thorns",
+      "table": "weapon_ac_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_AC"
+    },
+    {
+      "id": "WP_CB_ARMSTRONG",
+      "name": "Scorching Agonies",
+      "table": "weapon_cblades_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_ChainBlades"
+    },
+    {
+      "id": "WP_CB_MINT",
+      "name": "Blizzard's Teeth",
+      "table": "weapon_cblades_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_ChainBlades"
+    },
+    {
+      "id": "WP_CB_GLITTER",
+      "name": "The Weeping Hours",
+      "table": "weapon_cblades_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_ChainBlades"
+    },
+    {
+      "id": "WP_CB_BEAVER",
+      "name": "Raging Teeth",
+      "table": "weapon_cblades_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_ChainBlades"
+    },
+    {
+      "id": "WP_CB_BEGINNER",
+      "name": "Recruit's Chain Blades",
+      "table": "weapon_cblades_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_ChainBlades"
+    },
+    {
+      "id": "WP_CB_BUGBEAR",
+      "name": "Fangs of Dawn",
+      "table": "weapon_cblades_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_ChainBlades"
+    },
+    {
+      "id": "WP_CB_BULLSEYE",
+      "name": "Quillshot's Bonehooks",
+      "table": "weapon_cblades_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_ChainBlades"
+    },
+    {
+      "id": "WP_CB_CROWBEAR",
+      "name": "Eyes of Night",
+      "table": "weapon_cblades_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_ChainBlades"
+    },
+    {
+      "id": "WP_CB_ELECTROQUILL",
+      "name": "Nayzaga's Reach",
+      "table": "weapon_cblades_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_ChainBlades"
+    },
+    {
+      "id": "WP_CB_FULGAR",
+      "name": "Thundering Cutters",
+      "table": "weapon_cblades_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_ChainBlades"
+    },
+    {
+      "id": "WP_CB_FULGAR_ALPHA",
+      "name": "Circuit Breakers",
+      "table": "weapon_cblades_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_ChainBlades"
+    },
+    {
+      "id": "WP_CB_HOST",
+      "name": "Destiny of Boreus",
+      "table": "weapon_cblades_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_ChainBlades"
+    },
+    {
+      "id": "WP_CB_LAVAROLLER",
+      "name": "Inferno's Fangs",
+      "table": "weapon_cblades_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_ChainBlades"
+    },
+    {
+      "id": "WP_CB_LERAWR",
+      "name": "Ember Blades",
+      "table": "weapon_cblades_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_ChainBlades"
+    },
+    {
+      "id": "WP_CB_MCROLLIN",
+      "name": "Pangar's Claws",
+      "table": "weapon_cblades_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_ChainBlades"
+    },
+    {
+      "id": "WP_CB_MOONFACE",
+      "name": "Flight of the Shrike",
+      "table": "weapon_cblades_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_ChainBlades"
+    },
+    {
+      "id": "WP_CB_PAPER",
+      "name": "Sovereign's Lash",
+      "table": "weapon_cblades_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_ChainBlades"
+    },
+    {
+      "id": "WP_CB_ROCK",
+      "name": "Skarn's Malice",
+      "table": "weapon_cblades_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_ChainBlades"
+    },
+    {
+      "id": "WP_CB_SALLY",
+      "name": "Charred Blades",
+      "table": "weapon_cblades_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_ChainBlades"
+    },
+    {
+      "id": "WP_CB_SALT",
+      "name": "Valomyr's Revenge",
+      "table": "weapon_cblades_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_ChainBlades"
+    },
+    {
+      "id": "WP_CB_SCISSORS",
+      "name": "Kharabak's Wings",
+      "table": "weapon_cblades_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_ChainBlades"
+    },
+    {
+      "id": "WP_CB_SHADOWCAT",
+      "name": "Stalker's Trap",
+      "table": "weapon_cblades_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_ChainBlades"
+    },
+    {
+      "id": "WP_CB_SHOCKMANE",
+      "name": "Storm Blades",
+      "table": "weapon_cblades_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_ChainBlades"
+    },
+    {
+      "id": "WP_CB_SNOWFLAKE",
+      "name": "Winter Winds",
+      "table": "weapon_cblades_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_ChainBlades"
+    },
+    {
+      "id": "WP_CB_THUNDERBIRD",
+      "name": "Electric Cruelties",
+      "table": "weapon_cblades_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_ChainBlades"
+    },
+    {
+      "id": "WP_CB_RANDALL",
+      "name": "Night Terrors",
+      "table": "weapon_cblades_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_ChainBlades"
+    },
+    {
+      "id": "WP_CB_FUNGUY",
+      "name": "Death Blossoms",
+      "table": "weapon_cblades_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_ChainBlades"
+    },
+    {
+      "id": "WP_CB_HABANERO",
+      "name": "Talons of the Firebird",
+      "table": "weapon_cblades_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_ChainBlades"
+    },
+    {
+      "id": "WP_CB_MANTIS",
+      "name": "Sahvyt's Pincers",
+      "table": "weapon_cblades_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_ChainBlades"
+    },
+    {
+      "id": "WP_CB_FROSTWOLF",
+      "name": "Frostwülf's Skinners",
+      "table": "weapon_cblades_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_ChainBlades"
+    },
+    {
+      "id": "WP_CB_AMBER",
+      "name": "Glyph Weaver Blades",
+      "table": "weapon_cblades_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_ChainBlades"
+    },
+    {
+      "id": "WP_CB_FENROAR",
+      "name": "Fenroar's Thistles",
+      "table": "weapon_cblades_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_ChainBlades"
+    },
+    {
+      "id": "WP_DP_EXOTIC_BOMBS",
+      "name": "Twin Suns",
+      "table": "weapon_dp_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_DP"
+    },
+    {
+      "id": "WP_DP_BEAVER",
+      "name": "Raging Repeaters",
+      "table": "weapon_dp_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_DP"
+    },
+    {
+      "id": "WP_DP_ARMSTRONG",
+      "name": "Volcanic Eruptions",
+      "table": "weapon_dp_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_DP"
+    },
+    {
+      "id": "WP_DP_THUNDERBIRD",
+      "name": "Dynamic Deadlights",
+      "table": "weapon_dp_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_DP"
+    },
+    {
+      "id": "WP_DP_RANDALL",
+      "name": "Eldritch Torments",
+      "table": "weapon_dp_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_DP"
+    },
+    {
+      "id": "WP_DP_FUNGUY",
+      "name": "Tainted Needles",
+      "table": "weapon_dp_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_DP"
+    },
+    {
+      "id": "WP_DP_MINT",
+      "name": "Cryo-Cannons",
+      "table": "weapon_dp_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_DP"
+    },
+    {
+      "id": "WP_DP_GLITTER",
+      "name": "Temporal Mechanics",
+      "table": "weapon_dp_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_DP"
+    },
+    {
+      "id": "WP_DP_BUGBEAR",
+      "name": "Dawnstars",
+      "table": "weapon_dp_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_DP"
+    },
+    {
+      "id": "WP_DP_SALT",
+      "name": "Valomyr's Instincts",
+      "table": "weapon_dp_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_DP"
+    },
+    {
+      "id": "WP_DP_CROWBEAR",
+      "name": "Furies of the Night",
+      "table": "weapon_dp_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_DP"
+    },
+    {
+      "id": "WP_DP_SHADOWCAT",
+      "name": "Stalker's Cries",
+      "table": "weapon_dp_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_DP"
+    },
+    {
+      "id": "WP_DP_FULGAR",
+      "name": "Thundering Guns",
+      "table": "weapon_dp_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_DP"
+    },
+    {
+      "id": "WP_DP_FULGAR_ALPHA",
+      "name": "Throwing Sparks",
+      "table": "weapon_dp_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_DP"
+    },
+    {
+      "id": "WP_DP_SNOWFLAKE",
+      "name": "Winter Blasts",
+      "table": "weapon_dp_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_DP"
+    },
+    {
+      "id": "WP_DP_MCROLLIN",
+      "name": "Pangar's Nightmares",
+      "table": "weapon_dp_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_DP"
+    },
+    {
+      "id": "WP_DP_ROCK",
+      "name": "Skarn's Calamities",
+      "table": "weapon_dp_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_DP"
+    },
+    {
+      "id": "WP_DP_SCISSORS",
+      "name": "Kharabak's Lights",
+      "table": "weapon_dp_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_DP"
+    },
+    {
+      "id": "WP_DP_PAPER",
+      "name": "Sovereign's Decrees",
+      "table": "weapon_dp_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_DP"
+    },
+    {
+      "id": "WP_DP_SALLY",
+      "name": "Charred Pistols",
+      "table": "weapon_dp_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_DP"
+    },
+    {
+      "id": "WP_DP_LAVAROLLER",
+      "name": "Inferno's Roar",
+      "table": "weapon_dp_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_DP"
+    },
+    {
+      "id": "WP_DP_HOST",
+      "name": "Voice of Boreus",
+      "table": "weapon_dp_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_DP"
+    },
+    {
+      "id": "WP_DP_LERAWR",
+      "name": "Ember Shots",
+      "table": "weapon_dp_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_DP"
+    },
+    {
+      "id": "WP_DP_MOONFACE",
+      "name": "Eyes of the Shrike",
+      "table": "weapon_dp_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_DP"
+    },
+    {
+      "id": "WP_DP_BULLSEYE",
+      "name": "Quillshot's Stingers",
+      "table": "weapon_dp_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_DP"
+    },
+    {
+      "id": "WP_DP_ELECTROQUILL",
+      "name": "Nayzaga's Spikes",
+      "table": "weapon_dp_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_DP"
+    },
+    {
+      "id": "WP_DP_SHOCKMANE",
+      "name": "Storm Shooters",
+      "table": "weapon_dp_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_DP"
+    },
+    {
+      "id": "WP_DP_BEGINNER",
+      "name": "Recruit's Repeaters",
+      "table": "weapon_dp_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Sword"
+    },
+    {
+      "id": "WP_DP_HABANERO",
+      "name": "Eyes of the Firebird",
+      "table": "weapon_dp_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_DP"
+    },
+    {
+      "id": "WP_DP_MANTIS",
+      "name": "Sahvyt's Avengers",
+      "table": "weapon_dp_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_DP"
+    },
+    {
+      "id": "WP_DP_FROSTWOLF",
+      "name": "Frostwülf's Chillers",
+      "table": "weapon_dp_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_DP"
+    },
+    {
+      "id": "WP_DP_AMBER",
+      "name": "Glyph Weaver Pistols",
+      "table": "weapon_dp_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_DP"
+    },
+    {
+      "id": "WP_DP_FENROAR",
+      "name": "Fenroar's Roots",
+      "table": "weapon_dp_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_DP"
+    },
+    {
+      "id": "WP_EB_ARMSTRONG",
+      "name": "The Cauterizer",
+      "table": "weapon_eblade_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Sword"
+    },
+    {
+      "id": "WP_EB_MINT",
+      "name": "Hypothermica",
+      "table": "weapon_eblade_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Sword"
+    },
+    {
+      "id": "WP_EB_GLITTER",
+      "name": "Edge of Tomorrow",
+      "table": "weapon_eblade_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Sword"
+    },
+    {
+      "id": "WP_EB_BEAVER",
+      "name": "Raging Blade",
+      "table": "weapon_eblade_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Sword"
+    },
+    {
+      "id": "WP_EB_BEGINNER",
+      "name": "Recruit's Sword",
+      "table": "weapon_eblade_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Sword"
+    },
+    {
+      "id": "WP_EB_BUGBEAR",
+      "name": "Call of Dawn",
+      "table": "weapon_eblade_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Sword"
+    },
+    {
+      "id": "WP_EB_BULLSEYE",
+      "name": "Quillshot's Tusk",
+      "table": "weapon_eblade_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Sword"
+    },
+    {
+      "id": "WP_EB_CROWBEAR",
+      "name": "Verge of Night",
+      "table": "weapon_eblade_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Sword"
+    },
+    {
+      "id": "WP_EB_CROWBEAR_EXOTIC",
+      "name": "The Hunger",
+      "table": "weapon_eblade_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Sword"
+    },
+    {
+      "id": "WP_EB_ELECTROQUILL",
+      "name": "Nayzaga's Razor",
+      "table": "weapon_eblade_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Sword"
+    },
+    {
+      "id": "WP_EB_FULGAR",
+      "name": "Thundering Blade",
+      "table": "weapon_eblade_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Sword"
+    },
+    {
+      "id": "WP_EB_FULGAR_ALPHA",
+      "name": "The Governor",
+      "table": "weapon_eblade_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Sword"
+    },
+    {
+      "id": "WP_EB_HOST",
+      "name": "Onus of Boreus",
+      "table": "weapon_eblade_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Sword"
+    },
+    {
+      "id": "WP_EB_LAVAROLLER",
+      "name": "Inferno's Razor",
+      "table": "weapon_eblade_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Sword"
+    },
+    {
+      "id": "WP_EB_LERAWR",
+      "name": "Ember Cutlass",
+      "table": "weapon_eblade_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Sword"
+    },
+    {
+      "id": "WP_EB_MCROLLIN",
+      "name": "Pangar's Call",
+      "table": "weapon_eblade_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Sword"
+    },
+    {
+      "id": "WP_EB_MOONFACE",
+      "name": "Cry of the Shrike",
+      "table": "weapon_eblade_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Sword"
+    },
+    {
+      "id": "WP_EB_PAPER",
+      "name": "Sovereign's Torment",
+      "table": "weapon_eblade_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Sword"
+    },
+    {
+      "id": "WP_EB_ROCK",
+      "name": "Skarn's Rancor",
+      "table": "weapon_eblade_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Sword"
+    },
+    {
+      "id": "WP_EB_SALLY",
+      "name": "Charred Saber",
+      "table": "weapon_eblade_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Sword"
+    },
+    {
+      "id": "WP_EB_SALT",
+      "name": "Valomyr's Regard",
+      "table": "weapon_eblade_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Sword"
+    },
+    {
+      "id": "WP_EB_SCISSORS",
+      "name": "Kharabak's Spur",
+      "table": "weapon_eblade_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Sword"
+    },
+    {
+      "id": "WP_EB_SHADOWCAT",
+      "name": "Stalker's Strike",
+      "table": "weapon_eblade_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Sword"
+    },
+    {
+      "id": "WP_EB_SHOCKMANE",
+      "name": "Storm Sword",
+      "table": "weapon_eblade_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Sword"
+    },
+    {
+      "id": "WP_EB_SNOWFLAKE",
+      "name": "Winter Ice",
+      "table": "weapon_eblade_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Sword"
+    },
+    {
+      "id": "WP_EB_THUNDERBIRD",
+      "name": "Cyclonic Fury",
+      "table": "weapon_eblade_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Sword"
+    },
+    {
+      "id": "WP_EB_RANDALL",
+      "name": "Voidbane",
+      "table": "weapon_eblade_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Sword"
+    },
+    {
+      "id": "WP_EB_FUNGUY",
+      "name": "Poisonous Thorn",
+      "table": "weapon_eblade_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Sword"
+    },
+    {
+      "id": "WP_EB_TRAINING",
+      "name": "Training Sword",
+      "table": "weapon_eblade_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Sword"
+    },
+    {
+      "id": "WP_EB_HABANERO",
+      "name": "Shriek of the Firebird",
+      "table": "weapon_eblade_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Sword"
+    },
+    {
+      "id": "WP_EB_MANTIS",
+      "name": "Sahvyt's Cutlass",
+      "table": "weapon_eblade_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Sword"
+    },
+    {
+      "id": "WP_EB_FROSTWOLF",
+      "name": "Frostwülf's Bite",
+      "table": "weapon_eblade_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Sword"
+    },
+    {
+      "id": "WP_EB_AMBER",
+      "name": "Glyph Weaver Edge",
+      "table": "weapon_eblade_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Sword"
+    },
+    {
+      "id": "WP_EB_FENROAR",
+      "name": "Fenroar's Blade",
+      "table": "weapon_eblade_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Sword"
+    },
+    {
+      "id": "WP_GA_ARMSTRONG",
+      "name": "Incinerator's Song",
+      "table": "weapon_gaxe_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Axe"
+    },
+    {
+      "id": "WP_GA_MINT",
+      "name": "Permanent Frost",
+      "table": "weapon_gaxe_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Axe"
+    },
+    {
+      "id": "WP_GA_GLITTER",
+      "name": "Existential Crisis",
+      "table": "weapon_gaxe_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Axe"
+    },
+    {
+      "id": "WP_GA_BEAVER",
+      "name": "Raging Bite",
+      "table": "weapon_gaxe_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Axe"
+    },
+    {
+      "id": "WP_GA_BEGINNER",
+      "name": "Recruit's Axe",
+      "table": "weapon_gaxe_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Axe"
+    },
+    {
+      "id": "WP_GA_BUGBEAR",
+      "name": "Edge of Dawn",
+      "table": "weapon_gaxe_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Axe"
+    },
+    {
+      "id": "WP_GA_BULLSEYE",
+      "name": "Quillshot's Fury",
+      "table": "weapon_gaxe_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Axe"
+    },
+    {
+      "id": "WP_GA_CROWBEAR",
+      "name": "Reaper of Night",
+      "table": "weapon_gaxe_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Axe"
+    },
+    {
+      "id": "WP_GA_ELECTROQUILL",
+      "name": "Nayzaga's Scythe",
+      "table": "weapon_gaxe_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Axe"
+    },
+    {
+      "id": "WP_GA_FULGAR",
+      "name": "Thundering Scythe",
+      "table": "weapon_gaxe_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Axe"
+    },
+    {
+      "id": "WP_GA_FULGAR_ALPHA",
+      "name": "Breakdown Voltage",
+      "table": "weapon_gaxe_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Axe"
+    },
+    {
+      "id": "WP_GA_HOST",
+      "name": "Turmoil of Boreus",
+      "table": "weapon_gaxe_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Axe"
+    },
+    {
+      "id": "WP_GA_LAVAROLLER",
+      "name": "Inferno's Decree",
+      "table": "weapon_gaxe_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Axe"
+    },
+    {
+      "id": "WP_GA_LERAWR",
+      "name": "Ember Scythe",
+      "table": "weapon_gaxe_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Axe"
+    },
+    {
+      "id": "WP_GA_MCROLLIN",
+      "name": "Pangar's Grace",
+      "table": "weapon_gaxe_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Axe"
+    },
+    {
+      "id": "WP_GA_MOONFACE",
+      "name": "Song of the Shrike",
+      "table": "weapon_gaxe_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Axe"
+    },
+    {
+      "id": "WP_GA_PAPER",
+      "name": "Sovereign's Wrath",
+      "table": "weapon_gaxe_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Axe"
+    },
+    {
+      "id": "WP_GA_ROCK",
+      "name": "Skarn's Judgment",
+      "table": "weapon_gaxe_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Axe"
+    },
+    {
+      "id": "WP_GA_SALLY",
+      "name": "Charred Cleaver",
+      "table": "weapon_gaxe_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Axe"
+    },
+    {
+      "id": "WP_GA_SALT",
+      "name": "Valomyr's Decree",
+      "table": "weapon_gaxe_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Axe"
+    },
+    {
+      "id": "WP_GA_SCISSORS",
+      "name": "Kharabak's Claw",
+      "table": "weapon_gaxe_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Axe"
+    },
+    {
+      "id": "WP_GA_SHADOWCAT",
+      "name": "Stalker's Mercy",
+      "table": "weapon_gaxe_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Axe"
+    },
+    {
+      "id": "WP_GA_SHOCKMANE",
+      "name": "Storm Cutter",
+      "table": "weapon_gaxe_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Axe"
+    },
+    {
+      "id": "WP_GA_SNOWFLAKE",
+      "name": "Winter Gale",
+      "table": "weapon_gaxe_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Axe"
+    },
+    {
+      "id": "WP_GA_THUNDERBIRD",
+      "name": "Terminal Voltage",
+      "table": "weapon_gaxe_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Axe"
+    },
+    {
+      "id": "WP_GA_RANDALL",
+      "name": "Mindsplitter",
+      "table": "weapon_gaxe_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Axe"
+    },
+    {
+      "id": "WP_GA_FUNGUY",
+      "name": "Malignant Scourge",
+      "table": "weapon_gaxe_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Axe"
+    },
+    {
+      "id": "WP_GA_HABANERO",
+      "name": "Call of the Firebird",
+      "table": "weapon_gaxe_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Axe"
+    },
+    {
+      "id": "WP_GA_MANTIS",
+      "name": "Sahvyt's Cleaver",
+      "table": "weapon_gaxe_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Axe"
+    },
+    {
+      "id": "WP_GA_FROSTWOLF",
+      "name": "Frostwülf's Chomp",
+      "table": "weapon_gaxe_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Axe"
+    },
+    {
+      "id": "WP_GA_AMBER",
+      "name": "Glyph Weaver Axe",
+      "table": "weapon_gaxe_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Axe"
+    },
+    {
+      "id": "WP_GA_FENROAR",
+      "name": "Fenroar's Spine",
+      "table": "weapon_gaxe_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Axe"
+    },
+    {
+      "id": "WP_IH_ARMSTRONG",
+      "name": "Magma Quake",
+      "table": "weapon_ihammer_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Hammer"
+    },
+    {
+      "id": "WP_IH_MINT",
+      "name": "Bomb Cyclone",
+      "table": "weapon_ihammer_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Hammer"
+    },
+    {
+      "id": "WP_IH_GLITTER",
+      "name": "History's Burden",
+      "table": "weapon_ihammer_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Hammer"
+    },
+    {
+      "id": "WP_IH_BEAVER",
+      "name": "Raging Crash",
+      "table": "weapon_ihammer_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Hammer"
+    },
+    {
+      "id": "WP_IH_BEGINNER",
+      "name": "Recruit's Hammer",
+      "table": "weapon_ihammer_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Hammer"
+    },
+    {
+      "id": "WP_IH_BUGBEAR",
+      "name": "Break of Dawn",
+      "table": "weapon_ihammer_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Hammer"
+    },
+    {
+      "id": "WP_IH_BULLSEYE",
+      "name": "Quillshot's Roar",
+      "table": "weapon_ihammer_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Hammer"
+    },
+    {
+      "id": "WP_IH_CROWBEAR",
+      "name": "Fall of Night",
+      "table": "weapon_ihammer_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Hammer"
+    },
+    {
+      "id": "WP_IH_ELECTROQUILL",
+      "name": "Nayzaga's Charge",
+      "table": "weapon_ihammer_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Hammer"
+    },
+    {
+      "id": "WP_IH_FULGAR",
+      "name": "Thundering Maul",
+      "table": "weapon_ihammer_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Hammer"
+    },
+    {
+      "id": "WP_IH_FULGAR_ALPHA",
+      "name": "Solid State",
+      "table": "weapon_ihammer_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Hammer"
+    },
+    {
+      "id": "WP_IH_HOST",
+      "name": "Brutality of Boreus",
+      "table": "weapon_ihammer_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Hammer"
+    },
+    {
+      "id": "WP_IH_LAVAROLLER",
+      "name": "Inferno's Burden",
+      "table": "weapon_ihammer_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Hammer"
+    },
+    {
+      "id": "WP_IH_LERAWR",
+      "name": "Ember Maul",
+      "table": "weapon_ihammer_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Hammer"
+    },
+    {
+      "id": "WP_IH_MCROLLIN",
+      "name": "Pangar's Rampage",
+      "table": "weapon_ihammer_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Hammer"
+    },
+    {
+      "id": "WP_IH_MOONFACE",
+      "name": "Fall of the Shrike",
+      "table": "weapon_ihammer_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Hammer"
+    },
+    {
+      "id": "WP_IH_PAPER",
+      "name": "Sovereign's Grudge",
+      "table": "weapon_ihammer_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Hammer"
+    },
+    {
+      "id": "WP_IH_ROCK",
+      "name": "Skarn's Vengeance",
+      "table": "weapon_ihammer_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Hammer"
+    },
+    {
+      "id": "WP_IH_SALLY",
+      "name": "Charred Crusher",
+      "table": "weapon_ihammer_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Hammer"
+    },
+    {
+      "id": "WP_IH_SALLY_EXOTIC",
+      "name": "Molten Edict",
+      "table": "weapon_ihammer_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Hammer"
+    },
+    {
+      "id": "WP_IH_SALT",
+      "name": "Valomyr's Burden",
+      "table": "weapon_ihammer_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Hammer"
+    },
+    {
+      "id": "WP_IH_SCISSORS",
+      "name": "Kharabak's Jaw",
+      "table": "weapon_ihammer_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Hammer"
+    },
+    {
+      "id": "WP_IH_SHADOWCAT",
+      "name": "Stalker's Price",
+      "table": "weapon_ihammer_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Hammer"
+    },
+    {
+      "id": "WP_IH_SHOCKMANE",
+      "name": "Storm Hammer",
+      "table": "weapon_ihammer_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Hammer"
+    },
+    {
+      "id": "WP_IH_SNOWFLAKE",
+      "name": "Winter Squall",
+      "table": "weapon_ihammer_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Hammer"
+    },
+    {
+      "id": "WP_IH_THUNDERBIRD",
+      "name": "Galvanic Impact",
+      "table": "weapon_ihammer_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Hammer"
+    },
+    {
+      "id": "WP_IH_RANDALL",
+      "name": "Sanity Check",
+      "table": "weapon_ihammer_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Hammer"
+    },
+    {
+      "id": "WP_IH_FUNGUY",
+      "name": "Unsteady Ground",
+      "table": "weapon_ihammer_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Hammer"
+    },
+    {
+      "id": "WP_IH_HABANERO",
+      "name": "Rage of the Firebird",
+      "table": "weapon_ihammer_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Hammer"
+    },
+    {
+      "id": "WP_IH_MANTIS",
+      "name": "Sahvyt's Maul",
+      "table": "weapon_ihammer_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Hammer"
+    },
+    {
+      "id": "WP_IH_FROSTWOLF",
+      "name": "Frostwülf's Slam",
+      "table": "weapon_ihammer_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Hammer"
+    },
+    {
+      "id": "WP_IH_AMBER",
+      "name": "Glyph Weaver Maul",
+      "table": "weapon_ihammer_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Hammer"
+    },
+    {
+      "id": "WP_IH_FENROAR",
+      "name": "Fenroar's Trunk",
+      "table": "weapon_ihammer_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Hammer"
+    },
+    {
+      "id": "WP_MS_ARMSTRONG",
+      "name": "Pyroclastic Envoy",
+      "table": "weapon_mspear_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Spear"
+    },
+    {
+      "id": "WP_MS_MINT",
+      "name": "Cold Hell",
+      "table": "weapon_mspear_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Spear"
+    },
+    {
+      "id": "WP_MS_GLITTER",
+      "name": "Millennium's End",
+      "table": "weapon_mspear_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Spear"
+    },
+    {
+      "id": "WP_MS_BEAVER",
+      "name": "Raging Cruelty",
+      "table": "weapon_mspear_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Spear"
+    },
+    {
+      "id": "WP_MS_BEGINNER",
+      "name": "Recruit's War Pike",
+      "table": "weapon_mspear_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Spear"
+    },
+    {
+      "id": "WP_MS_BUGBEAR",
+      "name": "Spire of Dawn",
+      "table": "weapon_mspear_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Spear"
+    },
+    {
+      "id": "WP_MS_BUGBEAR_EXOTIC",
+      "name": "The Godhand",
+      "table": "weapon_mspear_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Spear"
+    },
+    {
+      "id": "WP_MS_BULLSEYE",
+      "name": "Quillshot's Javelin",
+      "table": "weapon_mspear_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Spear"
+    },
+    {
+      "id": "WP_MS_CROWBEAR",
+      "name": "Gyre of Night",
+      "table": "weapon_mspear_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Spear"
+    },
+    {
+      "id": "WP_MS_ELECTROQUILL",
+      "name": "Nayzaga's Fang",
+      "table": "weapon_mspear_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Spear"
+    },
+    {
+      "id": "WP_MS_FULGAR",
+      "name": "Thundering Spear",
+      "table": "weapon_mspear_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Spear"
+    },
+    {
+      "id": "WP_MS_FULGAR_ALPHA",
+      "name": "Inverse Polarity",
+      "table": "weapon_mspear_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Spear"
+    },
+    {
+      "id": "WP_MS_HOST",
+      "name": "Revolution of Boreus",
+      "table": "weapon_mspear_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Spear"
+    },
+    {
+      "id": "WP_MS_LAVAROLLER",
+      "name": "Inferno's Arrow",
+      "table": "weapon_mspear_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Spear"
+    },
+    {
+      "id": "WP_MS_LERAWR",
+      "name": "Ember Pike",
+      "table": "weapon_mspear_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Spear"
+    },
+    {
+      "id": "WP_MS_MCROLLIN",
+      "name": "Pangar's Tooth",
+      "table": "weapon_mspear_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Spear"
+    },
+    {
+      "id": "WP_MS_MOONFACE",
+      "name": "Scream of the Shrike",
+      "table": "weapon_mspear_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Spear"
+    },
+    {
+      "id": "WP_MS_PAPER",
+      "name": "Sovereign's Sorrow",
+      "table": "weapon_mspear_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Spear"
+    },
+    {
+      "id": "WP_MS_ROCK",
+      "name": "Skarn's Spite",
+      "table": "weapon_mspear_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Spear"
+    },
+    {
+      "id": "WP_MS_SALLY",
+      "name": "Charred Spear",
+      "table": "weapon_mspear_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Spear"
+    },
+    {
+      "id": "WP_MS_SALT",
+      "name": "Valomyr's Hope",
+      "table": "weapon_mspear_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Spear"
+    },
+    {
+      "id": "WP_MS_SCISSORS",
+      "name": "Kharabak's Sting",
+      "table": "weapon_mspear_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Spear"
+    },
+    {
+      "id": "WP_MS_SHADOWCAT",
+      "name": "Stalker's Spike",
+      "table": "weapon_mspear_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Spear"
+    },
+    {
+      "id": "WP_MS_SHOCKMANE",
+      "name": "Storm Pike",
+      "table": "weapon_mspear_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Spear"
+    },
+    {
+      "id": "WP_MS_SNOWFLAKE",
+      "name": "Winter Vortex",
+      "table": "weapon_mspear_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Spear"
+    },
+    {
+      "id": "WP_MS_THUNDERBIRD",
+      "name": "The Conductor",
+      "table": "weapon_mspear_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Spear"
+    },
+    {
+      "id": "WP_MS_RANDALL",
+      "name": "The Apocalypse Needle",
+      "table": "weapon_mspear_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Spear"
+    },
+    {
+      "id": "WP_MS_FUNGUY",
+      "name": "Parasitic Curse",
+      "table": "weapon_mspear_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Spear"
+    },
+    {
+      "id": "WP_MS_HABANERO",
+      "name": "Fate of the Firebird",
+      "table": "weapon_mspear_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Spear"
+    },
+    {
+      "id": "WP_MS_MANTIS",
+      "name": "Sahvyt's Javelin",
+      "table": "weapon_mspear_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Spear"
+    },
+    {
+      "id": "WP_MS_FROSTWOLF",
+      "name": "Frostwülf's Rip",
+      "table": "weapon_mspear_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Spear"
+    },
+    {
+      "id": "WP_MS_AMBER",
+      "name": "Glyph Weaver Spear",
+      "table": "weapon_mspear_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Spear"
+    },
+    {
+      "id": "WP_MS_FENROAR",
+      "name": "Fenroar's Branch",
+      "table": "weapon_mspear_gameplay_catalog",
+      "kind": "EItemGroupType::Weapon_Spear"
+    },
+    {
+      "id": "CELL_CONVERT_PART_TO_EXPOSE_UC",
+      "name": "+1 Acidic Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_CONVERT_PART_TO_EXPOSE_R",
+      "name": "+2 Acidic Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_CONVERT_PART_TO_EXPOSE_E",
+      "name": "+3 Acidic Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_FLASKOVERTIME_LANTERN_UC",
+      "name": "+1 Lucent Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_FLASKOVERTIME_LANTERN_R",
+      "name": "+2 Lucent Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_FLASKOVERTIME_LANTERN_E",
+      "name": "+3 Lucent Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_AETHERVENT_UC",
+      "name": "+1 Aetherborne Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_AETHER_RUSHER_UC",
+      "name": "+1 Relentless Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_AETHER_RUSHER_R",
+      "name": "+2 Relentless Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_AETHER_RUSHER_E",
+      "name": "+3 Relentless Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_AETHERVENT_R",
+      "name": "+2 Aetherborne Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_AETHERVENT_E",
+      "name": "+3 Aetherborne Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_VSAETHER_BASEDMG_UC",
+      "name": "+1 Aetherhunter Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_VSAETHER_BASEDMG_R",
+      "name": "+2 Aetherhunter Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_VSAETHER_BASEDMG_E",
+      "name": "+3 Aetherhunter Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_LANTERNCHARGE_PCT_UC",
+      "name": "+1 Aetheric Attunement Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_LANTERNCHARGE_PCT_R",
+      "name": "+2 Aetheric Attunement Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_LANTERNCHARGE_PCT_E",
+      "name": "+3 Aetheric Attunement Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_LANTERNCHARGE_FLAT_UC",
+      "name": "+1 Aetheric Evasion Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_LANTERNCHARGE_FLAT_R",
+      "name": "+2 Aetheric Evasion Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_LANTERNCHARGE_FLAT_E",
+      "name": "+3 Aetheric Evasion Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_DODGE_COST_UC",
+      "name": "+1 Agility Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_DODGE_COST_R",
+      "name": "+2 Agility Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_DODGE_COST_E",
+      "name": "+3 Agility Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_MYBREAK_REGEN_UC",
+      "name": "+1 Assassin's Vigour Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_MYBREAK_REGEN_R",
+      "name": "+2 Assassin's Vigour Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_MYBREAK_REGEN_E",
+      "name": "+3 Assassin's Vigour Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_EXPOSE_FLAT_UC",
+      "name": "+1 Barbed Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_EXPOSE_FLAT_R",
+      "name": "+2 Barbed Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_EXPOSE_FLAT_E",
+      "name": "+3 Barbed Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_PARTBREAK_FLAT_UC",
+      "name": "+1 Bladestorm Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_PARTBREAK_FLAT_R",
+      "name": "+2 Bladestorm Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_PARTBREAK_FLAT_E",
+      "name": "+3 Bladestorm Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_REDUCE_WOUNDED_UC",
+      "name": "+1 Bloodless Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_REDUCE_WOUNDED_R",
+      "name": "+2 Bloodless Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_REDUCE_WOUNDED_E",
+      "name": "+3 Bloodless Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_STAM_REGEN_FLAT_UC",
+      "name": "+1 Conditioning Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_STAM_REGEN_FLAT_R",
+      "name": "+2 Conditioning Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_STAM_REGEN_FLAT_E",
+      "name": "+3 Conditioning Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_LANTERN_USE_ATKSPD_UC",
+      "name": "+1 Conduit Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_LANTERN_USE_ATKSPD_R",
+      "name": "+2 Conduit Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_LANTERN_USE_ATKSPD_E",
+      "name": "+3 Conduit Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_CRIT_CHANCE_UC",
+      "name": "+1 Cunning Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_CRIT_CHANCE_R",
+      "name": "+2 Cunning Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_CRIT_CHANCE_E",
+      "name": "+3 Cunning Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_OBJECT_BREAKER_UC",
+      "name": "+1 Deconstruction Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_OBJECT_BREAKER_R",
+      "name": "+2 Deconstruction Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_OBJECT_BREAKER_E",
+      "name": "+3 Deconstruction Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_STAM_MAX_UC",
+      "name": "+1 Endurance Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_STAM_MAX_R",
+      "name": "+2 Endurance Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_STAM_MAX_E",
+      "name": "+3 Endurance Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_METER_GAIN_UC",
+      "name": "+1 Energized Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_METER_GAIN_R",
+      "name": "+2 Energized Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_METER_GAIN_E",
+      "name": "+3 Energized Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_DODGE_IFRAME_UC",
+      "name": "+1 Evasion Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_DODGE_IFRAME_R",
+      "name": "+2 Evasion Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_DODGE_IFRAME_E",
+      "name": "+3 Evasion Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_PDODGE_ATKSPD_UC",
+      "name": "+1 Evasive Fury Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_PDODGE_ATKSPD_R",
+      "name": "+2 Evasive Fury Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_PDODGE_ATKSPD_E",
+      "name": "+3 Evasive Fury Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_REDUCE_ONFIRE_UC",
+      "name": "+1 Fireproof Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_REDUCE_ONFIRE_R",
+      "name": "+2 Fireproof Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_REDUCE_ONFIRE_E",
+      "name": "+3 Fireproof Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_DODGE_SPD_UP_UC",
+      "name": "+1 Fleet Footed Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_DODGE_SPD_UP_R",
+      "name": "+2 Fleet Footed Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_DODGE_SPD_UP_E",
+      "name": "+3 Fleet Footed Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_DONTGETHIT_SHIELD_UC",
+      "name": "+1 Fortress Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_DONTGETHIT_SHIELD_R",
+      "name": "+2 Fortress Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_DONTGETHIT_SHIELD_E",
+      "name": "+3 Fortress Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_SHARE_SHIELD_UC",
+      "name": "+1 Guardian Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_SHARE_SHIELD_R",
+      "name": "+2 Guardian Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_SHARE_SHIELD_E",
+      "name": "+3 Guardian Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_REDUCE_SHOCKED_UC",
+      "name": "+1 Insulated Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_REDUCE_SHOCKED_R",
+      "name": "+2 Insulated Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_REDUCE_SHOCKED_E",
+      "name": "+3 Insulated Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_STAGGER_PCT_UC",
+      "name": "+1 Knockout King Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_STAGGER_PCT_R",
+      "name": "+2 Knockout King Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_STAGGER_PCT_E",
+      "name": "+3 Knockout King Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_REVIVE_BETTER_UC",
+      "name": "+1 Medic Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_REVIVE_BETTER_R",
+      "name": "+2 Medic Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_REVIVE_BETTER_E",
+      "name": "+3 Medic Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_VSSTAGGER_EXPOSE_FLAT_UC",
+      "name": "+1 Merciless Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_VSSTAGGER_EXPOSE_FLAT_R",
+      "name": "+2 Merciless Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_VSSTAGGER_EXPOSE_FLAT_E",
+      "name": "+3 Merciless Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_PDODGE_STAMINA_UC",
+      "name": "+1 Nimble Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_PDODGE_STAMINA_R",
+      "name": "+2 Nimble Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_PDODGE_STAMINA_E",
+      "name": "+3 Nimble Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_DMG_REDUX_CHANCE_UC",
+      "name": "+1 Nine Lives Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_DMG_REDUX_CHANCE_R",
+      "name": "+2 Nine Lives Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_DMG_REDUX_CHANCE_E",
+      "name": "+3 Nine Lives Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_VSSTAGGER_BASEDMG_UC",
+      "name": "+1 Overpower Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_VSSTAGGER_BASEDMG_R",
+      "name": "+2 Overpower Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_VSSTAGGER_BASEDMG_E",
+      "name": "+3 Overpower Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_VSRAGE_STAGGER_PCT_UC",
+      "name": "+1 Pacifier Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_VSRAGE_STAGGER_PCT_R",
+      "name": "+2 Pacifier Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_VSRAGE_STAGGER_PCT_E",
+      "name": "+3 Pacifier Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_DONTGETHIT_DAMAGE_UC",
+      "name": "+1 Predator Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_DONTGETHIT_DAMAGE_R",
+      "name": "+2 Predator Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_DONTGETHIT_DAMAGE_E",
+      "name": "+3 Predator Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_LOWHP_BASEDMG_UC",
+      "name": "+1 Rage Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_LOWHP_BASEDMG_R",
+      "name": "+2 Rage Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_LOWHP_BASEDMG_E",
+      "name": "+3 Rage Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_VSRAGE_BASEDMG_UC",
+      "name": "+1 Ragehunter Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_VSRAGE_BASEDMG_R",
+      "name": "+2 Ragehunter Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_VSRAGE_BASEDMG_E",
+      "name": "+3 Ragehunter Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_VSEXPOSED_BASEDMG_UC",
+      "name": "+1 Savagery Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_VSEXPOSED_BASEDMG_R",
+      "name": "+2 Savagery Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_VSEXPOSED_BASEDMG_E",
+      "name": "+3 Savagery Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_PARTBREAK_PCT_UC",
+      "name": "+1 Sharpened Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_PARTBREAK_PCT_R",
+      "name": "+2 Sharpened Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_PARTBREAK_PCT_E",
+      "name": "+3 Sharpened Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_REDUCE_SHELLSHOCKED_UC",
+      "name": "+1 Shellshock Resist Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_REDUCE_SHELLSHOCKED_R",
+      "name": "+2 Shellshock Resist Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_REDUCE_SHELLSHOCKED_E",
+      "name": "+3 Shellshock Resist Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_ANYSTAGGER_REGEN_UC",
+      "name": "+1 Stunning Vigour Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_ANYSTAGGER_REGEN_R",
+      "name": "+2 Stunning Vigour Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_ANYSTAGGER_REGEN_E",
+      "name": "+3 Stunning Vigour Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_PREVENT_STAGGER_UC",
+      "name": "+1 Sturdy Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_PREVENT_STAGGER_R",
+      "name": "+2 Sturdy Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_PREVENT_STAGGER_E",
+      "name": "+3 Sturdy Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_OUTOFCOMBAT_MOVESPD_UC",
+      "name": "+1 Swift Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_OUTOFCOMBAT_MOVESPD_R",
+      "name": "+2 Swift Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_OUTOFCOMBAT_MOVESPD_E",
+      "name": "+3 Swift Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_HEALTH_MAX_UC",
+      "name": "+1 Tough Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_HEALTH_MAX_R",
+      "name": "+2 Tough Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_HEALTH_MAX_E",
+      "name": "+3 Tough Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_ANYEXPOSE_REGEN_UC",
+      "name": "+1 Vampiric Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_ANYEXPOSE_REGEN_R",
+      "name": "+2 Vampiric Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_ANYEXPOSE_REGEN_E",
+      "name": "+3 Vampiric Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_REDUCE_CHILLED_AND_FROZEN_UC",
+      "name": "+1 Warmth Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_REDUCE_CHILLED_AND_FROZEN_R",
+      "name": "+2 Warmth Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_REDUCE_CHILLED_AND_FROZEN_E",
+      "name": "+3 Warmth Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_STAGGER_FLAT_UC",
+      "name": "+1 Weighted Strikes Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_STAGGER_FLAT_R",
+      "name": "+2 Weighted Strikes Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_STAGGER_FLAT_E",
+      "name": "+3 Weighted Strikes Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_LOWHP_ATKSPD_UC",
+      "name": "+1 Assassin's Frenzy Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_LOWHP_ATKSPD_R",
+      "name": "+2 Assassin's Frenzy Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_LOWHP_ATKSPD_E",
+      "name": "+3 Assassin's Frenzy Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_MOLTEN_HEART_UC",
+      "name": "+1 Molten Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_MOLTEN_HEART_R",
+      "name": "+2 Molten Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_MOLTEN_HEART_E",
+      "name": "+3 Molten Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_LOWSTA_ATKDMG_UC",
+      "name": "+1 Adrenaline Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_LOWSTA_ATKDMG_R",
+      "name": "+2 Adrenaline Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_LOWSTA_ATKDMG_E",
+      "name": "+3 Adrenaline Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_TRIALS_01_UC",
+      "name": "+1 Berserker Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_TRIALS_01_R",
+      "name": "+2 Berserker Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_TRIALS_01_E",
+      "name": "+3 Berserker Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_TRIALS_02_UC",
+      "name": "+1 Strategist Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_TRIALS_02_R",
+      "name": "+2 Strategist Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_TRIALS_02_E",
+      "name": "+3 Strategist Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_TRIALS_03_UC",
+      "name": "+1 Engineer Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_TRIALS_03_R",
+      "name": "+2 Engineer Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_TRIALS_03_E",
+      "name": "+3 Engineer Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_TRIALS_04_UC",
+      "name": "+1 Sprinter Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_TRIALS_04_R",
+      "name": "+2 Sprinter Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_TRIALS_04_E",
+      "name": "+3 Sprinter Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_TRIALS_06_UC",
+      "name": "+1 Mender Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_TRIALS_06_R",
+      "name": "+2 Mender Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_TRIALS_06_E",
+      "name": "+3 Mender Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_SPRINT_INCREASE_UC",
+      "name": "+1 Grace Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_SPRINT_INCREASE_R",
+      "name": "+2 Grace Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_SPRINT_INCREASE_E",
+      "name": "+3 Grace Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_LANTERN_TAP_EFFECTIVENESS_UC",
+      "name": "+1 Zeal Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_LANTERN_TAP_EFFECTIVENESS_R",
+      "name": "+2 Zeal Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_LANTERN_TAP_EFFECTIVENESS_E",
+      "name": "+3 Zeal Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_BETTER_CONSUMABLE_UC",
+      "name": "+1 Catalyst Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_BETTER_CONSUMABLE_R",
+      "name": "+2 Catalyst Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_BETTER_CONSUMABLE_E",
+      "name": "+3 Catalyst Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_DELAYED_DAMAGE_UC",
+      "name": "+1 Parasitic Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_DELAYED_DAMAGE_R",
+      "name": "+2 Parasitic Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_DELAYED_DAMAGE_E",
+      "name": "+3 Parasitic Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_HPSHIELD_DAMAGE_UC",
+      "name": "+1 Tenacious Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_HPSHIELD_CRIT_UC",
+      "name": "+1 Galvanized Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_HPSHIELD_DAMAGE_R",
+      "name": "+2 Tenacious Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_HPSHIELD_CRIT_R",
+      "name": "+2 Galvanized Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_HPSHIELD_DAMAGE_E",
+      "name": "+3 Tenacious Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_HPSHIELD_CRIT_E",
+      "name": "+3 Galvanized Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_ENCHANTER_UC",
+      "name": "+1 Cascade Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_RHYTHMIC_UC",
+      "name": "+1 Pulse Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_RHYTHMIC_R",
+      "name": "+2 Pulse Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_RHYTHMIC_E",
+      "name": "+3 Pulse Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_ENCHANTER_R",
+      "name": "+2 Cascade Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_ENCHANTER_E",
+      "name": "+3 Cascade Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_OMNISURGE_UC",
+      "name": "+1 Omnisurge Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_OMNISURGE_R",
+      "name": "+2 Omnisurge Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_OMNISURGE_E",
+      "name": "+3 Omnisurge Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_TEAMEXPOSE_UC",
+      "name": "+1 Tactician Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_TEAMEXPOSE_R",
+      "name": "+2 Tactician Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_TEAMEXPOSE_E",
+      "name": "+3 Tactician Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_SHIELDS_HIT_ABSORB_UC",
+      "name": "+1 Aegis Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_SHIELDS_HIT_ABSORB_R",
+      "name": "+2 Aegis Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_SHIELDS_HIT_ABSORB_E",
+      "name": "+3 Aegis Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_STAM_TO_MOVESPEED_UC",
+      "name": "+1 Invigorated Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_STAM_TO_MOVESPEED_R",
+      "name": "+2 Invigorated Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_STAM_TO_MOVESPEED_E",
+      "name": "+3 Invigorated Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_INTERRUPT_STAM_UC",
+      "name": "+1 Rushdown Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_INTERRUPT_STAM_R",
+      "name": "+2 Rushdown Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_INTERRUPT_STAM_E",
+      "name": "+3 Rushdown Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_DODGE_STAGGER_UC",
+      "name": "+1 Stop Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_DODGE_STAGGER_R",
+      "name": "+2 Stop Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_DODGE_STAGGER_E",
+      "name": "+3 Stop Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_STAGGER_FREE_DODGE_UC",
+      "name": "+1 Roll Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_STAGGER_FREE_DODGE_R",
+      "name": "+2 Roll Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_STAGGER_FREE_DODGE_E",
+      "name": "+3 Roll Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_MIN_STAM_UC",
+      "name": "+1 Drop Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_MIN_STAM_R",
+      "name": "+2 Drop Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_MIN_STAM_E",
+      "name": "+3 Drop Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_DMGUP_ATKSPDDOWN_UC",
+      "name": "+1 Reduce Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_DMGUP_ATKSPDDOWN_R",
+      "name": "+2 Reduce Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_DMGUP_ATKSPDDOWN_E",
+      "name": "+3 Reduce Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_SAME_PART_DMG_UP_UC",
+      "name": "+1 Recycle Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_SAME_PART_DMG_UP_R",
+      "name": "+2 Recycle Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_SAME_PART_DMG_UP_E",
+      "name": "+3 Recycle Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_PART_BREAK_ATKSPD_UP_UC",
+      "name": "+1 Reuse Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_PART_BREAK_ATKSPD_UP_R",
+      "name": "+2 Reuse Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_PART_BREAK_ATKSPD_UP_E",
+      "name": "+3 Reuse Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_DODGE_DR_UC",
+      "name": "+1 Water Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_DODGE_DR_R",
+      "name": "+2 Water Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_DODGE_DR_E",
+      "name": "+3 Water Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_ATKSPD_MVSPD_SELFHARM_UC",
+      "name": "+1 Fire Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_ATKSPD_MVSPD_SELFHARM_R",
+      "name": "+2 Fire Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_ATKSPD_MVSPD_SELFHARM_E",
+      "name": "+3 Fire Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_SHIELD_DETONATION_UC",
+      "name": "+1 Earth Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_SHIELD_DETONATION_R",
+      "name": "+2 Earth Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_SHIELD_DETONATION_E",
+      "name": "+3 Earth Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_MS_DOWN_SHIELD_UP_UC",
+      "name": "+1 Conservation Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_MS_DOWN_SHIELD_UP_R",
+      "name": "+2 Conservation Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_MS_DOWN_SHIELD_UP_E",
+      "name": "+3 Conservation Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_CRIT_CHANCE_WHILE_SPRINT_UC",
+      "name": "+1 Inertia Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_CRIT_CHANCE_WHILE_SPRINT_R",
+      "name": "+2 Inertia Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_CRIT_CHANCE_WHILE_SPRINT_E",
+      "name": "+3 Inertia Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_CRIT_DAMAGE_FROM_MS_UC",
+      "name": "+1 Impulse Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_CRIT_DAMAGE_FROM_MS_R",
+      "name": "+2 Impulse Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_CRIT_DAMAGE_FROM_MS_E",
+      "name": "+3 Impulse Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_KILL_FAUNA_DMG_UC",
+      "name": "+1 Pack Hunter Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_KILL_FAUNA_DMG_R",
+      "name": "+2 Pack Hunter Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_KILL_FAUNA_DMG_E",
+      "name": "+3 Pack Hunter Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_BREAK_SUMMON_FAUNA_UC",
+      "name": "+1 Pack Caller Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_BREAK_SUMMON_FAUNA_R",
+      "name": "+2 Pack Caller Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_BREAK_SUMMON_FAUNA_E",
+      "name": "+3 Pack Caller Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_NEAR_FAUNA_MS_AS_UC",
+      "name": "+1 Pack Walker Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_NEAR_FAUNA_MS_AS_R",
+      "name": "+2 Pack Walker Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    },
+    {
+      "id": "CELL_NEAR_FAUNA_MS_AS_E",
+      "name": "+3 Pack Walker Cell",
+      "table": "generated_cell_catalog",
+      "kind": "EItemGroupType::Cell"
+    }
+  ]
+}

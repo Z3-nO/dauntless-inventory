@@ -1,0 +1,54 @@
+{
+  "schema": 1,
+  "upstreamCommit": "6053ab79e717d54f5813a8ad915a48697d150eef",
+  "versions": {
+    "1.14.7": {
+      "backend/recorder-1147.js": {
+        "sha256": "caac6010b2a3a2c438a499036b92a538bd293d51f3144075d12883b018a4d876",
+        "normalizedSha256": "caac6010b2a3a2c438a499036b92a538bd293d51f3144075d12883b018a4d876"
+      },
+      "tools/common.ps1": {
+        "sha256": "c899701e37253b1b800a96b24c2dc2a546d9b70c455a4cf99dfca5561a908109",
+        "normalizedSha256": "c899701e37253b1b800a96b24c2dc2a546d9b70c455a4cf99dfca5561a908109"
+      },
+      "tools/play-1147.ps1": {
+        "sha256": "7e8afbff0342348757a7a8237146acf1c030901112e4095de4b455082afdc5dc",
+        "normalizedSha256": "7e8afbff0342348757a7a8237146acf1c030901112e4095de4b455082afdc5dc"
+      },
+      "bin/dxgi.dll": {
+        "sha256": "c79b09f2c430e1dfb8dbecfa9cfd1e4bebd2bf9d923efa14865defbfa4271aa5"
+      },
+      "game/dxgi.dll": {
+        "sha256": "c79b09f2c430e1dfb8dbecfa9cfd1e4bebd2bf9d923efa14865defbfa4271aa5"
+      },
+      "version.json": {
+        "sha256": "93aa2320113d89d154d1757022ee7a6aa581181fe110548df7471ba5a219b695",
+        "normalizedSha256": "fbd04e52580da694872ff8862d27b81b18baff4bd24f9eab56caf411c7443662"
+      }
+    },
+    "1.6.2": {
+      "backend/metagame/dist/app.js": {
+        "sha256": "265821cf1925edf2746ad1e29841e0e303ae088689e0ab3d5f5923ea34b2aa28",
+        "normalizedSha256": "265821cf1925edf2746ad1e29841e0e303ae088689e0ab3d5f5923ea34b2aa28"
+      },
+      "backend/metagame/src/app.ts": {
+        "sha256": "f8d99c9f6222a161cf65364ad5b4dcccfae37a1657b569eb3e2a1fc0a49665e4",
+        "normalizedSha256": "f8d99c9f6222a161cf65364ad5b4dcccfae37a1657b569eb3e2a1fc0a49665e4"
+      },
+      "tools/common.ps1": {
+        "sha256": "ccbd29c7ae4ff6256793132bf00f27e92c06c78052c810e692601ca67b0a9b42",
+        "normalizedSha256": "ccbd29c7ae4ff6256793132bf00f27e92c06c78052c810e692601ca67b0a9b42"
+      },
+      "bin/UndauntedInternalServer.dll": {
+        "sha256": "083ec5c39126be4e4d13325d9b46a0b07e62fca0864dd9ff651ee224124510aa"
+      },
+      "game/UndauntedInternalServer.dll": {
+        "sha256": "083ec5c39126be4e4d13325d9b46a0b07e62fca0864dd9ff651ee224124510aa"
+      },
+      "version.json": {
+        "sha256": "e303169c8d23a7b1b0a4b297a5b89bda215729b308de53f64329f75fa469193b",
+        "normalizedSha256": "3e44d3d1192455ff081ff9271b1fcf3b6b29971bcb26d4d5a7f3826584ab56ea"
+      }
+    }
+  }
+}

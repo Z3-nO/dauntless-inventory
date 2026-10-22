@@ -1,0 +1,19 @@
+{
+  "name": "dauntless-materiali-desktop",
+  "version": "0.13.1",
+  "description": "Local desktop inventory and build editor for Dauntless Forever",
+  "author": "Dauntless Materiali contributors",
+  "license": "AGPL-3.0-only",
+  "main": "main.cjs",
+  "devDependencies": {
+    "electron": "44.9.1",
+    "electron-builder": "26.15.3"
+  },
+  "productName": "Dauntless Inventory Live Preview",
+  "scripts": {
+    "build": "electron-builder --win portable --x64",
+    "start": "electron .",
+    "test": "runtime\\node.exe --test tests/*.test.cjs"
+  },
+  "packageManager": "pnpm@11.25.0"
+}
