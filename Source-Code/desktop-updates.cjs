@@ -39,7 +39,11 @@ class DesktopUpdates {
     this.changed = changed;
     this.allowLoopback = allowLoopback;
     this.file = path.join(this.directory, "settings.json");
-    this.state = { automaticDownload: true, applyOnNextStart: true };
+    this.state = {
+      automaticDownload: true,
+      applyOnNextStart: true,
+      restartForLiveUpdates: true,
+    };
     this.busy = false;
     this.progress = null;
     this.message = "Ready to check for application updates.";
@@ -54,7 +58,11 @@ class DesktopUpdates {
   loadSettings(value) {
     if (!value || typeof value !== "object" || Array.isArray(value))
       throw Error("Invalid application update settings.");
-    for (const key of ["automaticDownload", "applyOnNextStart"])
+    for (const key of [
+      "automaticDownload",
+      "applyOnNextStart",
+      "restartForLiveUpdates",
+    ])
       if (typeof value[key] === "boolean") this.state[key] = value[key];
     for (const key of ["highest", "active", "ready"]) {
       if (!value[key]) continue;
@@ -68,6 +76,12 @@ class DesktopUpdates {
     }
     if (typeof value.lastChecked === "string")
       this.state.lastChecked = value.lastChecked;
+    if (
+      value.requiredLiveVersion &&
+      manifest.compareVersions(value.requiredLiveVersion, this.currentVersion) >
+        0
+    )
+      this.state.requiredLiveVersion = value.requiredLiveVersion;
   }
   status() {
     return {
@@ -75,6 +89,8 @@ class DesktopUpdates {
       availableVersion: this.state.ready?.version || null,
       automaticDownload: this.state.automaticDownload,
       applyOnNextStart: this.state.applyOnNextStart,
+      restartForLiveUpdates: this.state.restartForLiveUpdates,
+      requiredLiveVersion: this.state.requiredLiveVersion || null,
       ready:
         !!this.state.ready &&
         manifest.compareVersions(
@@ -97,16 +113,50 @@ class DesktopUpdates {
     if (
       !value ||
       typeof value.automaticDownload !== "boolean" ||
-      typeof value.applyOnNextStart !== "boolean"
+      typeof value.applyOnNextStart !== "boolean" ||
+      (value.restartForLiveUpdates !== undefined &&
+        typeof value.restartForLiveUpdates !== "boolean")
     )
       throw Error("Invalid application update preferences.");
     Object.assign(this.state, {
       automaticDownload: value.automaticDownload,
       applyOnNextStart: value.applyOnNextStart,
     });
+    if (value.restartForLiveUpdates !== undefined)
+      this.state.restartForLiveUpdates = value.restartForLiveUpdates;
     this.persist();
     this.emit();
     return this.status();
+  }
+  requireForLive(version) {
+    if (manifest.compareVersions(version, this.currentVersion) <= 0) return;
+    if (
+      this.state.requiredLiveVersion &&
+      manifest.compareVersions(version, this.state.requiredLiveVersion) <= 0
+    )
+      return;
+    if (
+      !this.state.requiredLiveVersion ||
+      manifest.compareVersions(version, this.state.requiredLiveVersion) > 0
+    )
+      this.state.requiredLiveVersion = version;
+    this.persist();
+    this.emit();
+  }
+  canRestartForLive() {
+    return !!(
+      this.state.restartForLiveUpdates &&
+      this.state.requiredLiveVersion &&
+      this.state.ready &&
+      !this.busy &&
+      manifest.compareVersions(this.state.ready.version, this.currentVersion) >
+        0 &&
+      manifest.compareVersions(
+        this.state.ready.version,
+        this.state.requiredLiveVersion,
+      ) >= 0 &&
+      !this.failed(this.state.ready)
+    );
   }
   decode(envelope) {
     return manifest.decodeManifest(

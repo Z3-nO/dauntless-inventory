@@ -1946,6 +1946,12 @@ static void boss_collect(void *world) {
         if (diag)
             diagFor = best;
         int ncomp = 0, nlinked = 0;
+        // DF-BOSSBAR-SAFE (Oct 21): the part actors reached through this behemoth's
+        // MonsterPartComponents. Only those components are read at PartComp_Actor (0x520): other
+        // components can be smaller, and reading 0x520 into one ran past its memory (client crash
+        // at dxgi+0x8F12, SkyZzefHD report #1).
+        void *linked[64];
+        int nl = 0;
         for (int arr = 0; arr < 2; arr++) {
             TArrayRaw &cs = at<TArrayRaw>((uintptr_t)best +
                                           (arr ? A::Actor_BPComponents : A::Actor_InstComponents));
@@ -1972,6 +1978,8 @@ static void boss_collect(void *world) {
                 if (!pa || s.nparts >= 12)
                     continue;
                 nlinked++;
+                if (nl < 64)
+                    linked[nl++] = pa;
                 bool dup = false;
                 for (int k = 0; k < np; k++)
                     if (parts[k] == pa) {
@@ -1987,18 +1995,11 @@ static void boss_collect(void *world) {
                   ncomp, nlinked);
         for (int i = 0; i < np && s.nparts < 12; i++) {
             if (at<void *>((uintptr_t)parts[i] + A::Actor_Owner) != best) {
-                bool mine =
-                    false; // also accept part actors reached through the behemoth's components
-                for (int arr = 0; arr < 2 && !mine; arr++) {
-                    TArrayRaw &cs = at<TArrayRaw>(
-                        (uintptr_t)best + (arr ? A::Actor_BPComponents : A::Actor_InstComponents));
-                    for (int ci = 0; cs.Data && ci < cs.Num && ci < 256; ci++)
-                        if (cs.Data[ci] &&
-                            at<void *>((uintptr_t)cs.Data[ci] + A::PartComp_Actor) == parts[i]) {
-                            mine = true;
-                            break;
-                        }
-                }
+                bool mine = false; // also accept part actors reached through the behemoth's part
+                                   // components (found above)
+                for (int k = 0; k < nl && !mine; k++)
+                    if (linked[k] == parts[i])
+                        mine = true;
                 if (!mine)
                     continue;
             }
@@ -2545,8 +2546,8 @@ static void client_mods_init() {
     g_clientBoss = GetEnvironmentVariableA("D1147_CLIENT_BOSSBAR", v, sizeof(v)) && v[0] == '1';
     bool mods = has_arg(L"-dfmods");
     wchar_t liveRoot[MAX_PATH];
-    const DWORD liveLength = GetEnvironmentVariableW(L"D1147_LIVE_DIR", liveRoot, MAX_PATH);
-    const bool live = liveLength > 0 && liveLength < MAX_PATH;
+    DWORD liveLength = GetEnvironmentVariableW(L"D1147_LIVE_DIR", liveRoot, MAX_PATH);
+    bool live = liveLength > 0 && liveLength < MAX_PATH;
     {
         wchar_t b[16];
         DWORD n = GetEnvironmentVariableW(L"D1147_CLIENT_BADGE", b, 16);
@@ -2745,6 +2746,642 @@ __attribute__((naked)) static void post_sig_hook() {
         "1: ret\n"
         ".att_syntax prefix\n");
 }
+// ---------------------------------------------------------------------------- client: chat domain
+// (Oct 20) 1.14.7 starts its chat (XMPP over WebSocket) from [OnlineSubsystemPhoenix] ChatEndpoint:
+// FOnlineSubsystemPhoenix (exe+0xE98250) passes that one string as both the server address and the
+// XMPP domain to its login (exe+0xE66800, 5th and 6th arguments). With
+// ChatEndpoint="ws://127.0.0.1" the address is right (the WebSocket path needs ws://), but the
+// domain becomes "ws://127.0.0.1": the player's JID and the room JIDs ("muc.<domain>") break and
+// the game never joins a chat room. The 6th argument (domain) is swapped for the game's normal one,
+// only when it starts with ws.
+namespace CD {
+const uintptr_t XmppLogin = 0xE66800;
+}
+struct FStr {
+    const wchar_t *Data;
+    int32_t Num;
+    int32_t Max;
+};
+static const wchar_t g_chatDomainText[] = L"prod.ol.epicgames.com";
+static FStr g_chatDomain = {g_chatDomainText, (int32_t)(sizeof(g_chatDomainText) / sizeof(wchar_t)),
+                            (int32_t)(sizeof(g_chatDomainText) / sizeof(wchar_t))};
+typedef uintptr_t (*XmppLoginFn)(void *, void *, void *, void *, void *, void *);
+static XmppLoginFn g_origXmppLogin = nullptr;
+static wchar_t g_chatUser[80] =
+    L""; // the account id the game's own chat connection (Phoenix) logs in with
+static FStr g_chatUserStr = {g_chatUser, 0, 80};
+// The rooms (MCP chat) know the player by the sign-in id (EOS EpicAccountId, lower-case hex) and
+// the game decides "this presence is my own join" by finding the connection's user in it
+// (exe+0x4591240). The Phoenix connection logs in with the account id, so the game never saw its
+// own join complete ("Another operation already pending"). The connection now logs in with the
+// sign-in id too: <EOS_OFFLINE_DIR>\eos_offline.ini EpicAccountId, or the stand-in's default when
+// there is none. The chat server knows players by that id as well.
+static wchar_t g_signinId[40] = L"";
+static FStr g_signinStr = {g_signinId, 0, 40};
+static void load_signin_id() {
+    wcscpy(g_signinId, L"d211000000000000000000000000e91c");
+    wchar_t dir[MAX_PATH];
+    DWORD n = GetEnvironmentVariableW(L"EOS_OFFLINE_DIR", dir, MAX_PATH);
+    if (n > 0 && n < MAX_PATH - 24) {
+        wcscat(dir, L"\\eos_offline.ini");
+        FILE *f = _wfopen(dir, L"rb");
+        if (f) {
+            char line[256];
+            while (fgets(line, sizeof(line), f)) {
+                char *p = line;
+                while (*p == ' ' || *p == '\t')
+                    p++;
+                if (_strnicmp(p, "EpicAccountId", 13) != 0)
+                    continue;
+                p += 13;
+                while (*p == ' ' || *p == '\t')
+                    p++;
+                if (*p != '=')
+                    continue;
+                p++;
+                while (*p == ' ' || *p == '\t')
+                    p++;
+                int k = 0;
+                wchar_t id[40];
+                while (k < 32 && isxdigit((unsigned char)p[k])) {
+                    id[k] = (wchar_t)tolower((unsigned char)p[k]);
+                    k++;
+                }
+                id[k] = 0;
+                if (k == 32)
+                    wcscpy(g_signinId, id);
+            }
+            fclose(f);
+        }
+    }
+    g_signinStr.Num = (int32_t)wcslen(g_signinId) + 1;
+}
+static uintptr_t xmpp_login_hook(void *a, void *b, void *c, void *d, void *addr, void *domain) {
+    if (!g_signinStr.Num)
+        load_signin_id();
+    {
+        static bool said = false;
+        if (!said) {
+            said = true;
+            char m[120];
+            snprintf(m, sizeof(m), "chat user: the game's chat logs in as its sign-in id %ls",
+                     g_signinId);
+            dxgi_note(m);
+        }
+    }
+    b = &g_signinStr;
+    c = &g_signinStr;
+    FStr *u = (FStr *)b;
+    if (u && readable(u, sizeof(FStr)) && u->Data && u->Num > 1 && u->Num < 80 &&
+        readable(u->Data, u->Num * 2)) {
+        memcpy(g_chatUser, u->Data, u->Num * 2);
+        g_chatUser[u->Num - 1] = 0;
+        g_chatUserStr.Num = (int32_t)wcslen(g_chatUser) + 1;
+    }
+    FStr *f = (FStr *)domain;
+    if (f && readable(f, sizeof(FStr)) && f->Data && f->Num > 5 && readable(f->Data, 12) &&
+        (wcsncmp(f->Data, L"ws://", 5) == 0 || wcsncmp(f->Data, L"wss://", 6) == 0)) {
+        static bool said = false;
+        if (!said) {
+            said = true;
+            dxgi_note(
+                "chat domain: the game's XMPP domain set to prod.ol.epicgames.com (ChatEndpoint is a ws:// address)");
+        }
+        domain = &g_chatDomain;
+    }
+    return g_origXmppLogin(a, b, c, d, addr, domain);
+}
+// 1.14.7's main chat room is GetGeneralChatChannel (exe+0x1BDD930): "General" + the game's online
+// session id. Offline there is no session id, so it comes back empty and the game never joins a
+// room (it logs in to chat and stays idle). Every host runs its own chat server, so one fixed room
+// per host is right: an empty answer becomes "GeneralDF". The game frees the string later, so it is
+// grown with the game's own resize (exe+0x9FBE90, TArray<TCHAR>::ResizeTo).
+namespace CR {
+const uintptr_t GetGeneralChatChannel = 0x1BDD930, StringResizeTo = 0x9FBE90;
+}
+typedef void *(*GetChanFn)(void *, void *);
+static GetChanFn g_origGetGeneral = nullptr;
+static uintptr_t g_crBase = 0;
+static void *get_general_hook(void *self, void *outp) {
+    void *r = g_origGetGeneral(self, outp);
+    FStr *out = (FStr *)outp;
+    if (out && out->Num <= 1) {
+        static const wchar_t room[] = L"GeneralDF";
+        const int32_t n = (int32_t)(sizeof(room) / sizeof(wchar_t)); // with the terminator
+        if (!out->Data || out->Max < n)
+            ((void (*)(void *, int32_t))(g_crBase + CR::StringResizeTo))(out, n);
+        if (out->Data && out->Max >= n) {
+            memcpy((void *)out->Data, room, sizeof(room));
+            out->Num = n;
+            static bool said = false;
+            if (!said) {
+                said = true;
+                dxgi_note("chat room: no online session id, using the host's room GeneralDF");
+            }
+        }
+    }
+    return r;
+}
+static void chat_room_init(uintptr_t b) {
+    char v[8];
+    if (GetEnvironmentVariableA("D1147_CHATROOM", v, sizeof(v)) && v[0] == '0') {
+        dxgi_note("chat room: off (D1147_CHATROOM=0)");
+        return;
+    }
+    static const uint8_t expect[10] = {0x40, 0x56, 0x57, 0x48, 0x83, 0xEC, 0x48, 0x48, 0x8B, 0x01};
+    static const uint8_t expect2[9] = {0x48, 0x89, 0x5C, 0x24, 0x08, 0x57, 0x48, 0x83, 0xEC};
+    g_crBase = b;
+    if (memcmp((void *)(b + CR::GetGeneralChatChannel), expect, sizeof(expect)) != 0 ||
+        memcmp((void *)(b + CR::StringResizeTo), expect2, sizeof(expect2)) != 0) {
+        dxgi_note("chat room: game code differs, off");
+        return;
+    }
+    MH_STATUS s = MH_Initialize();
+    if (s == MH_OK || s == MH_ERROR_ALREADY_INITIALIZED)
+        s = MH_CreateHook((void *)(b + CR::GetGeneralChatChannel), (void *)get_general_hook,
+                          (void **)&g_origGetGeneral);
+    if (s == MH_OK)
+        s = MH_EnableHook((void *)(b + CR::GetGeneralChatChannel));
+    dxgi_note(s == MH_OK ? "chat room: on" : "chat room: hook FAILED, off");
+}
+// The game's chat rooms (City-<session>, Party-<party>) are joined by the MCP chat
+// (FOnlineChatMcp::JoinPublicRoom, exe+0xB7CE90). It asks FXmppModule::GetConnection
+// (exe+0x4583530) for a connection under its MCP user id (the sign-in id, d211...), but the only
+// connection there is the Phoenix one, under the account id (measured with the game's own log, Oct
+// 20: "JoinPublicRoom - failure - user(d211...) room(City-...)"). Offline both are the same player,
+// so a lookup that finds nothing is answered with the Phoenix connection.
+namespace CX {
+const uintptr_t GetConnection = 0x4583530;
+}
+typedef void *(*GetConnFn)(void *, void *, void *);
+static GetConnFn g_origGetConn = nullptr;
+static void *get_conn_hook(void *self, void *out, void *user) {
+    void *r = g_origGetConn(self, out, user);
+    if (out && !((void **)out)[0] && g_chatUserStr.Num > 1) {
+        FStr *u = (FStr *)user;
+        bool same = u && u->Data && readable(u->Data, 4) && u->Num == g_chatUserStr.Num &&
+                    wcscmp(u->Data, g_chatUser) == 0;
+        if (!same) {
+            r = g_origGetConn(self, out, &g_chatUserStr);
+            static bool said = false;
+            if (!said && ((void **)out)[0]) {
+                said = true;
+                dxgi_note(
+                    "chat connection: the MCP chat uses the game's chat connection (one player offline)");
+            }
+        }
+    }
+    return r;
+}
+static void chat_conn_init(uintptr_t b) {
+    static const uint8_t expect[15] = {0x48, 0x89, 0x5C, 0x24, 0x10, 0x48, 0x89, 0x74,
+                                       0x24, 0x18, 0x57, 0x48, 0x83, 0xEC, 0x30};
+    if (memcmp((void *)(b + CX::GetConnection), expect, sizeof(expect)) != 0) {
+        dxgi_note("chat connection: game code differs, off");
+        return;
+    }
+    MH_STATUS s = MH_Initialize();
+    if (s == MH_OK || s == MH_ERROR_ALREADY_INITIALIZED)
+        s = MH_CreateHook((void *)(b + CX::GetConnection), (void *)get_conn_hook,
+                          (void **)&g_origGetConn);
+    if (s == MH_OK)
+        s = MH_EnableHook((void *)(b + CX::GetConnection));
+    dxgi_note(s == MH_OK ? "chat connection: on" : "chat connection: hook FAILED, off");
+}
+static void chat_domain_init(uintptr_t b) {
+    static const uint8_t expect[11] = {0x48, 0x8B, 0xC4, 0x4C, 0x89, 0x48,
+                                       0x20, 0x4C, 0x89, 0x40, 0x18};
+    if (memcmp((void *)(b + CD::XmppLogin), expect, sizeof(expect)) != 0) {
+        dxgi_note("chat domain: game code differs, off");
+        return;
+    }
+    MH_STATUS s = MH_Initialize();
+    if (s == MH_OK || s == MH_ERROR_ALREADY_INITIALIZED)
+        s = MH_CreateHook((void *)(b + CD::XmppLogin), (void *)xmpp_login_hook,
+                          (void **)&g_origXmppLogin);
+    if (s == MH_OK)
+        s = MH_EnableHook((void *)(b + CD::XmppLogin));
+    dxgi_note(s == MH_OK ? "chat domain: on" : "chat domain: hook FAILED, off");
+}
+
+// ---------------------------------------------------------------------------- chat probe (TEST
+// ONLY, records, changes nothing) Writes %LOCALAPPDATA%\d1147_chatprobe.log: what each step of a
+// chat room join sees, so the fix is made from data.
+namespace CP {
+const uintptr_t MucPresence = 0x4591240, JoinPublicDone = 0x4586520, McpConnCreated = 0xB78940,
+                McpOnJoinPublic = 0xB807A0, McpGetRoomInfo = 0xB77580;
+}
+static void cp_log(const char *fmt, ...) {
+    static volatile LONG lines = 0;
+    if (InterlockedIncrement(&lines) > 400)
+        return;
+    wchar_t path[MAX_PATH + 32];
+    DWORD n = GetEnvironmentVariableW(L"LOCALAPPDATA", path, MAX_PATH);
+    if (!n || n >= MAX_PATH)
+        return;
+    wcscat(path, L"\\d1147_chatprobe.log");
+    HANDLE f = CreateFileW(path, FILE_APPEND_DATA, FILE_SHARE_READ | FILE_SHARE_WRITE, 0,
+                           OPEN_ALWAYS, FILE_ATTRIBUTE_NORMAL, 0);
+    if (f == INVALID_HANDLE_VALUE)
+        return;
+    char line[1024];
+    SYSTEMTIME t;
+    GetLocalTime(&t);
+    int k = snprintf(line, sizeof(line), "%02d:%02d:%02d.%03d [%lu] ", t.wHour, t.wMinute,
+                     t.wSecond, t.wMilliseconds, GetCurrentThreadId());
+    va_list ap;
+    va_start(ap, fmt);
+    k += vsnprintf(line + k, sizeof(line) - k - 3, fmt, ap);
+    va_end(ap);
+    if (k > (int)sizeof(line) - 3)
+        k = sizeof(line) - 3;
+    line[k++] = '\r';
+    line[k++] = '\n';
+    DWORD w;
+    WriteFile(f, line, k, &w, 0);
+    CloseHandle(f);
+}
+// FString -> printable text (never faults: checks memory first)
+static const char *cp_str(const void *fs, char *out, size_t cap) {
+    strcpy(out, "<?>");
+    if (!fs || !readable(fs, sizeof(FStr)))
+        return out;
+    const FStr *f = (const FStr *)fs;
+    if (f->Num <= 0) {
+        strcpy(out, "<empty>");
+        return out;
+    }
+    if (!f->Data || f->Num > 400 || !readable(f->Data, (size_t)f->Num * 2)) {
+        snprintf(out, cap, "<bad num=%d>", f->Num);
+        return out;
+    }
+    size_t j = 0;
+    for (int i = 0; i < f->Num - 1 && j + 1 < cap; i++) {
+        wchar_t c = f->Data[i];
+        out[j++] = (c >= 32 && c < 127) ? (char)c : '?';
+    }
+    out[j] = 0;
+    return out;
+}
+// IXmppConnection user (vtable +0x30 returns its FXmppUserJid, whose first field is the id FString;
+// exe+0x4591430)
+static const char *cp_conn_user(void *conn, char *out, size_t cap) {
+    strcpy(out, "<noconn>");
+    if (!conn || !readable(conn, 8))
+        return out;
+    void **vt = *(void ***)conn;
+    if (!vt || !readable(vt, 0x38))
+        return out;
+    uintptr_t fn = (uintptr_t)vt[6];
+    if (fn < g_exeLo || fn >= g_exeHi) {
+        strcpy(out, "<vt?>");
+        return out;
+    }
+    void *r = ((void *(*)(void *))fn)(conn);
+    return cp_str(r, out, cap);
+}
+// FUniqueNetId::ToString (vtable +0x30, returns FString by out pointer; exe+0xB77651). The string
+// is left to leak (probe only).
+static const char *cp_netid(void *id, char *out, size_t cap) {
+    strcpy(out, "<noid>");
+    if (!id || !readable(id, 8))
+        return out;
+    void **vt = *(void ***)id;
+    if (!vt || !readable(vt, 0x38))
+        return out;
+    uintptr_t fn = (uintptr_t)vt[6];
+    if (fn < g_exeLo || fn >= g_exeHi) {
+        strcpy(out, "<vt?>");
+        return out;
+    }
+    FStr tmp = {0, 0, 0};
+    ((void *(*)(void *, void *))fn)(id, &tmp);
+    return cp_str(&tmp, out, cap);
+}
+typedef void *(*Fn4)(void *, void *, void *, void *);
+typedef void *(*Fn5)(void *, void *, void *, void *, void *);
+static Fn4 g_oMucPres = 0;
+static Fn4 g_oJoinDone = 0;
+static Fn4 g_oConnCreated = 0;
+static Fn5 g_oOnJoinPub = 0;
+static Fn4 g_oGetRoomInfo = 0;
+static void *h_MucPres(void *self, void *pres, void *c, void *d) {
+    char nick[300], room[300], user[120];
+    void *conn = (self && readable(self, 0x28)) ? *(void **)((char *)self + 0x20) : 0;
+    bool avail = pres && readable(pres, 8) && *((uint8_t *)pres + 4);
+    cp_log("MUC presence in: nick=%s room=%s available=%d connection user=%s",
+           cp_str((char *)pres + 0x68, nick, sizeof nick),
+           cp_str((char *)pres + 0x48, room, sizeof room), (int)avail,
+           cp_conn_user(conn, user, sizeof user));
+    return g_oMucPres(self, pres, c, d);
+}
+static void *h_JoinDone(void *self, void *roomInfo, void *pres, void *d) {
+    char room[300], nick[300];
+    cp_log("MUC join complete called: room=%s nick=%s",
+           cp_str((char *)roomInfo + 0x38, room, sizeof room),
+           cp_str((char *)pres + 0x68, nick, sizeof nick));
+    return g_oJoinDone(self, roomInfo, pres, d);
+}
+// FOnlineChatMcp has a second base at +0x110 (constructor exe+0xB483EA puts vtable exe+0x5095680
+// there); HandleXmppConnectionCreated is slot 19 of that vtable, so it runs with this = chat +
+// 0x110 (its [this+0x2D0] weak self pointer is chat+0x3E0, set up in the same constructor).
+static const uintptr_t CM_ConnHandlerBase = 0x110;
+static void *g_cpAnnounced[16];
+static volatile LONG g_cpAnnouncedN = 0;
+static bool cp_was_announced(void *chat, void *conn) {
+    for (LONG i = 0; i < g_cpAnnouncedN && i < 8; i++)
+        if (g_cpAnnounced[i * 2] == chat && g_cpAnnounced[i * 2 + 1] == conn)
+            return true;
+    return false;
+}
+static void cp_mark_announced(void *chat, void *conn) {
+    if (cp_was_announced(chat, conn))
+        return;
+    LONG i = InterlockedIncrement(&g_cpAnnouncedN) - 1;
+    if (i < 8) {
+        g_cpAnnounced[i * 2] = chat;
+        g_cpAnnounced[i * 2 + 1] = conn;
+    }
+}
+static void *h_ConnCreated(void *self, void *connRef, void *c, void *d) {
+    char user[120];
+    void *conn = (connRef && readable(connRef, 8)) ? *(void **)connRef : 0;
+    cp_mark_announced((char *)self - CM_ConnHandlerBase,
+                      conn); // self is the chat's second base (+0x110)
+    cp_log("MCP chat %p told of new connection %p user=%s", self, conn,
+           cp_conn_user(conn, user, sizeof user));
+    return g_oConnCreated(self, connRef, c, d);
+}
+static void *h_OnJoinPub(void *self, void *connRef, void *ok, void *roomId, void *err) {
+    char user[120], room[300];
+    void *conn = (connRef && readable(connRef, 8)) ? *(void **)connRef : 0;
+    cp_log("MCP chat %p heard join result: ok=%d room=%s connection user=%s", self,
+           (int)((uintptr_t)ok & 0xFF), cp_str(roomId, room, sizeof room),
+           cp_conn_user(conn, user, sizeof user));
+    return g_oOnJoinPub(self, connRef, ok, roomId, err);
+}
+static void *h_GetRoomInfo(void *self, void *out, void *user, void *roomId) {
+    static volatile LONG n = 0;
+    void *r = g_oGetRoomInfo(self, out, user, roomId);
+    if (InterlockedIncrement(&n) <= 30) {
+        char u[120], room[300];
+        cp_log("MCP chat %p GetRoomInfo user=%s room=%s -> %s", self, cp_netid(user, u, sizeof u),
+               cp_str(roomId, room, sizeof room), (out && *(void **)out) ? "FOUND" : "NONE");
+    }
+    return r;
+}
+static void cp_hook(uintptr_t b, uintptr_t off, const uint8_t *expect, size_t n, void *fn,
+                    void **orig, const char *name) {
+    if (memcmp((void *)(b + off), expect, n) != 0) {
+        cp_log("hook %s: game code differs, skipped", name);
+        return;
+    }
+    MH_STATUS s = MH_Initialize();
+    if (s == MH_OK || s == MH_ERROR_ALREADY_INITIALIZED)
+        s = MH_CreateHook((void *)(b + off), fn, orig);
+    if (s == MH_OK)
+        s = MH_EnableHook((void *)(b + off));
+    cp_log("hook %s: %s", name, s == MH_OK ? "on" : "FAILED");
+}
+
+// probe, part 2: where a sent room message goes after the server echoes it back
+namespace CP2 {
+const uintptr_t MucGroupChat = 0x4590C10, McpRoomChat = 0xB860C0, TriggerRoomMsg = 0xBC4A20,
+                SendRoomChat = 0xBAFF20;
+}
+static void *volatile g_cmUiChat =
+    0; // the MCP chat that joins rooms and sends (the chat window's one)
+static Fn4 g_oMucGroup = 0;
+static Fn5 g_oMcpRoomChat = 0;
+static Fn4 g_oTrigRoomMsg = 0;
+static Fn4 g_oSendRoomChat = 0;
+static void *h_MucGroup(void *self, void *a, void *b, void *c) {
+    cp_log("MUC groupchat message in (XMPP level)");
+    return g_oMucGroup(self, a, b, c);
+}
+static void *h_McpRoomChat(void *self, void *connRef, void *room, void *d, void *msg) {
+    char r[300], x[300], body[300];
+    void *m = (msg && readable(msg, 8)) ? *(void **)msg : 0;
+    cp_log("MCP chat %p room message in: room=%s arg4=%s body=%s", self, cp_str(room, r, sizeof r),
+           cp_str(d, x, sizeof x), m ? cp_str((char *)m + 0x60, body, sizeof body) : "<nomsg>");
+    return g_oMcpRoomChat(self, connRef, room, d, msg);
+}
+
+// The room nickname is "<name>:<account id>:V2:archon_xmpp:::<guid>" (the game builds it that way
+// and finds its own join by the id in it). The chat window prints the sender as it comes, so the
+// message's nickname is cut to <name> in place (same buffer, shorter length) before the message is
+// passed on. Only strings that carry ":V2:" are touched.
+static bool cm_cut(FStr *f) {
+    if (!readable(f, sizeof(FStr)) || !f->Data || f->Num < 6 || f->Num > 400 || f->Max < f->Num ||
+        !readable(f->Data, (size_t)f->Num * 2))
+        return false;
+    if (f->Data[f->Num - 1] != 0 || !wcsstr(f->Data, L":V2:"))
+        return false;
+    const wchar_t *c = wcschr(f->Data, L':');
+    int idx = (int)(c - f->Data);
+    if (idx <= 0)
+        return false;
+    ((wchar_t *)f->Data)[idx] = 0;
+    f->Num = idx + 1;
+    return true;
+}
+// one-time dump of the message object (and one level of pointers) so the name field can be found
+static void cm_dump(void *m) {
+    static volatile LONG once = 0;
+    if (InterlockedIncrement(&once) > 2)
+        return;
+    char t[300];
+    cp_log("message object %p:", m);
+    for (int off = 0; off < 0x100; off += 8) {
+        if (!readable((char *)m + off, 16))
+            break;
+        uintptr_t v = *(uintptr_t *)((char *)m + off);
+        cp_log("  +0x%02X = %016llX  as string: %s", off, (unsigned long long)v,
+               cp_str((char *)m + off, t, sizeof t));
+        if (v > 0x10000 && readable((void *)v, 0x60) && !(v >= g_exeLo && v < g_exeHi)) {
+            for (int o2 = 0; o2 < 0x60; o2 += 8) {
+                cp_str((char *)v + o2, t, sizeof t);
+                if (t[0] != '<')
+                    cp_log("      [+0x%02X]+0x%02X string: %s", off, o2, t);
+            }
+        }
+    }
+}
+static void cm_short_sender(void *msgRef) {
+    void *m = (msgRef && readable(msgRef, 8)) ? *(void **)msgRef : 0;
+    if (!m || !readable(m, 0x100))
+        return;
+    cm_dump(m);
+    // one level down: a pointer field whose object holds the nickname
+    for (int off = 0; off < 0x100; off += 8) {
+        uintptr_t v = *(uintptr_t *)((char *)m + off);
+        if (v > 0x10000 && !(v >= g_exeLo && v < g_exeHi) && readable((void *)v, 0x60))
+            for (int o2 = 0; o2 < 0x60; o2 += 8)
+                if (cm_cut((FStr *)((char *)v + o2)))
+                    cp_log("chat window: sender name cut (message +0x%X -> +0x%X)", off, o2);
+    }
+    for (int off = 8; off + (int)sizeof(FStr) <= 0x100; off += 8) {
+        FStr *f = (FStr *)((char *)m + off);
+        if (!f->Data || f->Num < 6 || f->Num > 400 || f->Max < f->Num ||
+            !readable(f->Data, (size_t)f->Num * 2))
+            continue;
+        if (f->Data[f->Num - 1] != 0)
+            continue;
+        if (!wcsstr(f->Data, L":V2:"))
+            continue;
+        const wchar_t *c = wcschr(f->Data, L':');
+        int idx = (int)(c - f->Data);
+        if (idx <= 0)
+            continue;
+        ((wchar_t *)f->Data)[idx] = 0;
+        f->Num = idx + 1;
+        static volatile LONG said = 0;
+        if (InterlockedIncrement(&said) == 1) {
+            char t[200];
+            cp_log("chat window: sender name cut to the name part (message +0x%X)", off);
+            snprintf(t, sizeof t, "chat window: sender shown by name only (message field +0x%X)",
+                     off);
+            dxgi_note(t);
+        }
+    }
+}
+static void *h_TrigRoomMsg(void *self, void *a, void *b, void *c) {
+    int n = (self && readable((char *)self + 0xC8, 0x18)) ? *(int *)((char *)self + 0xC8 + 8) : -1;
+    char r[300];
+    cp_log("MCP chat %p broadcasts room message to %d listener(s), room=%s", self, n,
+           cp_str(b, r, sizeof r));
+    cm_short_sender(c);
+    void *ret = g_oTrigRoomMsg(self, a, b, c);
+    // Measured Oct 20 (probe run 3): the room message comes back through a second chat object, not
+    // the one the chat window listens to (the one that joined the room and sends). It is handed to
+    // that one as well.
+    void *ui = g_cmUiChat;
+    if (ui && ui != self && readable((char *)ui + 0xC8, 0x18)) {
+        int m = *(int *)((char *)ui + 0xC8 + 8);
+        cp_log("chat window: room message also given to MCP chat %p (%d listener(s))", ui, m);
+        {
+            static volatile LONG said = 0;
+            if (InterlockedIncrement(&said) == 1)
+                dxgi_note(
+                    "chat window: room messages are passed to the chat the window listens to");
+        }
+        g_oTrigRoomMsg(ui, a, b, c);
+    }
+    return ret;
+}
+static void *h_SendRoomChat(void *self, void *user, void *room, void *body) {
+    void *r = g_oSendRoomChat(self, user, room, body);
+    char rm[300], bd[300];
+    cp_log("MCP chat %p SendRoomChat room=%s body=%s -> %d", self, cp_str(room, rm, sizeof rm),
+           cp_str(body, bd, sizeof bd), (int)((uintptr_t)r & 0xFF));
+    return r;
+}
+static void chat_probe2_init(uintptr_t b) {
+    static const uint8_t e1[] = {0x48, 0x89, 0x5C, 0x24, 0x18, 0x48,
+                                 0x89, 0x6C, 0x24, 0x20, 0x56, 0x57};
+    static const uint8_t e2[] = {0x4C, 0x89, 0x4C, 0x24, 0x20, 0x4C, 0x89, 0x44, 0x24, 0x18};
+    static const uint8_t e3[] = {0x40, 0x56, 0x48, 0x83, 0xEC, 0x30, 0x48, 0x89, 0x6C, 0x24, 0x48};
+    static const uint8_t e4[] = {0x48, 0x89, 0x5C, 0x24, 0x18, 0x4C, 0x89, 0x4C, 0x24, 0x20};
+    cp_hook(b, CP2::MucGroupChat, e1, sizeof e1, (void *)h_MucGroup, (void **)&g_oMucGroup,
+            "MUC groupchat");
+    cp_hook(b, CP2::McpRoomChat, e2, sizeof e2, (void *)h_McpRoomChat, (void **)&g_oMcpRoomChat,
+            "MCP room message");
+    cp_hook(b, CP2::TriggerRoomMsg, e3, sizeof e3, (void *)h_TrigRoomMsg, (void **)&g_oTrigRoomMsg,
+            "MCP room message broadcast");
+    cp_hook(b, CP2::SendRoomChat, e4, sizeof e4, (void *)h_SendRoomChat, (void **)&g_oSendRoomChat,
+            "MCP SendRoomChat");
+}
+static void chat_probe_init(uintptr_t b) {
+    cp_log("---- chat probe start (sign-in id from loader: %ls)",
+           g_signinId[0] ? g_signinId : L"(not loaded yet)");
+    static const uint8_t e1[] = {0x40, 0x53, 0x55, 0x56, 0x57, 0x41, 0x54};
+    static const uint8_t e2[] = {0x48, 0x89, 0x5C, 0x24, 0x08, 0x48, 0x89, 0x6C, 0x24, 0x10};
+    static const uint8_t e3[] = {0x48, 0x89, 0x54, 0x24, 0x10, 0x48, 0x89, 0x4C, 0x24, 0x08};
+    static const uint8_t e4[] = {0x48, 0x89, 0x5C, 0x24, 0x08, 0x48, 0x89, 0x6C, 0x24, 0x18};
+    static const uint8_t e5[] = {0x48, 0x8B, 0xC4, 0x53, 0x56, 0x48, 0x83, 0xEC, 0x78};
+    cp_hook(b, CP::MucPresence, e1, sizeof e1, (void *)h_MucPres, (void **)&g_oMucPres,
+            "MUC presence");
+    cp_hook(b, CP::JoinPublicDone, e2, sizeof e2, (void *)h_JoinDone, (void **)&g_oJoinDone,
+            "MUC join complete");
+    cp_hook(b, CP::McpConnCreated, e3, sizeof e3, (void *)h_ConnCreated, (void **)&g_oConnCreated,
+            "MCP connection created");
+    cp_hook(b, CP::McpOnJoinPublic, e4, sizeof e4, (void *)h_OnJoinPub, (void **)&g_oOnJoinPub,
+            "MCP join result");
+    cp_hook(b, CP::McpGetRoomInfo, e5, sizeof e5, (void *)h_GetRoomInfo, (void **)&g_oGetRoomInfo,
+            "MCP GetRoomInfo");
+    chat_probe2_init(b);
+}
+
+// ---------------------------------------------------------------------------- chat rooms: tell the
+// MCP chat about the connection Measured with the chat probe (Oct 20): the room join completes at
+// the XMPP level (MUC presence, own nick, HandleJoinPublicRoomComplete all fire), but
+// FOnlineChatMcp::HandleXmppConnectionCreated (exe+0xB78940) never runs for the game's chat
+// connection, so the MCP chat never binds its room delegates: OnXmppJoinPublicRoom never fires,
+// GetRoomInfo finds nothing and every message ends "RoomInfo is not valid". Before the MCP chat
+// joins a room (FOnlineChatMcp::JoinPublicRoom, exe+0xB7CE90) it is now handed the connection it is
+// about to use, once: FOnlineSubsystemMcp::GetXmppConnection (exe+0xC4D6D0) ->
+// HandleXmppConnectionCreated(chat, connection).
+namespace CM {
+const uintptr_t JoinPublicRoom = 0xB7CE90, GetXmppConnection = 0xC4D6D0, Subsystem = 0x118;
+}
+typedef void *(*JoinPubFn)(void *, void *, void *, void *, void *, void *);
+static JoinPubFn g_oJoinPub = 0;
+static uintptr_t g_cmBase = 0;
+static void *h_JoinPub(void *self, void *user, void *room, void *nick, void *e, void *f) {
+    static volatile LONG said = 0;
+    if (self)
+        g_cmUiChat = self;
+    if (self && readable(self, CM::Subsystem + 8)) {
+        void *sub = *(void **)((char *)self + CM::Subsystem);
+        if (sub) {
+            void *sp[2] = {0, 0}; // TSharedPtr<IXmppConnection>, released again below (a kept
+                                  // reference stops the game closing)
+            ((void *(*)(void *, void *, void *))(g_cmBase + CM::GetXmppConnection))(sub, sp, user);
+            if (sp[0] && !cp_was_announced(self, sp[0])) {
+                cp_mark_announced(self, sp[0]);
+                char u[120];
+                cp_log("chat rooms: MCP chat %p given connection %p user=%s", self, sp[0],
+                       cp_conn_user(sp[0], u, sizeof u));
+                ((void *(*)(void *, void *))(g_cmBase + CP::McpConnCreated))(
+                    (char *)self + CM_ConnHandlerBase, sp);
+                if (InterlockedIncrement(&said) == 1)
+                    dxgi_note("chat rooms: the MCP chat was given the game's chat connection");
+            }
+            // release our reference like the game does (exe+0xB78AB1): shared count at +8, weak
+            // count at +0xC
+            if (sp[1] && readable(sp[1], 0x10)) {
+                volatile LONG *rc = (volatile LONG *)((char *)sp[1] + 8);
+                if (InterlockedDecrement(rc) == 0) {
+                    void **vt = *(void ***)sp[1];
+                    ((void (*)(void *))vt[0])(sp[1]);
+                    if (InterlockedDecrement(rc + 1) == 0)
+                        ((void (*)(void *, int))vt[1])(sp[1], 1);
+                }
+            }
+        }
+    }
+    return g_oJoinPub(self, user, room, nick, e, f);
+}
+static void chat_mcp_init(uintptr_t b) {
+    static const uint8_t e1[] = {0x48, 0x89, 0x5C, 0x24, 0x10, 0x4C, 0x89,
+                                 0x4C, 0x24, 0x20, 0x55, 0x56, 0x57};
+    static const uint8_t e2[] = {0x48, 0x89, 0x5C, 0x24, 0x08, 0x48, 0x89, 0x74,
+                                 0x24, 0x10, 0x57, 0x48, 0x83, 0xEC, 0x40};
+    g_cmBase = b;
+    if (memcmp((void *)(b + CM::JoinPublicRoom), e1, sizeof e1) != 0 ||
+        memcmp((void *)(b + CM::GetXmppConnection), e2, sizeof e2) != 0) {
+        dxgi_note("chat rooms: game code differs, off");
+        return;
+    }
+    MH_STATUS s = MH_Initialize();
+    if (s == MH_OK || s == MH_ERROR_ALREADY_INITIALIZED)
+        s = MH_CreateHook((void *)(b + CM::JoinPublicRoom), (void *)h_JoinPub,
+                          (void **)&g_oJoinPub);
+    if (s == MH_OK)
+        s = MH_EnableHook((void *)(b + CM::JoinPublicRoom));
+    dxgi_note(s == MH_OK ? "chat rooms: on" : "chat rooms: hook FAILED, off");
+    cp_log("hook chat rooms (JoinPublicRoom): %s", s == MH_OK ? "on" : "FAILED");
+}
 static void startup_messages_init(uintptr_t b);
 static void client_init() {
     char v[8];
@@ -2760,6 +3397,11 @@ static void client_init() {
     g_exeHi = b + nt->OptionalHeader.SizeOfImage;
     client_mods_init();
     startup_messages_init(b);
+    chat_domain_init(b);
+    chat_room_init(b);
+    chat_conn_init(b);
+    chat_probe_init(b);
+    chat_mcp_init(b);
     if (GetEnvironmentVariableA("D1147_SIGGUARD", v, sizeof(v)) && v[0] == '0') {
         dxgi_note("significance guard: off (D1147_SIGGUARD=0)");
         return;

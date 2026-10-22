@@ -144,18 +144,10 @@ function status(connection) {
     backup: manifest.backup,
   };
 }
-async function install(connection) {
-  if (await saves.backendUp(connection.version === "1.6.2" ? 61000 : 63000))
-    throw Error(
-      "Close Forever and its local server once to install Live connection.",
-    );
-  if (status(connection).installed)
-    throw Error(
-      "Live connection is already installed. Remove it before reinstalling.",
-    );
+function plan(connection, files = fs) {
   const changes = patches(connection).map((entry) => {
     const file = path.join(connection.root, entry.file);
-    const original = fs.readFileSync(file);
+    const original = files.readFileSync(file);
     const source = original.toString("utf8");
     if (source.includes(marker))
       throw Error(
@@ -167,14 +159,26 @@ async function install(connection) {
       edited: Buffer.from(entry.edit(source)),
     };
   });
+  const nativeChanges = connection.nativeRefresh
+    ? require("./live-native.cjs").plan(connection, files)
+    : [];
+  return { changes, nativeChanges };
+}
+async function install(connection) {
+  if (await saves.backendUp(connection.version === "1.6.2" ? 61000 : 63000))
+    throw Error(
+      "Close Forever and its local server once to install Live connection.",
+    );
+  if (status(connection).installed)
+    throw Error(
+      "Live connection is already installed. Remove it before reinstalling.",
+    );
+  const { changes, nativeChanges } = plan(connection);
   const destination = path.join(connection.root, "backend/materiali-live");
   if (fs.existsSync(destination))
     throw Error(
       "A previous Live installation folder exists. Original files retained.",
     );
-  const nativeChanges = connection.nativeRefresh
-    ? require("./live-native.cjs").plan(connection)
-    : [];
   const backup = path.join(
     connection.root,
     "backup/materiali-live-install-" + Date.now() + "-" + crypto.randomUUID(),
@@ -274,7 +278,7 @@ async function install(connection) {
       "Live connection installed. Start Forever, then reconnect your character in Inventory.",
   };
 }
-async function uninstall(connection) {
+async function uninstall(connection, options = {}) {
   if (await saves.backendUp(connection.version === "1.6.2" ? 61000 : 63000))
     throw Error(
       "Close Forever and its server before removing Live connection.",
@@ -334,6 +338,7 @@ async function uninstall(connection) {
       throw Error("Invalid native restore path.");
     return { file: row.file, bytes };
   });
+  options.beforeWrite?.();
   for (const row of nativeOriginals) {
     if (row.bytes === null) fs.unlinkSync(row.file);
     else fs.writeFileSync(row.file, row.bytes);
@@ -355,6 +360,8 @@ async function uninstall(connection) {
   };
 }
 module.exports = {
+  plan,
+  baselines: require("./data/forever-baselines.json"),
   install,
   uninstall,
   status,

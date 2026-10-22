@@ -1,65 +1,31 @@
-# Dauntless Inventory Live Preview 0.13.0
+# Dauntless Inventory Live Preview 0.13.1
 
-## Automatic application updates
+## Automatic compatibility updates
 
-The portable EXE now checks for complete application releases as well as Live modules.
-A signed release downloads automatically while Inventory is open. Choose **Restart and
-update**, or leave **Apply downloaded updates the next time I open Inventory** enabled.
-The original EXE then opens the latest verified managed version; it does not need to be
-replaced or sent again. Existing directories, preferences and character files are kept.
+Inventory follows changes to installed Forever files. After the files remain stable for
+one minute, a verified compatible Live release repairs its backend, launcher patches
+and native components together, with the game and Forever server closed. The current
+1.14.7 loader includes the upstream chat, CPU and boss health bar fixes from commit
+6053ab79e717d54f5813a8ad915a48697d150eef. Both 1.6.2 and 1.14.7 remain supported.
 
-Settings separates **Application updates** from **Live module updates**. Both automatic
-download and activation on next launch can be disabled. A running save finishes before
-the application restarts. The previous EXE remains available if startup fails, and a
-failed update is not retried endlessly. Manifests use the existing Ed25519 trust key;
-EXE files are checked by signed SHA-256 and length before download activation and again
-before each managed launch. This is distinct from Windows Authenticode signing.
+If a signed Live release requires a newer Inventory, the app downloads a sufficient
+signed application release and restarts automatically after pending saves finish.
+The warning appears before restart. Pending item selections and pasted build codes
+are retained for review; they are never applied automatically. This option can be
+disabled in Settings. Preferences, character files and the original EXE are preserved.
+A failed startup falls back to the previous app without an endless restart loop.
 
-Users of 0.12.1 or older need to download 0.13.0 once, because their EXE does not include
-an application updater. Later releases only need publication on the project feed.
-Updating app code does not automatically make unknown future Forever loaders compatible.
-Those still need a tested compatible Live module. The separate local Builder folder is
-included in the full release ZIP; it is not replaced by the Inventory EXE updater.
+The updater verifies Ed25519 signatures, SHA-256 hashes and sizes. It accepts only
+explicitly supported official baselines and an intact previously installed bridge.
+An interrupted repair restores the exact files present before the attempt. Intentional
+Live removal is remembered and does not cause automatic reinstallation.
 
-## Live module updates and persistent game session
-
-Settings now includes **Live module updates**. Signed project releases are checked
-at startup and every 30 minutes while the app is running. Verified downloads are
-installed automatically into an existing Live installation when the game and
-Forever server are closed. No background service runs after Inventory closes.
-Automatic checking and installation can be disabled independently. The built-in
-public key verifies every release; each file is checked again before installation.
-Downloads survive an app restart. Unsupported files, signature failures, redirects,
-older releases and unrelated local modifications are rejected. Failed replacements
-restore the previous native module and bridge from a transaction backup.
-
-For a Live installation created before 0.12.0, click **Update installed Live module**
-once with the game/server closed. This creates the verified bridge manifest used
-for later automatic updates. If Live is not installed yet, use **Install Live connection**.
-Signed update folders can also be imported offline. See [UPDATING.md](UPDATING.md)
-for the release format and publishing instructions.
-
-Inventory detects a single running local Live game and follows its active character,
-using that game's full inventory requests as the character identity. The selection
-is locked to that character while Live is active. Autosaves refresh the displayed
-revision automatically. A temporary backend outage pauses writes and retries the
-same session without discarding the selected profile. A changed review must be
-reviewed again; writes are never silently retried. Ambiguous sessions and missing
-native heartbeats keep writes paused. This does not enable multiplayer support.
-
-The Live module updater distributes compatible modules published by the project.
-It does not adapt native code to a future Forever release by itself, update Forever,
-or install complete application updates; those use the separate Application updates controls. A module requiring newer updater capabilities
-requests an application upgrade instead. Full source, AGPL-3.0 and upstream credits
-remain available with releases.
-
-Compatibility fix, 21 October 2026: Native Live accepts both inspected 1.14.7
-Forever loader releases (BAA60615 and CFE9B7B3) for CL647472. The rebuilt loader
-includes the current upstream FPS/crash guard, DXGI chain and optional mod support.
-Live and the boss health bar share one client tick hook. Unknown loaders and
-mixed game/package versions remain blocked; repair or update Forever rather
-than restoring an older loader. The installer backs up the exact original
-release and removal restores it.
+Forever downloads its own launcher/game updates. Inventory does not download the game
+or invent support for unknown future loaders: a tested compatible signed release is
+still required. The separate local Builder is included in the ZIP and is not replaced
+by the Inventory application updater. Users on 0.12.1 or older need one manual download;
+0.13.0 supports application updates, and 0.13.1 adds automatic required-Live restarts.
+No background service runs after Inventory closes.
 
 A local Windows desktop editor for Dauntless Forever 1.6.2 and 1.14.7.
 The executable opens its own application window. No browser window or Node installation is needed.

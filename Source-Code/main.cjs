@@ -6,6 +6,7 @@ const fs = require("node:fs");
 const path = require("node:path");
 const crypto = require("node:crypto");
 const { DesktopUpdates } = require("./desktop-updates.cjs");
+const drafts = require("./desktop-update-draft.cjs");
 // The preview has its own preferences, browser storage and single-instance lock.
 const previewData = path.resolve(
   process.env.MATERIALI_USER_DATA ||
@@ -21,6 +22,10 @@ let shuttingDown = false;
 let serviceUrl;
 let restartInProgress = false;
 let applicationUpdates;
+let liveRestartTimer;
+let liveCheckPending = false;
+let lastLiveCheck = 0;
+let draftRequest;
 const toolRoot = app.isPackaged
   ? path.join(process.resourcesPath, "tool")
   : fs.existsSync(path.join(__dirname, "server.cjs"))
@@ -65,6 +70,16 @@ function startService() {
       }
     });
     service.stderr.on("data", (chunk) => log(chunk.toString()));
+    service.on("message", (message) => {
+      if (message?.type !== "live-application-update-required") return;
+      try {
+        applicationUpdates.requireForLive(message.version);
+      } catch (error) {
+        log(error.message);
+        return;
+      }
+      checkRequiredLiveUpdate();
+    });
     service.on("error", (error) => {
       clearTimeout(timer);
       reject(error);
@@ -144,8 +159,38 @@ ipcMain.handle("application-update-settings", (event, value) => {
   assertDesktopSender(event);
   return applicationUpdates.settings(value);
 });
-ipcMain.handle("application-update-restart", async (event) => {
+ipcMain.handle("application-update-load-draft", (event) => {
   assertDesktopSender(event);
+  return drafts.take(path.join(previewData, "restart-draft.json"));
+});
+ipcMain.handle("application-update-save-draft", (event, value) => {
+  assertDesktopSender(event);
+  if (!draftRequest || value?.id !== draftRequest.id)
+    throw Error("No editor restart is pending.");
+  drafts.save(path.join(previewData, "restart-draft.json"), value.draft);
+  draftRequest.resolve();
+});
+async function captureRestartDraft() {
+  if (!mainWindow || mainWindow.isDestroyed()) return;
+  await new Promise((resolve, reject) => {
+    const id = crypto.randomUUID();
+    const finish = (error) => {
+      clearTimeout(timer);
+      draftRequest = null;
+      error ? reject(error) : resolve();
+    };
+    const timer = setTimeout(
+      () =>
+        finish(
+          Error("The editor has not saved its draft yet. Restart deferred."),
+        ),
+      5000,
+    );
+    draftRequest = { id, resolve: () => finish() };
+    mainWindow.webContents.send("application-update-preparing", { id });
+  });
+}
+async function restartApplication() {
   if (restartInProgress) return;
   restartInProgress = true;
   try {
@@ -154,6 +199,7 @@ ipcMain.handle("application-update-restart", async (event) => {
       service?.pid,
     );
     await prepareServiceForUpdate();
+    await captureRestartDraft();
     await applicationUpdates.launchHandoff(handoff);
     app.quit();
   } catch (error) {
@@ -162,7 +208,51 @@ ipcMain.handle("application-update-restart", async (event) => {
   } finally {
     restartInProgress = false;
   }
+}
+ipcMain.handle("application-update-restart", async (event) => {
+  assertDesktopSender(event);
+  return restartApplication();
 });
+async function checkRequiredLiveUpdate() {
+  if (applicationUpdates?.canRestartForLive()) {
+    scheduleLiveRestart();
+    return;
+  }
+  if (
+    liveCheckPending ||
+    applicationUpdates?.busy ||
+    Date.now() - lastLiveCheck < 60000 ||
+    !applicationUpdates?.state.restartForLiveUpdates ||
+    !applicationUpdates.state.requiredLiveVersion
+  )
+    return;
+  liveCheckPending = true;
+  lastLiveCheck = Date.now();
+  try {
+    await applicationUpdates.check();
+    scheduleLiveRestart();
+  } catch (error) {
+    log("Live compatibility update: " + error.message);
+  } finally {
+    liveCheckPending = false;
+  }
+}
+function scheduleLiveRestart() {
+  if (liveRestartTimer || !applicationUpdates?.canRestartForLive()) return;
+  applicationUpdates.message =
+    "A required Live compatibility update is ready. Inventory will restart automatically after current saves finish.";
+  liveRestartTimer = setTimeout(async () => {
+    liveRestartTimer = null;
+    if (!applicationUpdates.canRestartForLive() || restartInProgress) return;
+    try {
+      await restartApplication();
+    } catch (error) {
+      log("Automatic Live restart deferred: " + error.message);
+    }
+  }, 10000);
+  liveRestartTimer.unref();
+  applicationUpdates.emit();
+}
 
 async function createWindow() {
   app.setAccessibilitySupportEnabled(true);
@@ -227,6 +317,7 @@ else {
         changed: (state) => {
           if (mainWindow && !mainWindow.isDestroyed())
             mainWindow.webContents.send("application-update-status", state);
+          scheduleLiveRestart();
         },
       });
       await applicationUpdates.announceStart(process.env.DAUNTLESS_UPDATE_JOB);
@@ -241,11 +332,13 @@ else {
         return;
       }
       await createWindow();
+      checkRequiredLiveUpdate();
       const check = () => {
         if (!applicationUpdates.state.automaticDownload || restartInProgress)
           return;
         applicationUpdates
           .check()
+          .then(scheduleLiveRestart)
           .catch((error) => log("Application update: " + error.message));
       };
       setTimeout(check, 10000).unref();

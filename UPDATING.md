@@ -14,7 +14,7 @@ shipping a new application with a new verification key. Protect and back up the 
 4. Generate the release with Node 24 or later:
 
    ```text
-   node Source-Code/scripts/publish-live-update.cjs --source Source-Code --out updates --key C:/Keys/live-updates-private.pem --source-url https://github.com/OWNER/REPOSITORY/tree/v0.13.0 --min-tool 0.12.0
+   node Source-Code/scripts/publish-live-update.cjs --source Source-Code --out updates --key C:/Keys/live-updates-private.pem --source-url https://github.com/OWNER/REPOSITORY/tree/v0.13.1 --min-tool 0.13.1
    ```
 
 5. Commit the complete corresponding source and `updates/releases/VERSION/` to the
@@ -46,7 +46,7 @@ For development from Git, use an installed Node 24+ to run
 repository excludes that runtime binary and the EXE. The full offline distribution,
 including EXE, source and local Builder, is supplied in GitHub Releases.
 
-## Publishing complete application updates (0.13.0+)
+## Publishing complete application updates (0.13.1+)
 
 Build the portable EXE and run application/Builder tests, packaged-EXE checks and a
 real restart from an older test version before release. Keep the original `appId`
@@ -82,3 +82,17 @@ continues after the old desktop window and portable launcher close. It receives
 only the editor processes and managed EXE paths. It
 never patches game DLLs or touches character saves. Its job and script remain outside
 the old portable extraction folder so that the old launcher can clean up normally.
+
+## Required compatibility restarts (0.13.1+)
+
+The signed Live manifest must set minToolVersion to the first application version
+that can safely load that module. Version 0.13.1 is the minimum for baseline-aware
+repair. Publish the sufficient application EXE and source tag before publishing the
+Live feed. A verified minimum-version requirement triggers the automatic application
+restart policy in 0.13.1+, preserving drafts. Never request a restart through unsigned
+messages or mutate a previously published release.
+
+Baseline-aware repairs accept only known official bytes (or narrowly normalized text
+formatting), validate the complete replacement before writing, wait for stable files
+and keep transaction backups. Unknown modifications remain blocked. The game and
+backend must be closed before native components are replaced.

@@ -79,6 +79,27 @@ function fixture(t) {
   };
 }
 
+test("Only a signed Live manifest can request a required application compatibility update", (t) => {
+  const f = fixture(t),
+    payload = { ...f.payload, minToolVersion: "0.13.1" };
+  let required;
+  try {
+    packages.decodeRelease(f.sign(payload), f.publicKey, "0.13.0");
+  } catch (error) {
+    required = error;
+  }
+  assert.equal(required.code, "LIVE_APPLICATION_UPDATE_REQUIRED");
+  assert.equal(required.requiredToolVersion, "0.13.1");
+  const bad = f.sign(payload);
+  bad.signature = "A".repeat(86);
+  try {
+    packages.decodeRelease(bad, f.publicKey, "0.13.0");
+    assert.fail("Unsigned request accepted");
+  } catch (error) {
+    assert.notEqual(error.code, "LIVE_APPLICATION_UPDATE_REQUIRED");
+  }
+});
+
 test("Signed offline release imports, persists and revalidates before loading its installer", async (t) => {
   const f = fixture(t);
   const result = await f.updater.importFolder(f.releaseFolder);

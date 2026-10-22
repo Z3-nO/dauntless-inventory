@@ -6,6 +6,7 @@ const crypto = require("node:crypto");
 const saves = require("./saves.cjs");
 const native = require("./live-native.cjs");
 const installed = require("./live-install.cjs");
+const repair = require("./live-update-repair.cjs");
 
 async function assertClosed(connection) {
   native.assertGameClosed();
@@ -16,50 +17,20 @@ async function assertClosed(connection) {
 }
 
 function targets(connection) {
-  const config = JSON.parse(
-    fs.readFileSync(path.join(connection.root, "config.json"), "utf8"),
-  );
-  const game = path.resolve(config.GameDir, "Archon/Binaries/Win64");
-  const relative =
-    connection.version === "1.14.7"
-      ? [
-          "backend/recorder-1147.js",
-          "tools/common.ps1",
-          "tools/play-1147.ps1",
-          "version.json",
-          "bin/dxgi.dll",
-        ]
-      : [
-          "backend/metagame/dist/app.js",
-          "backend/metagame/src/app.ts",
-          "tools/common.ps1",
-          "tools/play.ps1",
-          "tools/server.ps1",
-          "version.json",
-          "bin/UndauntedInternalServer.dll",
-          "bin/UndauntedInternalServer.base.dll",
-        ];
-  return [
-    ...relative.map((file) => path.join(connection.root, file)),
-    ...[
-      "dxgi.dll",
-      "UndauntedInternalServer.dll",
-      "UndauntedInternalServer.base.dll",
-    ].map((file) => path.join(game, file)),
-  ];
+  return [...repair.allowedPaths(connection).keys()];
 }
 
 async function replaceInstalled(connection, replacement, options = {}) {
   await assertClosed(connection);
   const status = installed.status(connection);
-  if (!status.installed)
+  if (!status.installed && !options.recoveryManifest)
     return { updated: false, message: "Install Live connection first." };
-  if (!status.intact)
-    throw Error(
-      "Forever or another mod changed the installed files. Automatic update stopped to preserve them.",
-    );
+  const rebase = !status.intact
+    ? repair.plan(connection, replacement, options.recoveryManifest)
+    : null;
   const folder = path.join(connection.root, "backend/materiali-live");
-  if (fs.lstatSync(folder).isSymbolicLink())
+  const bridgeExisted = fs.existsSync(folder);
+  if (bridgeExisted && fs.lstatSync(folder).isSymbolicLink())
     throw Error("The installed Live folder cannot be a link.");
   const backup = path.join(
     connection.root,
@@ -74,16 +45,34 @@ async function replaceInstalled(connection, replacement, options = {}) {
   fs.mkdirSync(backup, { recursive: true });
   for (const row of files)
     if (row.exists) fs.copyFileSync(row.file, row.snapshot);
-  fs.cpSync(folder, path.join(backup, "installed-bridge"), {
-    recursive: true,
-    dereference: false,
-  });
+  if (bridgeExisted)
+    fs.cpSync(folder, path.join(backup, "installed-bridge"), {
+      recursive: true,
+      dereference: false,
+    });
   fs.writeFileSync(
     path.join(backup, "update.json"),
     JSON.stringify({ files, previousVersion: status.version }, null, 2),
   );
+  let mutationStarted = false;
   try {
-    await (options.previousInstaller || installed).uninstall(connection);
+    if (rebase) {
+      repair.assertUnchanged(rebase.rows);
+      mutationStarted = true;
+      for (const row of rebase.rows) {
+        if (row.clean === null) {
+          if (row.exists) fs.unlinkSync(row.file);
+        } else fs.writeFileSync(row.file, row.clean);
+      }
+      if (bridgeExisted) fs.rmSync(folder, { recursive: true });
+    } else {
+      if (options.previousInstaller) mutationStarted = true;
+      await (options.previousInstaller || installed).uninstall(connection, {
+        beforeWrite: () => {
+          mutationStarted = true;
+        },
+      });
+    }
     const result = await replacement.install({
       ...connection,
       nativeRefresh: true,
@@ -93,10 +82,17 @@ async function replaceInstalled(connection, replacement, options = {}) {
     return {
       ...result,
       updated: true,
+      repairedAfterForeverUpdate: !!rebase,
       updateBackup: backup,
-      message: "Live module updated. Start Forever and reconnect Inventory.",
+      message: rebase
+        ? "Live restored for the updated Forever files. Launcher, backend and native modules verified."
+        : "Live module updated. Start Forever and reconnect Inventory.",
     };
   } catch (error) {
+    if (!mutationStarted)
+      throw Error("Live update deferred; no files changed. " + error.message, {
+        cause: error,
+      });
     try {
       for (const row of files) {
         if (row.exists) fs.copyFileSync(row.snapshot, row.file);
@@ -104,11 +100,20 @@ async function replaceInstalled(connection, replacement, options = {}) {
       }
       // Only the fixed bridge directory in the selected backend is replaced.
       if (fs.existsSync(folder)) fs.rmSync(folder, { recursive: true });
-      fs.cpSync(path.join(backup, "installed-bridge"), folder, {
-        recursive: true,
-      });
-      if (!installed.status(connection).intact)
+      if (bridgeExisted)
+        fs.cpSync(path.join(backup, "installed-bridge"), folder, {
+          recursive: true,
+        });
+      if (status.intact && !installed.status(connection).intact)
         throw Error("Previous module verification failed.");
+      for (const row of files) {
+        if (
+          fs.existsSync(row.file) !== row.exists ||
+          (row.exists &&
+            !fs.readFileSync(row.file).equals(fs.readFileSync(row.snapshot)))
+        )
+          throw Error("Pre-update file restoration failed.");
+      }
     } catch (restoreError) {
       throw Error(
         "Live update failed and needs manual recovery from its update backup: " +

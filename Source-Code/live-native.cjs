@@ -6,6 +6,7 @@ const fs = require("node:fs"),
 const hash = (bytes) => crypto.createHash("sha256").update(bytes).digest("hex");
 // Inspected Forever releases for the same CL647472 game executable.
 const MODERN_LOADERS = new Set([
+  "c79b09f2c430e1dfb8dbecfa9cfd1e4bebd2bf9d923efa14865defbfa4271aa5",
   "baa606152802b1aedac17a45c8c613511383b2c87ddc2d927a9d2c185fbe3222",
   "cfe9b7b336b67676d4b071d9cc210fc375a04b2b4d3c399927828e3ea479dcf2",
 ]);
@@ -40,23 +41,23 @@ function assertGameClosed() {
       "Close every Dauntless game and server before changing the native Live loader.",
     );
 }
-function plan(connection) {
-  if (connection.version === "1.6.2") return legacyPlan(connection);
+function plan(connection, files = fs) {
+  if (connection.version === "1.6.2") return legacyPlan(connection, files);
   assertGameClosed();
   const cfg = JSON.parse(
-    fs.readFileSync(path.join(connection.root, "config.json"), "utf8"),
+    files.readFileSync(path.join(connection.root, "config.json"), "utf8"),
   );
   const game = path.resolve(cfg.GameDir),
     bin = path.join(game, "Archon/Binaries/Win64");
   if (
-    hash(fs.readFileSync(path.join(bin, "Dauntless-Win64-Shipping.exe"))) !==
+    hash(files.readFileSync(path.join(bin, "Dauntless-Win64-Shipping.exe"))) !==
     EXE
   )
     throw Error("Native Live supports only Dauntless 1.14.7 CL647472.");
-  const binary = fs.readFileSync(path.join(__dirname, "native/dxgi.dll")),
+  const binary = files.readFileSync(path.join(__dirname, "native/dxgi.dll")),
     installedHash = hash(binary);
   const expected = JSON.parse(
-    fs.readFileSync(path.join(__dirname, "native/manifest.json"), "utf8"),
+    files.readFileSync(path.join(__dirname, "native/manifest.json"), "utf8"),
   );
   if (installedHash !== expected.sha256)
     throw Error("Native Live payload failed integrity verification.");
@@ -65,11 +66,11 @@ function plan(connection) {
     { file: path.join(connection.root, "bin/dxgi.dll"), edited: binary },
   ];
   const originalHash = verifiedModernLoader(
-    changes.map((row) => hash(fs.readFileSync(row.file))),
+    changes.map((row) => hash(files.readFileSync(row.file))),
   );
   for (const name of ["tools/common.ps1", "version.json"]) {
     const file = path.join(connection.root, name),
-      original = fs.readFileSync(file),
+      original = files.readFileSync(file),
       source = original.toString("utf8");
     if (!source.toLowerCase().includes(originalHash))
       throw Error("The Forever loader verification metadata is not supported.");
@@ -84,7 +85,7 @@ function plan(connection) {
     });
   }
   const playFile = path.join(connection.root, "tools/play-1147.ps1"),
-    play = fs.readFileSync(playFile, "utf8"),
+    play = files.readFileSync(playFile, "utf8"),
     anchor = "$psi.EnvironmentVariables['EOS_OFFLINE_DIR'] = $EosDir";
   if (play.split(anchor).length !== 2)
     throw Error("Unsupported Forever client launcher.");
@@ -99,7 +100,7 @@ function plan(connection) {
   });
   return changes.map((row) => ({
     ...row,
-    original: fs.readFileSync(row.file),
+    original: files.readFileSync(row.file),
   }));
 }
 function readHeartbeat(file) {
@@ -251,26 +252,26 @@ function buildApplied(connection, receipt) {
   }
 }
 
-function legacyPlan(connection) {
+function legacyPlan(connection, files = fs) {
   assertGameClosed();
   const originalHash =
     "083ec5c39126be4e4d13325d9b46a0b07e62fca0864dd9ff651ee224124510aa";
   const exeHash =
     "e7acba587320491b71cb53bb8f8cbf5f3760bb52f78e74a82384b8bc42d05fd6";
   const cfg = JSON.parse(
-    fs.readFileSync(path.join(connection.root, "config.json"), "utf8"),
+    files.readFileSync(path.join(connection.root, "config.json"), "utf8"),
   );
   const bin = path.resolve(cfg.GameDir, "Archon/Binaries/Win64");
   if (
-    hash(fs.readFileSync(path.join(bin, "Dauntless-Win64-Shipping.exe"))) !==
+    hash(files.readFileSync(path.join(bin, "Dauntless-Win64-Shipping.exe"))) !==
     exeHash
   )
     throw Error("Native Live supports only Dauntless 1.6.2 CL271281.");
-  const binary = fs.readFileSync(
+  const binary = files.readFileSync(
     path.join(__dirname, "native/UndauntedInternalServer.dll"),
   );
   const expected = JSON.parse(
-    fs.readFileSync(path.join(__dirname, "native/manifest162.json"), "utf8"),
+    files.readFileSync(path.join(__dirname, "native/manifest162.json"), "utf8"),
   );
   const installedHash = hash(binary);
   if (installedHash !== expected.sha256)
@@ -278,13 +279,13 @@ function legacyPlan(connection) {
   const changes = [];
   for (const directory of [bin, path.join(connection.root, "bin")]) {
     const file = path.join(directory, "UndauntedInternalServer.dll");
-    const original = fs.readFileSync(file);
+    const original = files.readFileSync(file);
     if (hash(original) !== originalHash)
       throw Error(
         "Unsupported Forever 1.6.2 server DLL. Restore its original version first.",
       );
     const baseFile = path.join(directory, "UndauntedInternalServer.base.dll");
-    if (fs.existsSync(baseFile))
+    if (files.existsSync(baseFile))
       throw Error(
         "A separate server extension already exists. Original files retained.",
       );
@@ -295,7 +296,7 @@ function legacyPlan(connection) {
   }
   for (const name of ["tools/common.ps1", "version.json"]) {
     const file = path.join(connection.root, name),
-      original = fs.readFileSync(file),
+      original = files.readFileSync(file),
       source = original.toString("utf8");
     if (!source.toLowerCase().includes(originalHash))
       throw Error("Unsupported Forever server verification metadata.");

@@ -32,3 +32,8 @@ Live Preview 0.10.0 adds an authenticated loopback bridge and an optional native
 The 1.14.7 DLL derives from Addison2k / Dauntless Forever Loader1147-SigGuard and KombatKing equipment/startup fixes, under AGPL-3.0-only, based in part on Undaunted by gwog and contributors. Full corresponding native source and build instructions accompany this preview. MinHook retains its own BSD licence in Native-Source/minhook/LICENSE.txt.
 
 Live Preview 0.11.0 adds native inventory/loadout refresh for both inspected clients. The 1.6.2 extension keeps the original Forever server as a separate, unmodified DLL. Shared protocol and extension source accompany the binaries under AGPL-3.0-only. MinHook retains its BSD licence.
+
+Release 0.13.1: the modern native module incorporates Loader1147-ChatCpu-source
+from Addison2k / Dauntless Forever at 6053ab79e717d54f5813a8ad915a48697d150eef
+(AGPL-3.0-only), retaining upstream chat, CPU and boss-health-bar fixes.
+Signed baseline hashes identify the inspected Forever package files.

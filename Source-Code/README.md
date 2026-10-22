@@ -1,4 +1,25 @@
-# Dauntless Inventory Live Preview 0.13.0
+# Dauntless Inventory Live Preview 0.13.1
+
+## Following Forever updates
+
+Inventory detects changes to previously installed Live targets. After the files
+remain stable for one minute and the game/server are closed, it validates the
+complete replacement against signed known baselines and reinstalls the backend,
+launcher patches and native modules together. Updated official files are kept as
+the new originals; removal restores those files. Unknown changes and modified Live
+bridge code remain blocked. Failed repair restores the exact pre-repair snapshot.
+Known installations remain registered if Forever removes the bridge folder; an
+intentional Remove Live clears that registration and is respected.
+
+When a signed Live release requires a newer Inventory app, the default-enabled
+**Download and restart Inventory automatically for required Live compatibility
+updates** option downloads a sufficient signed app and restarts Inventory after
+current writes finish. Pending item selection and Builder text are saved locally
+and restored for review. An update that fails startup is not automatically retried
+in a loop. This does not close the game, download a new game build, or manufacture
+native compatibility for unpublished future loaders. Forever manages its own game
+and launcher downloads; Inventory follows their installed changes with compatible
+published Live releases.
 
 ## Automatic application updates
 

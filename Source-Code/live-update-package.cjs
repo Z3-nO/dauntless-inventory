@@ -8,6 +8,7 @@ const MAX_TOTAL = 64 * 1024 * 1024;
 const MAX_FILE = 16 * 1024 * 1024;
 const LIVE_MODULES = new Set([
   "live-install.cjs",
+  "live-update-repair.cjs",
   "live-runtime.cjs",
   "live-adapters.cjs",
   "live-native.cjs",
@@ -104,8 +105,16 @@ function decodeRelease(envelope, publicKey, toolVersion) {
   )
     throw Error("Unsupported Live update format.");
   compareVersions(release.version, "0.0.0");
-  if (compareVersions(release.minToolVersion, toolVersion) > 0)
-    throw Error("This module needs a newer Inventory application.");
+  if (compareVersions(release.minToolVersion, toolVersion) > 0) {
+    const error = Error(
+      "Live requires Inventory " +
+        release.minToolVersion +
+        " or newer. A compatible application update is required.",
+    );
+    error.code = "LIVE_APPLICATION_UPDATE_REQUIRED";
+    error.requiredToolVersion = release.minToolVersion;
+    throw error;
+  }
   if (
     !Array.isArray(release.files) ||
     !release.files.length ||

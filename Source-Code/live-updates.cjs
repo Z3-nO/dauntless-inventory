@@ -14,12 +14,18 @@ class LiveUpdates {
     toolVersion,
     sourceRoot = __dirname,
     fetcher = fetch,
+    repairSettleMs = 60000,
+    now = Date.now,
   }) {
     this.directory = path.resolve(directory);
     this.config = config;
     this.toolVersion = toolVersion;
     this.sourceRoot = sourceRoot;
     this.fetcher = fetcher;
+    this.repairSettleMs = repairSettleMs;
+    this.now = now;
+    this.repairObservations = new Map();
+    this.requiredToolVersion = null;
     this.busy = false;
     this.message = "";
     this.results = {};
@@ -81,6 +87,7 @@ class LiveUpdates {
           ? "Ready to check for Live module updates."
           : "Update source is not configured."),
       versions: this.results,
+      requiredToolVersion: this.requiredToolVersion,
     };
   }
 
@@ -208,8 +215,11 @@ class LiveUpdates {
         this.accept(release, existing);
       }
       this.state.lastChecked = new Date().toISOString();
+      this.requiredToolVersion = null;
       this.persist();
     } catch (error) {
+      if (error.code === "LIVE_APPLICATION_UPDATE_REQUIRED")
+        this.requiredToolVersion = error.requiredToolVersion;
       this.message = error.message;
       throw error;
     } finally {
@@ -330,14 +340,46 @@ class LiveUpdates {
             "The previous module was restored after a failed update. Automatic retry is deferred; use Update installed Live module to retry now.",
         };
       const status = builtin.status(connection);
+      this.rememberInstallation(connection, status);
+      const recorded = this.state.managed?.[failureKey];
+      const recovering = !status.intact && (status.installed || recorded);
+      if (
+        automatic &&
+        recovering &&
+        !this.repairSettled(connection, failureKey)
+      ) {
+        const result = {
+          ...status,
+          updated: false,
+          message:
+            "Forever files changed. Waiting for its update to finish and the game/server to close before restoring Live.",
+        };
+        this.results[connection.version] = { message: result.message };
+        return result;
+      }
       if (!status.installed) {
+        if (automatic && recorded) {
+          const result = await transactions.replaceInstalled(
+            connection,
+            replacement,
+            { recoveryManifest: recorded.manifest },
+          );
+          this.rememberInstallation(connection, builtin.status(connection));
+          this.results[connection.version] = {
+            version: result.version,
+            message: result.message,
+          };
+          return result;
+        }
         if (!install)
           return { updated: false, message: "Install Live connection first." };
         await transactions.assertClosed(connection);
-        return await replacement.install({
+        const result = await replacement.install({
           ...connection,
           nativeRefresh: true,
         });
+        this.rememberInstallation(connection, builtin.status(connection));
+        return result;
       }
       if (packages.compareVersions(status.version, replacement.version) > 0)
         return {
@@ -366,6 +408,7 @@ class LiveUpdates {
         connection,
         replacement,
       );
+      this.rememberInstallation(connection, builtin.status(connection));
       if (this.state.failures?.[failureKey]) {
         delete this.state.failures[failureKey];
         this.persist();
@@ -392,6 +435,68 @@ class LiveUpdates {
     } finally {
       this.busy = false;
     }
+  }
+
+  wasManaged(connection) {
+    const key = packages.hash(Buffer.from(path.resolve(connection.root)));
+    const entry = this.state.managed?.[key];
+    return (
+      !!entry &&
+      entry.root === path.resolve(connection.root) &&
+      entry.version === connection.version
+    );
+  }
+  forgetInstallation(connection) {
+    const key = packages.hash(Buffer.from(path.resolve(connection.root)));
+    if (this.state.managed) delete this.state.managed[key];
+    this.repairObservations.delete(key);
+    this.persist();
+  }
+
+  rememberInstallation(connection, status) {
+    if (!status.installed || !status.bridgeVerified) return;
+    const file = path.join(
+      connection.root,
+      "backend/materiali-live/install.json",
+    );
+    if (!fs.existsSync(file)) return;
+    const root = path.resolve(connection.root);
+    const key = packages.hash(Buffer.from(root));
+    const record = {
+      root,
+      version: connection.version,
+      manifest: JSON.parse(fs.readFileSync(file, "utf8")),
+    };
+    if (JSON.stringify(this.state.managed?.[key]) === JSON.stringify(record))
+      return;
+    this.state.managed ||= {};
+    this.state.managed[key] = record;
+    this.persist();
+  }
+
+  repairSettled(connection, key) {
+    const files = [
+      ...transactions.targets(connection),
+      path.join(connection.root, "config.json"),
+      path.join(connection.root, "backend/materiali-live/install.json"),
+    ];
+    const fingerprint = packages.hash(
+      Buffer.from(
+        JSON.stringify(
+          files.map((file) => [
+            file,
+            fs.existsSync(file) ? packages.hash(fs.readFileSync(file)) : null,
+          ]),
+        ),
+      ),
+    );
+    const previous = this.repairObservations.get(key),
+      now = this.now();
+    if (!previous || previous.fingerprint !== fingerprint) {
+      this.repairObservations.set(key, { fingerprint, time: now });
+      return false;
+    }
+    return now - previous.time >= this.repairSettleMs;
   }
 }
 

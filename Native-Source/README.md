@@ -1,3 +1,11 @@
+# Native compatibility update 0.13.1
+
+The 1.14.7 module is rebased onto Dauntless Forever Loader1147-ChatCpu-source at
+commit 6053ab79e717d54f5813a8ad915a48697d150eef. Its chat, CPU and boss-bar fixes
+are retained. The existing Live server/client refresh calls share the upstream ticks.
+The source was formatted using the existing LLVM-based style and built with the
+same Zig 0.17.0 command below. The 1.6.2 binary remains unchanged.
+
 # Optional native extensions
 
 Compatibility fix 2026-10-21: native147/d1147-live.cpp is based on Forever's

@@ -1,22 +1,18 @@
-# Live Preview 0.13.0 validation
+# Validation for 0.13.1
 
-Application update changes are tested separately from native game behavior.
-The native DLLs, inventory formats, build import/export and character operations
-are retained from 0.12.1. Application tests cover signed desktop manifests, exact
-file sizes/hashes, release URLs and source tags, interrupted downloads, corrupt
-cache recovery, release immutability, downgrade rejection, persisted settings,
-activation only after startup, failed-update loop prevention, untrusted redirects,
-cache links and editor quiescence before restart. The local HTTP test checks every
-script referenced by the page, including desktop update controls.
+124 application tests and 11 Builder tests pass. The current 1.14.7 native loader
+was rebuilt from the inspected upstream ChatCpu sources with the existing Live hooks.
+A real game session passed ten inventory categories and eight build import/export
+round trips, including all weapon families in preset six, with unchanged client and
+server processes. The 1.6.2 native binary is unchanged; its earlier native-session
+reports are retained explicitly as previous validation.
 
-The distribution's Test-results contains the executed automated tests, final EXE
-checks, application restart/bootstrap checks and the published asset verification.
-Original character files are checked independently; update tests use isolated
-preferences and copies. Previous native checks on 1.6.2 and 1.14.7 are retained as
-component evidence; this release does not claim new native compatibility.
+Automatic repair was tested on copies of the updated official Forever files, including
+the full stability delay, complete launcher/backend/native repair, removal restoring
+the new official bytes, and preservation of character data and authentication keys.
+Unit checks cover unknown baselines, deleted bridges, rollback, concurrent updates,
+required app versions, restart retry limits and draft preservation.
 
-Supported native builds remain 1.6.2 CL271281 and 1.14.7 CL647472 on inspected Forever
-baselines with one local player. Unknown future loaders require tested compatible
-modules. Legacy legendary-bond reimport remains unsupported; invalid modern sockets
-are rejected. Pre-existing Forever inventory hash warnings are outside this change.
-No finite test run guarantees every map, combat/cosmetic effect, PC or future update.
+Additional compiled-EXE, public update and archive verification reports are included
+in Test-results. These tests cover the included builds and do not guarantee future
+Forever/game releases or every possible external mod combination.

@@ -84,6 +84,37 @@ function fixture(t) {
   };
 }
 
+test("Required Live updates restart only into a verified sufficient release and never retry a failed target automatically", async (t) => {
+  const f = fixture(t);
+  f.updater.requireForLive("0.13.0");
+  assert.equal(f.updater.canRestartForLive(), false);
+  await f.updater.check();
+  assert.equal(f.updater.canRestartForLive(), true);
+  f.updater.settings({
+    automaticDownload: false,
+    applyOnNextStart: false,
+    restartForLiveUpdates: false,
+  });
+  assert.equal(f.updater.canRestartForLive(), false);
+  f.updater.settings({
+    automaticDownload: false,
+    applyOnNextStart: false,
+    restartForLiveUpdates: true,
+  });
+  assert.equal(f.updater.canRestartForLive(), true);
+  fs.writeFileSync(
+    path.join(f.updater.folder(f.updater.state.ready), "failed.json"),
+    "{}",
+  );
+  assert.equal(f.updater.canRestartForLive(), false);
+  fs.unlinkSync(
+    path.join(f.updater.folder(f.updater.state.ready), "failed.json"),
+  );
+  f.updater.requireForLive("0.14.0");
+  assert.equal(f.updater.canRestartForLive(), false);
+  assert.throws(() => f.updater.requireForLive("latest"), /version/);
+});
+
 test(
   "Windows restart helper confirms readiness independently of shell module paths",
   { skip: process.platform !== "win32" },

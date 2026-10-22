@@ -152,6 +152,7 @@ async function api(request, response, route) {
           : route === "/api/live-uninstall"
             ? await liveInstall.uninstall(target)
             : liveInstall.status(target);
+      if (route === "/api/live-uninstall") updates.forgetInstallation(target);
       return json(response, 200, result);
     }
     if (route === "/api/connect") {
@@ -204,7 +205,11 @@ async function api(request, response, route) {
           )
             continue;
           const target = saves.packageRoot(root, version);
-          if (!liveInstall.status(target).installed) continue;
+          if (
+            !liveInstall.status(target).installed &&
+            !updates.wasManaged(target)
+          )
+            continue;
           const result = await liveClient.call(target, "snapshot");
           if (
             !result.nativeRefresh?.available ||
@@ -366,11 +371,22 @@ async function automaticUpdates() {
   if (preparingApplicationUpdate || busy || updateTaskRunning) return;
   updateTaskRunning = true;
   try {
+    const changedForever = Object.keys(catalogs).some((version) => {
+      try {
+        const root = settings.get(version).dataRoot;
+        if (!root) return false;
+        const target = saves.packageRoot(root, version),
+          info = liveInstall.status(target);
+        return info.installed ? !info.intact : updates.wasManaged(target);
+      } catch {
+        return false;
+      }
+    });
     const options = updates.status();
     if (
       options.automaticCheck &&
       options.configured &&
-      Date.now() - lastUpdateAttempt > 30 * 60 * 1000
+      Date.now() - lastUpdateAttempt > (changedForever ? 60000 : 30 * 60 * 1000)
     ) {
       lastUpdateAttempt = Date.now();
       try {
@@ -379,6 +395,12 @@ async function automaticUpdates() {
         /* The status panel reports download errors. */
       }
     }
+    const requiredVersion = updates.status().requiredToolVersion;
+    if (requiredVersion && process.connected)
+      process.send({
+        type: "live-application-update-required",
+        version: requiredVersion,
+      });
     if (!updates.status().automaticInstall || busy) return;
     busy = true;
     try {
@@ -387,7 +409,11 @@ async function automaticUpdates() {
         if (!root) continue;
         try {
           const target = saves.packageRoot(root, version);
-          if (!liveInstall.status(target).installed) continue;
+          if (
+            !liveInstall.status(target).installed &&
+            !updates.wasManaged(target)
+          )
+            continue;
           const result = await updates.apply(target, { automatic: true });
           if (result.updated) connection = null;
         } catch (error) {

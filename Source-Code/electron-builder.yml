@@ -7,6 +7,7 @@ files:
   - preload.cjs
   - desktop-updates.cjs
   - desktop-update-manifest.cjs
+  - desktop-update-draft.cjs
   - package.json
 extraResources:
   - from: .
@@ -29,7 +30,7 @@ win:
   signAndEditExecutable: true
   signExecutable: false
 portable:
-  unpackDirName: dauntless-materiali-live-0130
+  unpackDirName: dauntless-materiali-live-0131
 directories:
   output: dist
 
